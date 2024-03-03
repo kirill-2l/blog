@@ -12,7 +12,6 @@ const App = () => {
     return (
         <div className={classNames('app', {}, [theme])}>
             <Navbar />
-            <button onClick={toggleTheme}>TOGGLE</button>
             <AppRouter />
         </div>
     );
