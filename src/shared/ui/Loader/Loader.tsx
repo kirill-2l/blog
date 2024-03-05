@@ -5,6 +5,10 @@ interface LoaderProps {
     className?: string,
 }
 
-export const Loader = ({ className }: LoaderProps) => (
-    <div className={classNames(cls.Loader, {}, [className])} />
+export enum LoaderTheme {
+
+}
+
+export const Loader = ({className}: LoaderProps) => (
+    <div className={classNames(cls.Loader, {}, [className])}/>
 );
