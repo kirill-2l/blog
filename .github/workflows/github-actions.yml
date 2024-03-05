@@ -2,8 +2,8 @@ name: lint, test, build
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   push:
-    branches: [ master ]
-  pull_request: [ master ]
+    branches: [ main ]
+  pull_request: [ main ]
 
 jobs:
   pipeline:
