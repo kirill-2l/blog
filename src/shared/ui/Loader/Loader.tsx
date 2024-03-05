@@ -9,6 +9,6 @@ export enum LoaderTheme {
 
 }
 
-export const Loader = ({className}: LoaderProps) => (
-    <div className={classNames(cls.Loader, {}, [className])}/>
+export const Loader = ({ className }: LoaderProps) => (
+    <div className={classNames(cls.Loader, {}, [className])} />
 );

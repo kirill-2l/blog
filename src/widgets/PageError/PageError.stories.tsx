@@ -1,15 +1,15 @@
 import React from 'react';
-import {ComponentMeta, ComponentStory} from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import {ThemeDecorator} from 'shared/config/storybook/ThemeDecorator';
-import {Theme} from 'app/providers/ThemeProvider';
-import {PageError} from "widgets/PageError/PageError";
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
+import { Theme } from 'app/providers/ThemeProvider';
+import { PageError } from 'widgets/PageError/PageError';
 
 export default {
     title: 'widgets/PageError',
     component: PageError,
     argTypes: {
-        backgroundColor: {control: 'color'},
+        backgroundColor: { control: 'color' },
     },
 } as ComponentMeta<typeof PageError>;
 
