@@ -1,11 +1,10 @@
 import React from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink, AppLinksTheme } from 'shared/ui/AppLink/AppLink';
-import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
-  className?: string
+    className?: string
 }
 
 function Navbar({ className }: NavbarProps) {
