@@ -9,14 +9,7 @@ interface NavbarProps {
 
 function Navbar({ className }: NavbarProps) {
     return (
-        <div className={classNames(cls.navbar)}>
-
-            <div className={cls.links}>
-                <AppLink theme={AppLinksTheme.SECONDARY} to="/">Главная</AppLink>
-                <AppLink theme={AppLinksTheme.SECONDARY} to="/about">О сайте</AppLink>
-
-            </div>
-        </div>
+        <div className={classNames(cls.navbar)} />
     );
 }
 
