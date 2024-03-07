@@ -3,7 +3,6 @@ import { render } from '@testing-library/react';
 import { I18nextProvider } from 'react-i18next';
 import i18nForTests from 'shared/config/i18n/i18nForTests';
 import { MemoryRouter } from 'react-router-dom';
-import { AppRoutes } from 'shared/config/routeConfig/routeConfig';
 import { StoreProvider } from 'app/providers/store';
 import { DeepPartial } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/store/config/state.schema';
@@ -16,7 +15,7 @@ export interface ComponentRenderOptions {
 export function componentRender(component: ReactNode, options: ComponentRenderOptions = {}) {
     const { route = '/', initialState } = options;
     return render(
-        <StoreProvider initialState={initialState}>
+        <StoreProvider initialState={initialState as StateSchema}>
             <MemoryRouter initialEntries={[route]}>
                 <I18nextProvider i18n={i18nForTests}>
                     {component}
