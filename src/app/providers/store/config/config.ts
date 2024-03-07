@@ -1,10 +1,13 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
+import { userReducer } from 'entities/User';
 import { StateSchema } from './state.schema';
 
+const rootReducer: ReducersMapObject<StateSchema> = {
+    user: userReducer,
+};
 export const createReduxStore = (initialState?: StateSchema) => configureStore<StateSchema>({
-    reducer: {},
+    reducer: rootReducer,
     devTools: __IS_DEV__,
-
 });
 //
 // // Infer the `RootState` and `AppDispatch` types from the store itself
