@@ -1,7 +1,9 @@
 {
   "Log in": "Войти",
+  "Log out": "Выйти",
   "Not found": "Страница не найдена",
   "Refresh page": "Обновить страницу",
+  "Wrong login or password": "Неверный логин или пароль",
   "language": "Русский",
   "language_short": "Ру",
   "main page": "Главная страница",
