@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
     stories: [
         '../../src/**/*.stories.@(js|jsx|ts|tsx)',
@@ -11,4 +13,5 @@ module.exports = {
     core: {
         builder: 'webpack5',
     },
+    staticDirs: [ "../../public" ],
 };

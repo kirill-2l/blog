@@ -38,7 +38,7 @@ export const Input = memo((props: InputProps) => {
 
     return (
         <div className={classNames(cls.Input, {}, [className])} {...rest}>
-            <input type={type} className={cls.input} onChange={onChangeHandler} />
+            <input type={type} className={cls.input} onChange={onChangeHandler} value={value} />
         </div>
     );
 });
