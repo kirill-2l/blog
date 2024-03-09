@@ -8,6 +8,7 @@ import { loginActions } from 'features/AuthByUsername/model/slice/Login.slice';
 import { getLoginState } from 'features/AuthByUsername/model/selector/getLoginState.selector';
 import { TextTheme, Text } from 'shared/ui/Text/Text';
 import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
+import i18n from 'shared/config/i18n/i18n';
 import cls from './LoginForm.module.scss';
 
 interface LoginFormProps {
@@ -33,10 +34,12 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
         dispatch(loginByUsername({ username, password }));
     }, [dispatch, password, username]);
 
+    console.log(username);
+
     return (
         <div className={classNames(cls.LoginForm, {}, [className])}>
 
-            {error && <Text theme={TextTheme.ERROR} text={error} />}
+            {error && <Text theme={TextTheme.ERROR} text={i18n.t('Wrong login or password')} />}
 
             <Input
                 className={cls.input}
