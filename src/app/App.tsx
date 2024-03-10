@@ -4,12 +4,12 @@ import { useTheme } from 'app/providers/ThemeProvider';
 import AppRouter from 'app/providers/ThemeProvider/router/ui/AppRouter';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { useDispatch } from 'react-redux';
 import { userActions } from 'entities/User';
+import { useAppDispatch } from 'shared/libs/hooks/useAppDispatch/useAppDispatch';
 
 const App = () => {
     const { theme, toggleTheme } = useTheme();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
         dispatch(userActions.initUserData());

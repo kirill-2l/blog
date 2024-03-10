@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { FC, useEffect } from 'react';
-import { useDispatch, useStore } from 'react-redux';
+import { useStore } from 'react-redux';
 import { ReduxStoreWithManager, StateSchemaKey } from 'app/providers/store/config/state.schema';
 import { Reducer } from '@reduxjs/toolkit';
+import { useAppDispatch } from 'shared/libs/hooks/useAppDispatch/useAppDispatch';
 
 export type ReducerList = {
     [key in StateSchemaKey]?: Reducer
@@ -21,7 +22,7 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
     } = props;
     const { t } = useTranslation();
     const store = useStore() as ReduxStoreWithManager;
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
         Object.entries(reducers).forEach(([name, reducer]: ReducersListEntry) => {
