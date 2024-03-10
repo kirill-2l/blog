@@ -1,13 +1,13 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/libs/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { useDispatch, useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
-import { loginActions, loginReducer } from 'features/AuthByUsername/model/slice/Login.slice';
+import { loginActions, loginReducer } from 'features/AuthByUsername/model/slice/login.slice';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import i18n from 'shared/config/i18n/i18n';
-import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { DynamicModuleLoader } from 'shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
