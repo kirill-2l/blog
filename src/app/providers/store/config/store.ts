@@ -1,6 +1,7 @@
-import { configureStore, DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
+import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
 import { userReducer } from 'entities/User';
 import { createReducerManager } from 'app/providers/store/config/reducerManager';
+import { api } from 'shared/api/axios.instance';
 import { StateSchema } from './state.schema';
 
 export function createReduxStore(
@@ -14,10 +15,17 @@ export function createReduxStore(
 
     const reducersManager = createReducerManager(rootReducers);
 
-    const store = configureStore<StateSchema>({
+    const store = configureStore({
         reducer: reducersManager.reduce,
         devTools: __IS_DEV__,
         preloadedState: initialState,
+        middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+            thunk: {
+                extraArgument: {
+                    api,
+                },
+            },
+        }),
     });
 
     // @ts-ignore

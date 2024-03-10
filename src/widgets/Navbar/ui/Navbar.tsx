@@ -6,6 +6,8 @@ import { LoginModal } from 'features/AuthByUsername';
 import { useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
 import { useAppDispatch } from 'shared/libs/hooks/useAppDispatch/useAppDispatch';
+import { useNavigate } from 'react-router-dom';
+import { AppRoutes, RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -17,11 +19,19 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation();
     const authData = useSelector(getUserAuthData);
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
     const onCloseModal = useCallback(
         () => {
             setIsAuthModalOpened(false);
         },
         [],
+    );
+    const onSuccess = useCallback(
+        () => {
+            onCloseModal();
+            navigate(RoutePath.main);
+        },
+        [navigate, onCloseModal],
     );
     const onShowModal = useCallback(
         () => setIsAuthModalOpened(true),
@@ -60,6 +70,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 <LoginModal
                     isOpen={isAuthModalOpened}
                     onClose={onCloseModal}
+                    onSuccess={onSuccess}
                 />
             )}
 
