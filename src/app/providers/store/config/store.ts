@@ -1,4 +1,6 @@
-import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
+import {
+    CombinedState, configureStore, Reducer, ReducersMapObject,
+} from '@reduxjs/toolkit';
 import { userReducer } from 'entities/User';
 import { createReducerManager } from 'app/providers/store/config/reducerManager';
 import { api } from 'shared/api/axios.instance';
@@ -16,7 +18,7 @@ export function createReduxStore(
     const reducersManager = createReducerManager(rootReducers);
 
     const store = configureStore({
-        reducer: reducersManager.reduce,
+        reducer: reducersManager.reduce as Reducer<CombinedState<StateSchema>>,
         devTools: __IS_DEV__,
         preloadedState: initialState,
         middleware: (getDefaultMiddleware) => getDefaultMiddleware({
