@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { DynamicModuleLoader, ReducersList } from 'shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
+import { DynamicModuleLoader, ReducersList } from
+    'shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
 import { ProfileCard, profileReducer } from 'entities/Profile';
 import { useAppDispatch } from 'shared/libs/hooks/useAppDispatch/useAppDispatch';
 import { fetchProfileData } from 'entities/Profile/model/services/fetchProfileData';

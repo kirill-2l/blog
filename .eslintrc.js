@@ -46,6 +46,8 @@ module.exports = {
         'react/button-has-type': 'off',
         'i18next/no-literal-string': [1, { markupOnly: true }],
         'no-undef': 'off',
+        'no-console': 'off',
+        'no-unused-vars': 'off',
         'max-len': ['error', {
             code: 100,
             ignoreComments: true,

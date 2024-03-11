@@ -6,7 +6,8 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 import { type BuildOptions } from './types/config';
 
-export function buildPlugins({ paths, isDev, apiUrl }: BuildOptions): webpack.WebpackPluginInstance[] {
+export function buildPlugins(props: BuildOptions): webpack.WebpackPluginInstance[] {
+    const { paths, isDev, apiUrl } = props;
     const plugins = [new HtmlWebpackPlugin({
         template: paths.html,
     }),
