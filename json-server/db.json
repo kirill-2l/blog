@@ -26,13 +26,13 @@
     }
   ],
   "profile": {
-    "first": "Kirill",
+    "first": "Kirill11",
     "lastname": "Petrov",
     "age": 22,
-    "currency": "USD",
-    "country": "Argentina",
+    "currency": "euro",
+    "country": "Kazakhstan",
     "city": "Buenos Aires",
     "username": "admin",
-    "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+    "avatar": "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=640&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   }
 }

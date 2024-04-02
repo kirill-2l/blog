@@ -1,8 +1,13 @@
 {
+  "Error with loading profile": "Error with loading profile",
   "Profile": "Profile",
+  "Try to refresh the page": "Try to refresh the page",
+  "Your avatar link": "Your avatar link",
+  "Your country": "Your country",
+  "Your currency": "Your currency",
+  "Your username": "Your username",
   "your age": "your age",
   "your city": "your city",
-  "your country": "your country",
   "your lastname": "your lastname",
   "your name": "your name"
 }

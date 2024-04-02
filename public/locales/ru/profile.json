@@ -1,8 +1,13 @@
 {
+  "Error with loading profile": "Ошибка при загрузке профиля",
   "Profile": "Профиль",
+  "Try to refresh the page": "Попробуйте обновить страницу",
+  "Your avatar link": "Ссылка на аватар",
+  "Your country": "Ваша страна",
+  "Your currency": "Ваша валюта",
+  "Your username": "Ваш username",
   "your age": "Ваш возраст",
   "your city": "Ваш город",
-  "your country": "Ваша страна",
   "your lastname": "Ваша фамилия",
   "your name": "Ваше имя"
 }
