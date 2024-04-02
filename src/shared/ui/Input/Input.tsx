@@ -17,10 +17,12 @@ export enum InputSize {
     XL = 'size_xl',
 }
 
-interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'> {
+interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>,
+    'value' | 'onChange' | 'readOnly'> {
     className?: string,
     value?: string,
-    onChange?: (value: string) => void
+    onChange?: (value: string) => void,
+    readonly?: boolean
 }
 
 export const Input = memo((props: InputProps) => {
@@ -29,16 +31,27 @@ export const Input = memo((props: InputProps) => {
         value,
         onChange,
         type = 'text',
+        readonly = false,
         ...rest
     } = props;
+
+    const modes = {
+        [cls.readonly]: readonly,
+    };
 
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value);
     };
 
     return (
-        <div className={classNames(cls.Input, {}, [className])} {...rest}>
-            <input type={type} className={cls.input} onChange={onChangeHandler} value={value} />
+        <div className={classNames(cls.Input, modes, [className])} {...rest}>
+            <input
+                type={type}
+                className={cls.input}
+                onChange={onChangeHandler}
+                value={value}
+                readOnly={readonly}
+            />
         </div>
     );
 });

@@ -6,7 +6,8 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 import { type BuildOptions } from './types/config';
 
-export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] {
+export function buildPlugins(props: BuildOptions): webpack.WebpackPluginInstance[] {
+    const { paths, isDev, apiUrl } = props;
     const plugins = [new HtmlWebpackPlugin({
         template: paths.html,
     }),
@@ -17,6 +18,7 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
     }),
     new webpack.DefinePlugin({
         __IS_DEV__: JSON.stringify(isDev),
+        __API_URL__: JSON.stringify(apiUrl),
     }),
 
     new webpack.HotModuleReplacementPlugin()];
