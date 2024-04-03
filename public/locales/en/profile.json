@@ -1,6 +1,11 @@
 {
+  "Empty data": "Empty data",
   "Error with loading profile": "Error with loading profile",
+  "Incorrect age": "Incorrect age",
+  "Incorrect country": "Incorrect country",
+  "Incorrect user data": "Incorrect user data",
   "Profile": "Profile",
+  "Server error": "Server error",
   "Try to refresh the page": "Try to refresh the page",
   "Your avatar link": "Your avatar link",
   "Your country": "Your country",
