@@ -1,6 +1,11 @@
 {
+  "Empty data": "Нет данных",
   "Error with loading profile": "Ошибка при загрузке профиля",
+  "Incorrect age": "Ошибка с возрастом",
+  "Incorrect country": "Неправильно выбрана страна",
+  "Incorrect user data": "Неправильные данные",
   "Profile": "Профиль",
+  "Server error": "Ошибка на сервере",
   "Try to refresh the page": "Попробуйте обновить страницу",
   "Your avatar link": "Ссылка на аватар",
   "Your country": "Ваша страна",

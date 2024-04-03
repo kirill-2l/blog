@@ -14,12 +14,14 @@ export default ({ config }: { config: webpack.Configuration }): webpack.Configur
     // eslint-disable-next-line no-param-reassign
     config.resolve!.modules = [paths.src, 'node_modules'];
     config.resolve!.extensions!.push('.ts', '.tsx');
-
     // @ts-ignore
     // eslint-disable-next-line no-param-reassign
     config!.module!.rules! = config.module!.rules!.map((rule: RuleSetRule) => {
         if (/svg/.test(rule.test as string)) {
-            return { ...rule, exclude: /\.svg$/i };
+            return {
+                ...rule,
+                exclude: /\.svg$/i,
+            };
         }
 
         return rule;
@@ -34,6 +36,7 @@ export default ({ config }: { config: webpack.Configuration }): webpack.Configur
     config.plugins!.push(new webpack.DefinePlugin({
         __IS_DEV__: true,
         __API_URL__: JSON.stringify(''),
+        __PROJECT__: JSON.stringify('storybook'),
     }));
     return config;
 };
