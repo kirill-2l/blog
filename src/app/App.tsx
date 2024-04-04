@@ -4,12 +4,17 @@ import { useTheme } from 'app/providers/ThemeProvider';
 import AppRouter from 'app/providers/ThemeProvider/router/ui/AppRouter';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { userActions } from 'entities/User';
+import { getUserIsInited, userActions } from 'entities/User';
 import { useAppDispatch } from 'shared/libs/hooks/useAppDispatch/useAppDispatch';
+import { useSelector } from 'react-redux';
 
 const App = () => {
-    const { theme, toggleTheme } = useTheme();
+    const {
+        theme,
+        toggleTheme,
+    } = useTheme();
     const dispatch = useAppDispatch();
+    const isInited = useSelector(getUserIsInited);
 
     useEffect(() => {
         dispatch(userActions.initUserData());
@@ -21,7 +26,7 @@ const App = () => {
                 <Navbar />
                 <div className="content-page">
                     <Sidebar />
-                    <AppRouter />
+                    {isInited && <AppRouter />}
                 </div>
             </Suspense>
         </div>
