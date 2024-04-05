@@ -5,7 +5,7 @@ import { Input } from 'shared/ui/Input/Input';
 import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
 import { loginActions, loginReducer } from 'features/AuthByUsername/model/slice/login.slice';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { BaseText, TextTheme } from 'shared/ui/BaseText/BaseText';
 import i18n from 'shared/config/i18n/i18n';
 import { DynamicModuleLoader } from
     'shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -26,7 +26,10 @@ const initialReducers = {
     login: loginReducer,
 };
 
-const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
+const LoginForm = memo(({
+    className,
+    onSuccess,
+}: LoginFormProps) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
 
@@ -44,7 +47,10 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     }, [dispatch]);
 
     const onLoginClick = useCallback(async () => {
-        const res = await dispatch(loginByUsername({ username, password }));
+        const res = await dispatch(loginByUsername({
+            username,
+            password,
+        }));
         if (res.meta.requestStatus === 'fulfilled') {
             onSuccess();
         }
@@ -54,7 +60,13 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
         <DynamicModuleLoader reducers={initialReducers}>
             <div className={classNames(cls.LoginForm, {}, [className])}>
 
-                {error && <Text theme={TextTheme.ERROR} text={i18n.t('Wrong login or password')} />}
+                {error
+                    && (
+                        <BaseText
+                            theme={TextTheme.ERROR}
+                            text={i18n.t('Wrong login or password')}
+                        />
+                    )}
 
                 <Input
                     className={cls.input}

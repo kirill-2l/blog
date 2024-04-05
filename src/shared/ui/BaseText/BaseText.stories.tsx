@@ -1,17 +1,17 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { BaseText, TextSize, TextTheme } from 'shared/ui/BaseText/BaseText';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 
 export default {
-    title: 'shared/Text',
-    component: Text,
+    title: 'shared/BaseText',
+    component: BaseText,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof Text>;
+} as ComponentMeta<typeof BaseText>;
 
-const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />;
+const Template: ComponentStory<typeof BaseText> = (args) => <BaseText {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -55,4 +55,11 @@ Error.args = {
     title: 'Lorem ipsum dolor sit amet',
     text: 'Lorem ipsum dolor sit amet',
     theme: TextTheme.ERROR,
+};
+
+export const SizeL = Template.bind({});
+SizeL.args = {
+    title: 'Lorem ipsum dolor sit amet',
+    text: 'Lorem ipsum dolor sit amet',
+    size: TextSize.L,
 };

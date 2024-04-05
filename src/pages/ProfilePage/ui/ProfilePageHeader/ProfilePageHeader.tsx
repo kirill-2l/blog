@@ -1,6 +1,6 @@
 import { classNames } from 'shared/libs/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Button, Text } from 'shared/ui';
+import { Button, BaseText } from 'shared/ui';
 import { ButtonTheme } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
 import {
@@ -13,7 +13,7 @@ import { useAppDispatch } from 'shared/libs/hooks/useAppDispatch/useAppDispatch'
 import cls from './ProfilePageHeader.module.scss';
 
 interface ProfilePageHeaderProps {
-  className?: string;
+    className?: string;
 }
 
 export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
@@ -35,7 +35,7 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
 
     return (
         <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
-            <Text title={t('Profile page')} />
+            <BaseText title={t('Profile page')} />
             {readonly ? (
                 <Button
                     className={cls.editBtn}

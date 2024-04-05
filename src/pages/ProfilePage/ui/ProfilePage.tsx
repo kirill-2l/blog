@@ -20,7 +20,7 @@ import { useSelector } from 'react-redux';
 import { ProfilePageHeader } from 'pages/ProfilePage/ui/ProfilePageHeader/ProfilePageHeader';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
-import { TextTheme, Text } from 'shared/ui/Text/Text';
+import { TextTheme, BaseText } from 'shared/ui/BaseText/BaseText';
 import { ValidateProfileError } from 'entities/Profile/model/types/profile';
 
 const reducers: ReducersList = {
@@ -105,7 +105,7 @@ const ProfilePage = () => {
             <div>
                 <ProfilePageHeader />
                 {validateErrors && validateErrors.map((err) => (
-                    <Text
+                    <BaseText
                         key={err}
                         text={validateErrorsTranslate[err]}
                         theme={TextTheme.ERROR}
