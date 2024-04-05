@@ -3,13 +3,13 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from 'shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import {
     fetchArticleById,
 } from 'entities/Article/model/services/fetchArticleById/fetchArticleById';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/libs/hooks/useAppDispatch/useAppDispatch';
-import { Icon, BaseText } from 'shared/ui';
+import { BaseText, Icon } from 'shared/ui';
 import { TextAlign, TextSize } from 'shared/ui/BaseText/BaseText';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
@@ -25,6 +25,7 @@ import {
 import {
     ArticleImageBlockComponent,
 } from 'entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { useInitialEffect } from 'shared/libs/hooks/useInitialEffect/useInitialEffect';
 import { articleDetailsReducer } from '../../model/slice/articleDetails.slice';
 import {
     getArticleDetailsData,
@@ -71,12 +72,9 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
             return null;
         }
     }, []);
-
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchArticleById(id));
-        }
-    }, [dispatch, id]);
+    useInitialEffect(() => {
+        dispatch(fetchArticleById(id));
+    });
 
     let content;
 

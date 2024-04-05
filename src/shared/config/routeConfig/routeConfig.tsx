@@ -3,8 +3,8 @@ import { MainPage } from 'pages/MainPage';
 import { AboutPage } from 'pages/AboutPage';
 import { NotFoundPage } from 'pages/NotFound';
 import { ProfilePage } from 'pages/ProfilePage';
-import { ArticlesPage } from 'pages/ArticlesPage/ui';
-import { ArticleDetailsPage } from 'pages/ArticleDetailsPage/ui';
+import { ArticlesPage } from 'pages/ArticleDetailsPage/ArticlesPage/ui';
+import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
 
 export type AppRoutesProps = RouteProps & {
     authOnly?: boolean
