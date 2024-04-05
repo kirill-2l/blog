@@ -1,8 +1,8 @@
 import { classNames, Mods } from 'shared/libs/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Input, Loader, Text } from 'shared/ui';
+import { Input, Loader, BaseText } from 'shared/ui';
 import { Profile } from 'entities/Profile';
-import { TextAlign, TextTheme } from 'shared/ui/Text/Text';
+import { TextAlign, TextTheme } from 'shared/ui/BaseText/BaseText';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Currency } from 'entities/Currency/model/types/currency';
 import { CurrencySelect } from 'entities/Currency';
@@ -11,19 +11,19 @@ import { CountrySelect } from 'entities/Country/ui/CountrySelect/CountrySelect';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
-  className?: string;
-  data?: Profile;
-  isLoading?: boolean;
-  error?: string;
-  readonly?: boolean;
-  onChangeLastName?: (val?: string) => void;
-  onChangeFirstName?: (val?: string) => void;
-  onChangeAge?: (val?: string) => void;
-  onChangeCity?: (val?: string) => void;
-  onChangeCountry?: (val?: Country) => void;
-  onChangeAvatar?: (val?: string) => void;
-  onChangeUsername?: (val?: string) => void;
-  onChangeCurrency?: (val?: Currency) => void;
+    className?: string;
+    data?: Profile;
+    isLoading?: boolean;
+    error?: string;
+    readonly?: boolean;
+    onChangeLastName?: (val?: string) => void;
+    onChangeFirstName?: (val?: string) => void;
+    onChangeAge?: (val?: string) => void;
+    onChangeCity?: (val?: string) => void;
+    onChangeCountry?: (val?: Country) => void;
+    onChangeAvatar?: (val?: string) => void;
+    onChangeUsername?: (val?: string) => void;
+    onChangeCurrency?: (val?: Currency) => void;
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
@@ -62,7 +62,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
     if (error) {
         return (
             <div className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
-                <Text
+                <BaseText
                     theme={TextTheme.ERROR}
                     title={t('Error with loading profile')}
                     text={t('Try to refresh the page')}
