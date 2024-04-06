@@ -102,6 +102,18 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "test",
+      "id": "ML3JQVZ"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "hello world",
+      "id": "Nkl25PW"
     }
   ],
   "users": [
@@ -120,14 +132,28 @@
       "avatar": "https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
   ],
-  "profile": {
-    "first": "Kirill11",
-    "lastname": "Petrov",
-    "age": 22,
-    "currency": "euro",
-    "country": "Kazakhstan",
-    "city": "Buenos Aires",
-    "username": "admin",
-    "avatar": "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=640&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Kirill11a",
+      "lastname": "Petrov",
+      "age": 22,
+      "currency": "euro",
+      "country": "Kazakhstan",
+      "city": "Buenos Aires",
+      "username": "admin",
+      "avatar": "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=640&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": "2",
+      "first": "Ivan",
+      "lastname": "Ivanov",
+      "age": 22,
+      "currency": "euro",
+      "country": "Kazakhstan",
+      "city": "Buenos Aires",
+      "username": "user",
+      "avatar": "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=640&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    }
+  ]
 }

@@ -2,8 +2,9 @@ import { classNames } from 'shared/libs/classNames/classNames';
 import { memo } from 'react';
 import { IComment } from 'entities/Comment';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { BaseText, Skeleton } from 'shared/ui';
+import { AppLink, BaseText, Skeleton } from 'shared/ui';
 import { TextSize } from 'shared/ui/BaseText/BaseText';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './CommentCard.module.scss';
 
 interface CommentCardProps {
@@ -34,17 +35,19 @@ export const CommentCard = memo((props: CommentCardProps) => {
         );
     }
 
+    if (!comment) return null;
+
     return (
-        <div className={classNames(cls.CommentCard, {}, [className])}>
-            <div className={cls.header}>
-                {comment?.user?.avatar && <Avatar src={comment?.user.avatar} size={30} />}
+        <div className={classNames(cls.CommentCard, {}, [className, cls.loading])}>
+            <AppLink to={`${RoutePath.profile}${comment.user.id}`} className={cls.header}>
+                {comment?.user?.avatar && <Avatar src={comment.user.avatar} size={30} />}
                 <BaseText
                     className={cls.username}
-                    title={comment?.user?.username}
+                    title={comment.user?.username}
                     size={TextSize.M}
                 />
-            </div>
-            <BaseText className={cls.text} text={comment?.text} />
+            </AppLink>
+            <BaseText className={cls.text} text={comment.text} />
         </div>
     );
 });

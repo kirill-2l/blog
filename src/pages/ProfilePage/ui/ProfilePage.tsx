@@ -22,6 +22,8 @@ import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { TextTheme, BaseText } from 'shared/ui/BaseText/BaseText';
 import { ValidateProfileError } from 'entities/Profile/model/types/profile';
+import { useInitialEffect } from 'shared/libs/hooks/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router-dom';
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -36,6 +38,8 @@ const ProfilePage = () => {
     const isLoading = useSelector(getProfileIsLoading);
     const readonly = useSelector(getProfileReadonly);
     const validateErrors = useSelector(getProfileValidateErrors);
+
+    const { id } = useParams();
 
     const validateErrorsTranslate = {
         [ValidateProfileError.NO_DATA]: t('Empty data'),
@@ -95,11 +99,11 @@ const ProfilePage = () => {
         [dispatch],
     );
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(fetchProfileData(id));
         }
-    }, [dispatch]);
+    });
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div>

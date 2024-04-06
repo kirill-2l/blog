@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { fetchProfileData } from 'entities/Profile';
 import {
     fetchArticleById,
 } from 'entities/Article/model/services/fetchArticleById/fetchArticleById';
