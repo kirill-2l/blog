@@ -24,24 +24,6 @@ export const ArticleList = memo((props: ArticleListProps) => {
     } = props;
     const { t } = useTranslation();
 
-    if (isLoading) {
-        return (
-            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-                {/* eslint-disable react/no-array-index-key */}
-
-                {
-                    new Array(view === ArticleView.LIST ? 3 : 9).fill('')
-                        .map((item, i) => (
-                            <ArticleListItemSkeleton
-                                view={view}
-                                key={i}
-                            />
-                        ))
-                }
-            </div>
-        );
-    }
-
     const renderArticle = (article: Article) => (
         <ArticleListItem article={article} view={view} key={article.id} />
     );
@@ -49,6 +31,22 @@ export const ArticleList = memo((props: ArticleListProps) => {
     return (
         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
             {articles.length ? articles.map(renderArticle) : null}
+            {isLoading && (
+                <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+                    {/* eslint-disable react/no-array-index-key */}
+
+                    {
+                        new Array(view === ArticleView.LIST ? 3 : 9).fill('')
+                            .map((item, i) => (
+                                <ArticleListItemSkeleton
+                                    view={view}
+                                    key={i}
+                                />
+                            ))
+                    }
+                </div>
+            )}
         </div>
+
     );
 });

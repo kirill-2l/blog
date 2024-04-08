@@ -18,10 +18,14 @@ import {
 } from 'pages/ArticlesPage/model/services/fetchArticlesList.ts/fetchArticlesList';
 import { useSelector } from 'react-redux';
 import {
-    getArticlesPageError,
-    getArticlesPageIsLoading,
+    getArticlesPageError, getArticlesPageHasMore,
+    getArticlesPageIsLoading, getArticlesPageNum,
     getArticlesPageView,
 } from 'pages/ArticlesPage/model/selectors/articlesPageSelector';
+import { PageWrapper } from 'shared/ui/PageWrapper/PageWrapper';
+import {
+    fetchNextArticlesPage,
+} from 'pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 
 interface ArticlesPageProps {
     className?: string,
@@ -36,18 +40,24 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     const dispatch = useAppDispatch();
     const articles = useSelector(getArticles.selectAll);
     const isLoading = useSelector(getArticlesPageIsLoading);
-    const error = useSelector(getArticlesPageError);
     const view = useSelector(getArticlesPageView);
+    const onLoadNextPart = useCallback(() => {
+        dispatch(fetchNextArticlesPage());
+    }, [dispatch]);
+
     useInitialEffect(() => {
-        dispatch(fetchArticlesList());
+        dispatch(articlesPageActions.initState());
+        dispatch(fetchArticlesList({
+            page: 1,
+        }));
     });
     const onChangeView = useCallback((view) => {
         dispatch(articlesPageActions.setView(view));
-        dispatch(articlesPageActions.initState());
     }, [dispatch]);
+
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames('', {}, [className])}>
+            <PageWrapper onScrollEnd={onLoadNextPart} className={classNames('', {}, [className])}>
                 <ArticleViewSwitcher
                     view={view}
                     onViewClick={onChangeView}
@@ -58,7 +68,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
                     view={view}
                 />
 
-            </div>
+            </PageWrapper>
         </DynamicModuleLoader>
     );
 };
