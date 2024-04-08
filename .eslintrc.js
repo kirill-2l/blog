@@ -64,6 +64,13 @@ module.exports = {
     },
     overrides: [
         {
+            files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
+            rules: {
+                'i18next/no-literal-string': 'off',
+                'max-len': 'off',
+            },
+        },
+        {
             // feel free to replace with your preferred file pattern - eg. 'src/**/*Slice.ts'
             files: ['src/**/*.slice.ts'],
             // avoid state param assignment

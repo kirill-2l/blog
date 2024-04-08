@@ -1,0 +1,9 @@
+.ArticleList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.plate {
+  flex-direction: column;
+}
