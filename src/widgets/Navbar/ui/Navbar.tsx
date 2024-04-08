@@ -11,7 +11,7 @@ import { AppRoutes, RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
-    className?: string
+    className?: string;
 }
 
 export const Navbar = memo(({ className }: NavbarProps) => {
@@ -58,7 +58,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     }
     return (
 
-        <div className={classNames(cls.navbar)}>
+        <header className={classNames(cls.navbar)}>
             <Button
                 theme={ButtonTheme.CLEAR_INVERTED}
                 onClick={onShowModal}
@@ -74,6 +74,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 />
             )}
 
-        </div>
+        </header>
     );
 });

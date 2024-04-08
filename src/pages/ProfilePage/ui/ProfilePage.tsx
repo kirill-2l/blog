@@ -24,6 +24,7 @@ import { TextTheme, BaseText } from 'shared/ui/BaseText/BaseText';
 import { ValidateProfileError } from 'entities/Profile/model/types/profile';
 import { useInitialEffect } from 'shared/libs/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
+import { PageWrapper } from 'shared/ui/PageWrapper/PageWrapper';
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -106,7 +107,7 @@ const ProfilePage = () => {
     });
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div>
+            <PageWrapper>
                 <ProfilePageHeader />
                 {validateErrors && validateErrors.map((err) => (
                     <BaseText
@@ -129,7 +130,7 @@ const ProfilePage = () => {
                     onChangeCurrency={onChangeCurrency}
                     readonly={readonly}
                 />
-            </div>
+            </PageWrapper>
         </DynamicModuleLoader>
     );
 };
