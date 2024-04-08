@@ -98,7 +98,7 @@ export const LoadingBig = Template.bind({});
 LoadingBig.args = {
     articles: [],
     isLoading: true,
-    view: ArticleView.PLATE,
+    view: ArticleView.TILE,
 };
 
 export const LoadingSmall = Template.bind({});
@@ -129,5 +129,5 @@ ListBig.args = {
             id: String(index),
         })),
     isLoading: false,
-    view: ArticleView.PLATE,
+    view: ArticleView.TILE,
 };

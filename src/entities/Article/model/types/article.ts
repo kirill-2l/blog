@@ -37,7 +37,7 @@ export enum ArticleType {
 
 export enum ArticleView {
     LIST = 'list',
-    PLATE = 'plate'
+    TILE = 'tile'
 }
 
 export interface Article {
