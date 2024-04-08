@@ -2,26 +2,23 @@ import { classNames } from 'shared/libs/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { ArticleDetails } from 'entities/Article';
-import { useParams } from 'react-router-dom';
-import { BaseText } from 'shared/ui';
+import { useNavigate, useParams } from 'react-router-dom';
+import { BaseText, Button } from 'shared/ui';
 import { CommentList } from 'entities/Comment';
 import {
     DynamicModuleLoader,
     ReducersList,
 } from 'shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
-    articleDetailsCommentsReducer, getArticlesComments,
+    articleDetailsCommentsReducer,
+    getArticlesComments,
 } from 'pages/ArticleDetailsPage/model/slices/articleDetailsComments.slice';
 import { useDispatch, useSelector } from 'react-redux';
 import {
     getArticleCommentsError,
     getArticleCommentsIsLoading,
 } from 'pages/ArticleDetailsPage/model/selectors/comments';
-import { getArticleDetailsError } from 'entities/Article/model/selectors/articleDetails';
 import { useInitialEffect } from 'shared/libs/hooks/useInitialEffect/useInitialEffect';
-import {
-    fetchArticleById,
-} from 'entities/Article/model/services/fetchArticleById/fetchArticleById';
 import {
     fetchCommentsByArticleId,
 } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -29,6 +26,7 @@ import { AddCommentForm } from 'features/addCommentForm';
 import {
     addCommentForArticle,
 } from 'pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -45,6 +43,11 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     const reducers: ReducersList = {
         articleDetailsComments: articleDetailsCommentsReducer,
     };
+    const navigate = useNavigate();
+
+    const onBackToList = useCallback(() => {
+        navigate(RoutePath.articles);
+    }, [navigate]);
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
@@ -65,6 +68,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+                <Button onClick={onBackToList}>{t('get back')}</Button>
                 <ArticleDetails id={id} />
                 <BaseText className={cls.commentTitle} title={t('Comments')} />
                 <AddCommentForm onSendComment={onSendComment} />

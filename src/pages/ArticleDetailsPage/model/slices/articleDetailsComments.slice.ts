@@ -1,13 +1,6 @@
-import {
-    createEntityAdapter, createSelector, createSlice, EntityState, PayloadAction,
-    // omit other imports
-} from '@reduxjs/toolkit';
+import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IComment } from 'entities/Comment';
 import { StateSchema } from 'app/providers/store';
-import {
-    fetchArticleById,
-} from 'entities/Article/model/services/fetchArticleById/fetchArticleById';
-import { Article } from 'entities/Article';
 import {
     fetchCommentsByArticleId,
 } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';

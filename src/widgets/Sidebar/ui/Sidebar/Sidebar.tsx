@@ -3,16 +3,19 @@ import React, { memo, useState } from 'react';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher/LanguageSwitcher';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
-import { SidebarItem } from '../SidebarItem/SidebarItem';
-import { SidebarItemList } from '../../model/items';
+import { SidebarItemList } from 'widgets/Sidebar/model/types/sidebar';
+import { getSidebarItems } from 'widgets/Sidebar/model/getSidebarItems/getSidebarItems';
+import { useSelector } from 'react-redux';
 import cls from './Sidebar.module.scss';
+import { SidebarItem } from '../SidebarItem/SidebarItem';
 
 interface SidebarProps {
-    className?: string
+    className?: string;
 }
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false);
+    const sidebarItems = useSelector(getSidebarItems);
     return (
         <div
             data-testid="sidebar"
@@ -35,7 +38,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
             </Button>
 
             <div className={cls.items}>
-                {SidebarItemList.map((i) => (
+                {sidebarItems.map((i) => (
                     <SidebarItem
                         key={i.path}
                         item={i}

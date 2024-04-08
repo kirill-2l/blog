@@ -1,34 +1,36 @@
-import { classNames } from 'shared/libs/classNames/classNames';
-import { useTranslation } from 'react-i18next';
-import { memo } from 'react';
-import { Article, ArticleList, ArticleView } from 'entities/Article';
+import React from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-interface ArticlesPageProps {
-    className?: string,
-}
+import { ArticleListItem } from './ArticleListItem';
+import { Article, ArticleView } from '../../model/types/article';
 
-/* eslint-disable */
+export default {
+    title: 'entities/Article/ArticleListItem',
+    component: ArticleListItem,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+} as ComponentMeta<typeof ArticleListItem>;
+
+const Template: ComponentStory<typeof ArticleListItem> = (args) => <ArticleListItem {...args} />;
+
 const article = {
     id: '1',
-    title: 'Javascript news Javascript news Javascript news',
+    title: 'Javascript news asfasjf asfjkask f',
     subtitle: 'Что нового в JS за 2022 год?',
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     views: 1022,
+    createdAt: '26.02.2022',
     user: {
         id: '1',
-        username: 'kirill',
-        avatar: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=640&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+        username: 'Ulbi tv',
+        avatar: 'https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg',
     },
-    createdAt: '26.02.2022',
     type: [
         'IT',
-        'IT',
-        'IT',
-        'IT',
-        'IT',
-        'IT',
-        'IT',
-        'IT',
+        'SCIENCE',
+        'POLITICS',
+        'ECONOMICS',
     ],
     blocks: [
         {
@@ -86,21 +88,20 @@ const article = {
             type: 'TEXT',
             title: 'Заголовок этого блока',
             paragraphs: [
-
                 'JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.',
             ],
         },
     ],
 } as Article;
-const ArticlesPage = ({ className }: ArticlesPageProps) => {
-    const { t } = useTranslation();
-    return (
-        <div className={classNames('', {}, [className])}>
-            <ArticleList isLoading={true} articles={new Array(16).fill(article)}
-                         view={ArticleView.LIST}/>
 
-        </div>
-    );
+export const Plate = Template.bind({});
+Plate.args = {
+    view: ArticleView.PLATE,
+    article,
 };
 
-export default memo(ArticlesPage);
+export const List = Template.bind({});
+List.args = {
+    view: ArticleView.LIST,
+    article,
+};
