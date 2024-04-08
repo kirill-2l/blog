@@ -9,6 +9,7 @@ import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
 import { addCommentFormSchema } from 'features/addCommentForm';
+import { ArticlePageSchema } from 'pages/ArticlesPage/model/types/ArticlePageSchema';
 
 export interface StateSchema {
     user: UserSchema;
@@ -19,6 +20,7 @@ export interface StateSchema {
     articleDetails?: ArticleDetailsSchema;
     articleDetailsComments?: ArticleDetailsCommentSchema;
     addCommentForm?: addCommentFormSchema;
+    articlesPage?: ArticlePageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

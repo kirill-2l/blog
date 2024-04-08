@@ -12,7 +12,7 @@ interface ArticleListProps {
     className?: string,
     articles: Article[],
     isLoading?: boolean,
-    view: ArticleView
+    view?: ArticleView
 }
 
 export const ArticleList = memo((props: ArticleListProps) => {
@@ -30,7 +30,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
                 {/* eslint-disable react/no-array-index-key */}
 
                 {
-                    new Array(view === ArticleView.LIST ? 9 : 3).fill('')
+                    new Array(view === ArticleView.LIST ? 3 : 9).fill('')
                         .map((item, i) => (
                             <ArticleListItemSkeleton
                                 view={view}

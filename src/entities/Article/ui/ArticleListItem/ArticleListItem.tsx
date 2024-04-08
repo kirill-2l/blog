@@ -47,7 +47,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         (block) => block.type === ArticleBlockType.TEXT,
     ) as ArticleTextBlock;
 
-    if (view === ArticleView.LIST) {
+    if (view === ArticleView.TILE) {
         return (
             <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
                 <Card onClick={onOpenArticle}>
@@ -69,8 +69,8 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
             <Card>
                 <div className={cls.header}>
-                    <Avatar src={article.user.avatar} size={50} alt={article.user.username} />
-                    <BaseText text={article.user.username} />
+                    {/* <Avatar src={article.user.avatar} size={50} alt={article.user.username} /> */}
+                    {/* <BaseText text={article.user.username} /> */}
                     <BaseText className={cls.date} text={article.createdAt} />
                 </div>
                 <BaseText text={article.title} className={cls.title} />

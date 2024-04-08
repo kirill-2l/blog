@@ -96,7 +96,7 @@ const article = {
 
 export const Plate = Template.bind({});
 Plate.args = {
-    view: ArticleView.PLATE,
+    view: ArticleView.TILE,
     article,
 };
 
