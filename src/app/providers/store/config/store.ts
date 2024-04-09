@@ -4,6 +4,7 @@ import {
 import { userReducer } from 'entities/User';
 import { createReducerManager } from 'app/providers/store/config/reducerManager';
 import { api } from 'shared/api/axios.instance';
+import { scrollPositionReducer } from 'features/persistScrollPosition';
 import { StateSchema } from './state.schema';
 
 export function createReduxStore(
@@ -12,6 +13,7 @@ export function createReduxStore(
 ) {
     const rootReducers: ReducersMapObject<StateSchema> = {
         user: userReducer,
+        scrollPosition: scrollPositionReducer,
         ...asyncReducers,
     };
 

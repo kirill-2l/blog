@@ -10,10 +10,11 @@ import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
 import { addCommentFormSchema } from 'features/addCommentForm';
 import { ArticlePageSchema } from 'pages/ArticlesPage/model/types/ArticlePageSchema';
+import { ScrollPositionSchema } from 'features/persistScrollPosition';
 
 export interface StateSchema {
     user: UserSchema;
-
+    scrollPosition: ScrollPositionSchema,
     // async reducers
     login?: LoginSchema;
     profile?: ProfileSchema;
