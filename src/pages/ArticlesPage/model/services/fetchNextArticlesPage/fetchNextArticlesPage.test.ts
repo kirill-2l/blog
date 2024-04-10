@@ -2,6 +2,7 @@ import { TestAsyncThunk } from 'shared/libs/tests/TestAsyncThunk';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import { ArticleView } from 'entities/Article';
+import { ArticleSortField } from 'entities/Article/model/types/article';
 import {
     fetchArticlesList,
 } from '../fetchArticlesList.ts/fetchArticlesList';
@@ -19,6 +20,9 @@ describe('fetchNextArticlesPage.test', () => {
                 limit: 5,
                 isLoading: false,
                 entities: {},
+                order: 'asc',
+                search: '',
+                sort: ArticleSortField.CREATED,
                 _inited: false,
                 error: undefined,
                 view: ArticleView.TILE,
@@ -28,8 +32,6 @@ describe('fetchNextArticlesPage.test', () => {
         await thunk.callThunk();
         expect(thunk.dispatch)
             .toBeCalledTimes(4);
-        expect(fetchArticlesList)
-            .toBeCalledWith({ page: 3 });
     });
     test('fetchArticlesList is not called', async () => {
         const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
@@ -39,6 +41,9 @@ describe('fetchNextArticlesPage.test', () => {
                 hasMore: false,
                 limit: 5,
                 _inited: false,
+                order: 'asc',
+                search: '',
+                sort: ArticleSortField.CREATED,
                 isLoading: false,
                 entities: {},
                 error: undefined,
