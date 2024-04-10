@@ -55,7 +55,7 @@ export const PageWrapper = memo(({
             className={classNames(cls.PageWrapper, {}, [className])}
         >
             {children}
-            <div ref={triggerRef} />
+            {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
         </section>
 
     );

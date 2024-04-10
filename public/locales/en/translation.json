@@ -4,6 +4,7 @@
   "Log out": "Log out",
   "Not found": "Page not found",
   "Refresh page": "Refresh page",
+  "Nothing found": "Nothing found",
   "Wrong login or password": "Wrong login or password",
   "language": "English",
   "language_short": "En",
@@ -12,6 +13,13 @@
   "No comments": "No comments",
   "Send": "Send",
   "Your comment": "Your comment",
-  "Read more": "Read more"
-  "Get back": "Get back"
+  "Read more": "Read more",
+  "Get back": "Get back",
+  "Sort by": "Sort by",
+  "By created date": "By created date",
+  "By name": "By name",
+  "By views count": "By views count",
+  "Since": "Since",
+  "IT": "IT",
+  "All": "All"
 }

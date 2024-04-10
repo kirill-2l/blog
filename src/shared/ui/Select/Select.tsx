@@ -3,28 +3,33 @@ import { useTranslation } from 'react-i18next';
 import { ChangeEvent, memo, useMemo } from 'react';
 import cls from './Select.module.scss';
 
-interface SelectOption {
-  value: string;
-  content: string;
+export interface SelectOption<T extends string> {
+    value: T;
+    content: string;
 }
 
-interface SelectProps {
-  className?: string;
-  label?: string;
-  readonly?: boolean;
-  options?: SelectOption[];
-  value?: string;
-  onChange?: (value: string) => void;
+interface SelectProps<T extends string> {
+    className?: string;
+    label?: string;
+    readonly?: boolean;
+    options?: SelectOption<T>[];
+    value?: T;
+    onChange?: (value: T) => void;
 }
 
-export const Select = memo((props: SelectProps) => {
+export const Select = <T extends string>(props: SelectProps<T>) => {
     const {
-        className, label, readonly, options, value, onChange,
+        className,
+        label,
+        readonly,
+        options,
+        value,
+        onChange,
     } = props;
     const { t } = useTranslation();
 
     const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-        onChange?.(e.target.value);
+        onChange?.(e.target.value as T);
     };
 
     const optionsList = useMemo(
@@ -50,4 +55,4 @@ export const Select = memo((props: SelectProps) => {
             </select>
         </div>
     );
-});
+};
