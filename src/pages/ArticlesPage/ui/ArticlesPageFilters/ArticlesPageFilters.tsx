@@ -4,10 +4,13 @@ import { memo, useCallback } from 'react';
 import { useAppDispatch } from 'shared/libs/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import {
-    getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort,
+    getArticlesPageOrder,
+    getArticlesPageSearch,
+    getArticlesPageSort,
+    getArticlesPageType,
     getArticlesPageView,
 } from 'pages/ArticlesPage/model/selectors/articlesPageSelector';
-import { ArticleSortSelector, ArticleViewSwitcher } from 'entities/Article';
+import { ArticleSortSelector, ArticleTypeTabs, ArticleViewSwitcher } from 'entities/Article';
 import { articlesPageActions } from 'pages/ArticlesPage/model/slice/articlesPage.slice';
 import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui';
@@ -29,13 +32,15 @@ export const ArticlesPageFilters = memo(({ className }: ArticlesPageFiltersProps
     const order = useSelector(getArticlesPageOrder);
     const sort = useSelector(getArticlesPageSort);
     const search = useSelector(getArticlesPageSearch);
+    const type = useSelector(getArticlesPageType);
     const [searchParams, setSearchParams] = useSearchParams();
     const fetchData = useCallback(() => {
         dispatch(fetchArticlesList({ replace: true }));
     }, [dispatch]);
 
     const debouncedFetchData = useDebounce(fetchData, 500);
-    const setQueryParams = useCallback((key: 'sort' | 'order' | 'search', value: string) => {
+    const setQueryParams = useCallback((key: 'sort' | 'order' | 'search' |
+        'type', value: string) => {
         searchParams.set(key, value);
         setSearchParams(searchParams);
     }, [searchParams, setSearchParams]);
@@ -64,6 +69,14 @@ export const ArticlesPageFilters = memo(({ className }: ArticlesPageFiltersProps
         debouncedFetchData();
     }, [debouncedFetchData, dispatch, setQueryParams]);
 
+    const onChangeTab = useCallback((tab) => {
+        console.log(tab);
+        dispatch(articlesPageActions.setType(tab.value));
+        dispatch(articlesPageActions.setPage(1));
+        setQueryParams('type', tab.value);
+        debouncedFetchData();
+    }, [debouncedFetchData, dispatch, setQueryParams]);
+
     return (
         <div className={classNames(cls.ArticlesPageFilters, {}, [className])}>
             <div className={cls.sortWrapper}>
@@ -81,6 +94,7 @@ export const ArticlesPageFilters = memo(({ className }: ArticlesPageFiltersProps
             <Card className={cls.search}>
                 <Input value={search} onChange={onChangeSearch} />
             </Card>
+            <ArticleTypeTabs onChangeType={onChangeTab} value={type} className={cls.tabs} />
         </div>
     );
 });

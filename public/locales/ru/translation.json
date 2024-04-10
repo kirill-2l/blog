@@ -4,6 +4,7 @@
   "Log out": "Выйти",
   "Not found": "Страница не найдена",
   "Refresh page": "Обновить страницу",
+  "Nothing found": "Ничего не найдено",
   "Wrong login or password": "Неверный логин или пароль",
   "language": "Русский",
   "language_short": "Ру",
@@ -17,5 +18,8 @@
   "Sort by": "Сортировать по",
   "By created date": "По дате создания",
   "By name": "По имени",
-  "By views count": "По числу просмотров"
+  "By views count": "По числу просмотров",
+  "Since": "Наука",
+  "IT": "IT",
+  "All": "Все"
 }

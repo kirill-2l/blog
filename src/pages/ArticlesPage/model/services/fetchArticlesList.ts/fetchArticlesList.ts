@@ -1,5 +1,4 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { matchPath, useSearchParams } from 'react-router-dom';
 import { ThunkConfig } from 'app/providers/store/config/state.schema';
 import { Article, ArticleSortField } from 'entities/Article';
 import {
@@ -8,8 +7,10 @@ import {
     getArticlesPageOrder,
     getArticlesPageSearch,
     getArticlesPageSort,
+    getArticlesPageType,
 } from 'pages/ArticlesPage/model/selectors/articlesPageSelector';
 import { SortOrder } from 'shared/types/types';
+import { ArticleType } from 'entities/Article/model/types/article';
 
 interface FetchArticlesListProps {
     replace?: true;
@@ -35,6 +36,7 @@ export const fetchArticlesList = createAsyncThunk<
         const order = getArticlesPageOrder(getState());
         const sort = getArticlesPageSort(getState());
         const search = getArticlesPageSearch(getState());
+        const type = getArticlesPageType(getState());
 
         try {
             const response = await extra.api.get<Article[]>('/articles', {
@@ -44,6 +46,7 @@ export const fetchArticlesList = createAsyncThunk<
                     _page: page,
                     _order: order,
                     _sort: sort,
+                    type: type === ArticleType.ALL ? undefined : type,
                     q: search,
                 },
             });
