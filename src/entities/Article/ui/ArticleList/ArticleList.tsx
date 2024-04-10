@@ -1,6 +1,6 @@
 import { classNames } from 'shared/libs/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { memo } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { Article, ArticleView } from 'entities/Article';
 import { ArticleListItem } from 'entities/Article/ui/ArticleListItem/ArticleListItem';
 import {
@@ -14,7 +14,8 @@ interface ArticleListProps {
     className?: string,
     articles: Article[],
     isLoading?: boolean,
-    view?: ArticleView
+    view?: ArticleView,
+    target?: HTMLAttributeAnchorTarget
 }
 
 export const ArticleList = memo((props: ArticleListProps) => {
@@ -22,12 +23,13 @@ export const ArticleList = memo((props: ArticleListProps) => {
         articles,
         view = ArticleView.LIST,
         isLoading,
+        target,
         className,
     } = props;
     const { t } = useTranslation();
 
     const renderArticle = (article: Article) => (
-        <ArticleListItem article={article} view={view} key={article.id} />
+        <ArticleListItem target={target} article={article} view={view} key={article.id} />
     );
 
     if (!isLoading && !articles.length) {
