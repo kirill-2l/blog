@@ -7,7 +7,10 @@ import { useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
 import { useAppDispatch } from 'shared/libs/hooks/useAppDispatch/useAppDispatch';
 import { useNavigate } from 'react-router-dom';
-import { AppRoutes, RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { AppLink, BaseText } from 'shared/ui';
+import { TextSize, TextTheme } from 'shared/ui/BaseText/BaseText';
+import { AppLinksTheme } from 'shared/ui/AppLink/AppLink';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -46,7 +49,20 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     if (authData) {
         return (
             <div className={classNames(cls.navbar)}>
+                <BaseText
+                    className={cls.logo}
+                    theme={TextTheme.INVERTED}
+                    title="LOGO"
+                    size={TextSize.L}
+                />
+                <AppLink
+                    theme={AppLinksTheme.SECONDARY}
+                    to={RoutePath.article_create}
+                >
+                    {t('Create article')}
+                </AppLink>
                 <Button
+                    className={cls.logout}
                     theme={ButtonTheme.CLEAR_INVERTED}
                     onClick={onLogout}
                 >

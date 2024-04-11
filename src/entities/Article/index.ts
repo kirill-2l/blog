@@ -8,3 +8,4 @@ export { ArticleList } from './ui/ArticleList/ArticleList';
 export { ArticleViewSwitcher } from './ui/ArticleViewSwitcher/ArticleViewSwitcher';
 export { ArticleSortSelector } from 'entities/Article/ui/ArticleSortSelector/ArticleSortSelector';
 export { ArticleTypeTabs } from 'entities/Article/ui/ArticleTypeTabs/ArticleTypeTabs';
+export { getArticleDetailsData } from 'entities/Article/model/selectors/articleDetails';

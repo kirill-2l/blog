@@ -37,6 +37,9 @@ import {
 import { TextSize } from 'shared/ui/BaseText/BaseText';
 import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices';
 import {
+    ArticleDetailsPageHeader,
+} from 'pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import {
     fetchArticleRecommendations,
 }
     from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
@@ -52,18 +55,11 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     const comments = useSelector(getArticlesComments.selectAll);
     const dispatch = useDispatch();
     const isLoading = useSelector(getArticleCommentsIsLoading);
-    const error = useSelector(getArticleCommentsError);
     const recommendations = useSelector(getArticleRecommendations.selectAll);
     const recommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading);
-    const recommendationsError = useSelector(getArticleRecommendationsError);
     const reducers: ReducersList = {
         articleDetailsPage: articleDetailsPageReducer,
     };
-    const navigate = useNavigate();
-
-    const onBackToList = useCallback(() => {
-        navigate(RoutePath.articles);
-    }, [navigate]);
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
@@ -85,7 +81,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <PageWrapper className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-                <Button onClick={onBackToList}>{t('get back')}</Button>
+                <ArticleDetailsPageHeader />
                 <ArticleDetails id={id} />
                 <BaseText
                     size={TextSize.L}
