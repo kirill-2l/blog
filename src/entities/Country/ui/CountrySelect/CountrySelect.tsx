@@ -3,13 +3,14 @@ import { useTranslation } from 'react-i18next';
 import { Select } from 'shared/ui/Select/Select';
 import { classNames } from 'shared/libs/classNames/classNames';
 import { memo, useCallback } from 'react';
+import { ListBox } from 'shared/ui/ListBox/ListBox';
 import { Country } from '../../model/types/country';
 
 interface CountrySelectProps {
-  className?: string;
-  value?: Country;
-  onChange?: (v: Country) => void;
-  readonly?: boolean;
+    className?: string;
+    value?: Country;
+    onChange?: (v: Country) => void;
+    readonly?: boolean;
 }
 
 const options = [
@@ -37,7 +38,10 @@ const options = [
 export const CountrySelect = memo((props: CountrySelectProps) => {
     const { t } = useTranslation();
     const {
-        className, value, onChange, readonly,
+        className,
+        value,
+        onChange,
+        readonly,
     } = props;
 
     const onChangeHandler = useCallback(
@@ -48,10 +52,11 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
     );
 
     return (
-        <Select
+        <ListBox
             className={classNames('', {}, [className])}
+            defaultValue={t('Your country')}
             label={t('Your country')}
-            options={options}
+            items={options}
             value={value}
             onChange={onChangeHandler}
             readonly={readonly}

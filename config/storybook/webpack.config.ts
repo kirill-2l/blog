@@ -10,6 +10,8 @@ export default ({ config }: { config: webpack.Configuration }): webpack.Configur
         html: '',
         entry: '',
         src: path.resolve(__dirname, '..', '..', 'src'),
+        locales: path.resolve(__dirname, 'public', 'locales'),
+        buildLocales: path.resolve(__dirname, 'build', 'locales'),
     };
     // eslint-disable-next-line no-param-reassign
     config.resolve!.modules = [paths.src, 'node_modules'];

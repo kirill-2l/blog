@@ -10,7 +10,6 @@ import {
     ArticleTextBlockComponent,
 } from 'entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { FixedSizeListProps, ListChildComponentProps, FixedSizeList } from 'react-window';
 import cls from './ArticleListItem.module.scss';
 import {
     Article,
@@ -19,11 +18,11 @@ import {
     ArticleView,
 } from '../../model/types/article';
 
-export interface ArticleListItemProps extends HTMLAttributes<HTMLDivElement> {
+interface ArticleListItemProps {
     className?: string,
     article: Article,
     view: ArticleView,
-    target?: HTMLAttributeAnchorTarget,
+    target?: HTMLAttributeAnchorTarget
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
@@ -33,15 +32,14 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         article,
         view,
         target,
-        ...rest
     } = props;
 
     const types = <BaseText text={article.type.join(', ')} className={cls.types} />;
     const views = (
-        <div {...rest}>
+        <>
             <BaseText text={String(article.views)} className={cls.views} />
             <Icon Svg={EyeIcon} className={cls.icon} />
-        </div>
+        </>
     );
     const textBlock = article.blocks.find(
         (block) => block.type === ArticleBlockType.TEXT,
