@@ -1,9 +1,9 @@
 import { classNames } from 'shared/libs/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { memo, useCallback } from 'react';
+
 import { ArticleDetails, ArticleList, ArticleView } from 'entities/Article';
-import { useNavigate, useParams } from 'react-router-dom';
-import { BaseText, Button } from 'shared/ui';
+import { useParams } from 'react-router-dom';
+import { BaseText } from 'shared/ui';
 import { CommentList } from 'entities/Comment';
 import {
     DynamicModuleLoader,
@@ -13,10 +13,7 @@ import {
     getArticlesComments,
 } from 'pages/ArticleDetailsPage/model/slices/articleDetailsComments.slice';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-    getArticleCommentsError,
-    getArticleCommentsIsLoading,
-} from 'pages/ArticleDetailsPage/model/selectors/comments';
+import { getArticleCommentsIsLoading } from 'pages/ArticleDetailsPage/model/selectors/comments';
 import { useInitialEffect } from 'shared/libs/hooks/useInitialEffect/useInitialEffect';
 import {
     fetchCommentsByArticleId,
@@ -25,13 +22,11 @@ import { AddCommentForm } from 'features/addCommentForm';
 import {
     addCommentForArticle,
 } from 'pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { PageWrapper } from 'shared/ui/PageWrapper/PageWrapper';
 import {
     getArticleRecommendations,
 } from 'pages/ArticleDetailsPage/model/slices/articleDetailsPageRecommendation.slice';
 import {
-    getArticleRecommendationsError,
     getArticleRecommendationsIsLoading,
 } from 'pages/ArticleDetailsPage/model/selectors/recommendations';
 import { TextSize } from 'shared/ui/BaseText/BaseText';
@@ -39,10 +34,10 @@ import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices
 import {
     ArticleDetailsPageHeader,
 } from 'pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { memo, useCallback } from 'react';
 import {
     fetchArticleRecommendations,
-}
-    from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
+} from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
