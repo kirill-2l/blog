@@ -7,10 +7,13 @@ import { useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
 import { useAppDispatch } from 'shared/libs/hooks/useAppDispatch/useAppDispatch';
 import { useNavigate } from 'react-router-dom';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { AppRoutes, RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { AppLink, BaseText } from 'shared/ui';
 import { TextSize, TextTheme } from 'shared/ui/BaseText/BaseText';
 import { AppLinksTheme } from 'shared/ui/AppLink/AppLink';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { SizeS } from 'shared/ui/BaseText/BaseText.stories';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -61,13 +64,21 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 >
                     {t('Create article')}
                 </AppLink>
-                <Button
-                    className={cls.logout}
-                    theme={ButtonTheme.CLEAR_INVERTED}
-                    onClick={onLogout}
-                >
-                    {t('Log out')}
-                </Button>
+                <Dropdown
+                    className={cls.dropdown}
+                    direction="bottom-left"
+                    items={[
+                        {
+                            content: t('Profile page'),
+                            href: `${AppRoutes.PROFILE}/${authData.id}`,
+                        },
+                        {
+                            content: t('Log out'),
+                            onClick: onLogout,
+                        },
+                    ]}
+                    trigger={<Avatar size={35} src={authData.avatar} />}
+                />
 
             </div>
         );
