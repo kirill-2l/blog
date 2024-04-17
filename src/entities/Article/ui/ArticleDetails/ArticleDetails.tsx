@@ -26,6 +26,7 @@ import {
     ArticleImageBlockComponent,
 } from 'entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { useInitialEffect } from 'shared/libs/hooks/useInitialEffect/useInitialEffect';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { articleDetailsReducer } from '../../model/slice/articleDetails.slice';
 import {
     getArticleDetailsData,
@@ -119,30 +120,28 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     } else {
         content = (
             <>
-                <div className={cls.avatarWrapper}>
+                <HStack justify="center" max>
                     <Avatar
                         size={200}
                         className={cls.avatar}
                         src={article?.img}
                     />
 
-                </div>
+                </HStack>
                 <BaseText
                     className={cls.title}
                     title={article?.title}
                     text={article?.subtitle}
                     size={TextSize.L}
                 />
-                <div className={cls.articleInfo}>
+                <HStack gap="8">
                     <Icon Svg={EyeIcon} className={cls.icon} />
                     <BaseText text={String(article?.views)} />
-                </div>
-                <div
-                    className={cls.articleInfo}
-                >
+                </HStack>
+                <HStack gap="8">
                     <Icon Svg={CalendarIcon} className={cls.icon} />
                     <BaseText text={article?.createdAt} />
-                </div>
+                </HStack>
                 {article?.blocks.map(renderBlock)}
             </>
         );
@@ -151,7 +150,6 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             {content}
-
         </DynamicModuleLoader>
     );
 });

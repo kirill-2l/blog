@@ -4,6 +4,8 @@
   height: calc(100vh - var(--navbar-height));
   overflow-y: auto;
   flex-shrink: 100;
+  display: flex;
+  flex-direction: column;
 }
 
 .trigger {

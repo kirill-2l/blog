@@ -25,6 +25,7 @@ import { ValidateProfileError } from 'entities/Profile/model/types/profile';
 import { useInitialEffect } from 'shared/libs/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
 import { PageWrapper } from 'shared/ui/PageWrapper/PageWrapper';
+import { VStack } from 'shared/ui/Stack';
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -108,28 +109,31 @@ const ProfilePage = () => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <PageWrapper>
-                <ProfilePageHeader />
-                {validateErrors && validateErrors.map((err) => (
-                    <BaseText
-                        key={err}
-                        text={validateErrorsTranslate[err]}
-                        theme={TextTheme.ERROR}
+                <VStack gap="16" max>
+                    <ProfilePageHeader />
+                    {validateErrors && validateErrors.map((err) => (
+                        <BaseText
+                            key={err}
+                            text={validateErrorsTranslate[err]}
+                            theme={TextTheme.ERROR}
+                        />
+                    ))}
+                    <ProfileCard
+                        data={form}
+                        isLoading={isLoading}
+                        error={error}
+                        onChangeFirstName={onChangeFirstName}
+                        onChangeLastName={onChangeLastName}
+                        onChangeCity={onChangeCity}
+                        onChangeCountry={onChangeCountry}
+                        onChangeAge={onChangeAge}
+                        onChangeAvatar={onChangeAvatar}
+                        onChangeUsername={onChangeUsername}
+                        onChangeCurrency={onChangeCurrency}
+                        readonly={readonly}
                     />
-                ))}
-                <ProfileCard
-                    data={form}
-                    isLoading={isLoading}
-                    error={error}
-                    onChangeFirstName={onChangeFirstName}
-                    onChangeLastName={onChangeLastName}
-                    onChangeCity={onChangeCity}
-                    onChangeCountry={onChangeCountry}
-                    onChangeAge={onChangeAge}
-                    onChangeAvatar={onChangeAvatar}
-                    onChangeUsername={onChangeUsername}
-                    onChangeCurrency={onChangeCurrency}
-                    readonly={readonly}
-                />
+
+                </VStack>
             </PageWrapper>
         </DynamicModuleLoader>
     );
