@@ -39,7 +39,7 @@ export const Dropdown = memo((props: DropdownProps) => {
         <Menu as="div" className={classNames(cls.Dropdown, {}, [className])}>
             <Menu.Button className={cls.btn}>{trigger}</Menu.Button>
             <Menu.Items className={classNames(cls.menu, {}, [mapDirectionClass[direction]])}>
-                {items?.map((item) => {
+                {items?.map((item, index) => {
                     const content = ({ active }: { active: boolean }) => (
                         <button
                             type="button"
@@ -55,6 +55,8 @@ export const Dropdown = memo((props: DropdownProps) => {
                     if (item.href) {
                         return (
                             <Menu.Item
+                                /* eslint-disable-next-line react/no-array-index-key */
+                                key={index}
                                 as={AppLink}
                                 to={item.href}
 
@@ -68,6 +70,8 @@ export const Dropdown = memo((props: DropdownProps) => {
                     return (
 
                         <Menu.Item
+                            /* eslint-disable-next-line react/no-array-index-key */
+                            key={index}
                             as={Fragment}
                             disabled={item?.disabled}
                         >
