@@ -114,6 +114,7 @@ export default {
             publicPath: '<rootDir>/reports/unit',
             filename: 'report.html',
             inlineSource: true,
+            failureMessageOnly: 2,
             openReport: true,
         }],
     ],
