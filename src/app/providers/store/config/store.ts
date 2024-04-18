@@ -5,6 +5,7 @@ import { userReducer } from 'entities/User';
 import { createReducerManager } from 'app/providers/store/config/reducerManager';
 import { api } from 'shared/api/axios.instance';
 import { scrollPositionReducer } from 'features/persistScrollPosition';
+import { rtkApi } from 'shared/api/rtkApi.instance';
 import { StateSchema } from './state.schema';
 
 export function createReduxStore(
@@ -15,6 +16,7 @@ export function createReduxStore(
         user: userReducer,
         scrollPosition: scrollPositionReducer,
         ...asyncReducers,
+        [rtkApi.reducerPath]: rtkApi.reducer,
     };
 
     const reducersManager = createReducerManager(rootReducers);
@@ -29,7 +31,8 @@ export function createReduxStore(
                     api,
                 },
             },
-        }),
+        })
+            .concat(rtkApi.middleware),
     });
 
     // @ts-ignore
