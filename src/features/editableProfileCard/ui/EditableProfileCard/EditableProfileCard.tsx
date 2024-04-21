@@ -136,6 +136,7 @@ export const EditableProfileCard = memo(({
                         key={err}
                         text={validateErrorsTranslate[err]}
                         theme={TextTheme.ERROR}
+                        data-testid="EditableProfileCard.Error"
                     />
                 ))}
                 <ProfileCard

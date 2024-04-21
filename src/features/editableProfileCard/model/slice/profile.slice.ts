@@ -27,7 +27,7 @@ export const userSlice = createSlice({
         },
         updateProfile: (state, action: PayloadAction<Profile>) => {
             state.form = {
-                ...state.data,
+                ...state.form,
                 ...action.payload,
             };
         },
@@ -67,7 +67,7 @@ export const userSlice = createSlice({
             )
             .addCase(updateProfileData.rejected, (state, action) => {
                 state.isLoading = false;
-                state.validateErrors = undefined;
+                state.validateErrors = action.payload;
             });
     },
 });
