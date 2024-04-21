@@ -20,7 +20,7 @@ export const ArticlesRecommendationsList = memo(({ className }: ArticlesRecommen
         data: recommendations,
         error,
     } = useArticlesRecommendationsList(3);
-    if (isLoading || error) return null;
+    if (isLoading || error || !recommendations) return null;
 
     return (
         <VStack gap="8" className={classNames('', {}, [className])}>

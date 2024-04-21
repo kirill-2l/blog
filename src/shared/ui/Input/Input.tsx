@@ -44,13 +44,14 @@ export const Input = memo((props: InputProps) => {
     };
 
     return (
-        <div className={classNames(cls.Input, modes, [className])} {...rest}>
+        <div className={classNames(cls.Input, modes, [className])}>
             <input
                 type={type}
                 className={cls.input}
                 onChange={onChangeHandler}
                 value={value}
                 readOnly={readonly}
+                {...rest}
             />
         </div>
     );
