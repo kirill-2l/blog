@@ -4,7 +4,9 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { LoginModal } from 'features/AuthByUsername';
 import { useSelector } from 'react-redux';
-import { getUserAuthData, userActions } from 'entities/User';
+import {
+    getUserAuthData, isUserAdmin, isUserManager, userActions,
+} from 'entities/User';
 import { useAppDispatch } from 'shared/libs/hooks/useAppDispatch/useAppDispatch';
 import { useNavigate } from 'react-router-dom';
 import { AppRoutes, RoutePath } from 'shared/config/routeConfig/routeConfig';
@@ -13,7 +15,6 @@ import { TextSize, TextTheme } from 'shared/ui/BaseText/BaseText';
 import { AppLinksTheme } from 'shared/ui/AppLink/AppLink';
 import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { SizeS } from 'shared/ui/BaseText/BaseText.stories';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -26,6 +27,9 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const authData = useSelector(getUserAuthData);
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
+    const isAdmin = useSelector(isUserAdmin);
+    const isManager = useSelector(isUserManager);
+    const isAdminPanelAvailable = isAdmin || isManager;
     const onCloseModal = useCallback(
         () => {
             setIsAuthModalOpened(false);
@@ -68,6 +72,10 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     className={cls.dropdown}
                     direction="bottom-left"
                     items={[
+                        ...(isAdminPanelAvailable ? [{
+                            content: t('Admin panel'),
+                            href: `${AppRoutes.ADMIN_PANEL}`,
+                        }] : []),
                         {
                             content: t('Profile page'),
                             href: `${AppRoutes.PROFILE}/${authData.id}`,
