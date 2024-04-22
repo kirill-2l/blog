@@ -1,6 +1,5 @@
 import { classNames } from 'shared/libs/classNames/classNames';
-import { useTranslation } from 'react-i18next';
-import { Fragment, memo, ReactNode } from 'react';
+import { Fragment, ReactNode } from 'react';
 import { Menu } from '@headlessui/react';
 import { DropdownDirection } from 'shared/types/ui';
 import { AppLink } from 'shared/ui';
@@ -20,7 +19,7 @@ interface DropdownProps {
     direction?: DropdownDirection;
 }
 
-export const Dropdown = memo((props: DropdownProps) => {
+export function Dropdown(props: DropdownProps) {
     const {
         items,
         className,
@@ -84,4 +83,4 @@ export const Dropdown = memo((props: DropdownProps) => {
             </Menu.Items>
         </Menu>
     );
-});
+}
