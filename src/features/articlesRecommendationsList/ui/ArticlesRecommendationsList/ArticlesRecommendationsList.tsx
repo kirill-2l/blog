@@ -28,6 +28,7 @@ export const ArticlesRecommendationsList = memo(({ className }: ArticlesRecommen
                 size={TextSize.L}
                 title={t('Recommendations')}
             />
+
             <ArticleList
                 target="_blank"
                 view={ArticleView.TILE}
