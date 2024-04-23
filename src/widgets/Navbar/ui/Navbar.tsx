@@ -4,17 +4,15 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { LoginModal } from 'features/AuthByUsername';
 import { useSelector } from 'react-redux';
-import {
-    getUserAuthData, isUserAdmin, isUserManager, userActions,
-} from 'entities/User';
-import { useAppDispatch } from 'shared/libs/hooks/useAppDispatch/useAppDispatch';
+import { getUserAuthData } from 'entities/User';
 import { useNavigate } from 'react-router-dom';
-import { AppRoutes, RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { AppLink, BaseText } from 'shared/ui';
 import { TextSize, TextTheme } from 'shared/ui/BaseText/BaseText';
 import { AppLinksTheme } from 'shared/ui/AppLink/AppLink';
-import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { HStack } from 'shared/ui/Stack';
+import { NotificationButton } from 'features/notificationButton';
+import { AvatarDropdown } from 'features/avatarDropdown';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -25,11 +23,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const [isAuthModalOpened, setIsAuthModalOpened] = useState(false);
     const { t } = useTranslation();
     const authData = useSelector(getUserAuthData);
-    const dispatch = useAppDispatch();
     const navigate = useNavigate();
-    const isAdmin = useSelector(isUserAdmin);
-    const isManager = useSelector(isUserManager);
-    const isAdminPanelAvailable = isAdmin || isManager;
     const onCloseModal = useCallback(
         () => {
             setIsAuthModalOpened(false);
@@ -48,11 +42,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         [],
     );
 
-    const onLogout = useCallback(
-        () => dispatch(userActions.logout()),
-        [dispatch],
-    );
-
     if (authData) {
         return (
             <div className={classNames(cls.navbar)}>
@@ -68,25 +57,10 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 >
                     {t('Create article')}
                 </AppLink>
-                <Dropdown
-                    className={cls.dropdown}
-                    direction="bottom-left"
-                    items={[
-                        ...(isAdminPanelAvailable ? [{
-                            content: t('Admin panel'),
-                            href: `${AppRoutes.ADMIN_PANEL}`,
-                        }] : []),
-                        {
-                            content: t('Profile page'),
-                            href: `${AppRoutes.PROFILE}/${authData.id}`,
-                        },
-                        {
-                            content: t('Log out'),
-                            onClick: onLogout,
-                        },
-                    ]}
-                    trigger={<Avatar size={35} src={authData.avatar} />}
-                />
+                <HStack className={cls.actions} gap="16">
+                    <NotificationButton />
+                    <AvatarDropdown />
+                </HStack>
 
             </div>
         );
