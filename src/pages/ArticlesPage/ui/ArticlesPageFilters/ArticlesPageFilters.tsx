@@ -10,7 +10,12 @@ import {
     getArticlesPageType,
     getArticlesPageView,
 } from 'pages/ArticlesPage/model/selectors/articlesPageSelector';
-import { ArticleSortSelector, ArticleTypeTabs, ArticleViewSwitcher } from 'entities/Article';
+import {
+    ArticleSortField,
+    ArticleSortSelector,
+    ArticleTypeTabs, ArticleView,
+    ArticleViewSwitcher,
+} from 'entities/Article';
 import { articlesPageActions } from 'pages/ArticlesPage/model/slice/articlesPage.slice';
 import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui';
@@ -19,6 +24,9 @@ import {
 } from 'pages/ArticlesPage/model/services/fetchArticlesList.ts/fetchArticlesList';
 import { useDebounce } from 'shared/libs/hooks/useDebounce/useDebounce';
 import { useSearchParams } from 'react-router-dom';
+import { SortOrder } from 'shared/types/types';
+import { ArticleType } from 'entities/Article/model/types/article';
+import { TabsItem } from 'shared/ui/Tabs/Tabs';
 import cls from './ArticlesPageFilters.module.scss';
 
 interface ArticlesPageFiltersProps {
@@ -45,33 +53,32 @@ export const ArticlesPageFilters = memo(({ className }: ArticlesPageFiltersProps
         setSearchParams(searchParams);
     }, [searchParams, setSearchParams]);
 
-    const onChangeView = useCallback((view) => {
+    const onChangeView = useCallback((view: ArticleView) => {
         dispatch(articlesPageActions.setView(view));
         dispatch(articlesPageActions.setPage(1));
     }, [dispatch]);
 
-    const onChangeSort = useCallback((sort) => {
+    const onChangeSort = useCallback((sort: ArticleSortField) => {
         dispatch(articlesPageActions.setSort(sort));
         dispatch(articlesPageActions.setPage(1));
         setQueryParams('sort', sort);
         debouncedFetchData();
     }, [debouncedFetchData, dispatch, setQueryParams]);
-    const onChangeOrder = useCallback((order) => {
+    const onChangeOrder = useCallback((order: SortOrder) => {
         dispatch(articlesPageActions.setOrder(order));
         dispatch(articlesPageActions.setPage(1));
         setQueryParams('order', order);
         debouncedFetchData();
     }, [debouncedFetchData, dispatch, setQueryParams]);
-    const onChangeSearch = useCallback((search) => {
+    const onChangeSearch = useCallback((search: string) => {
         dispatch(articlesPageActions.setSearch(search));
         dispatch(articlesPageActions.setPage(1));
         setQueryParams('search', search);
         debouncedFetchData();
     }, [debouncedFetchData, dispatch, setQueryParams]);
 
-    const onChangeTab = useCallback((tab) => {
-        console.log(tab);
-        dispatch(articlesPageActions.setType(tab.value));
+    const onChangeTab = useCallback((tab: TabsItem) => {
+        dispatch(articlesPageActions.setType(tab.value as ArticleType));
         dispatch(articlesPageActions.setPage(1));
         setQueryParams('type', tab.value);
         debouncedFetchData();

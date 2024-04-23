@@ -6,7 +6,7 @@ import { ArticleType } from 'entities/Article/model/types/article';
 
 interface ArticleTypeTabsProps {
     className?: string,
-    onChangeType: (tabs: ArticleType) => void,
+    onChangeType: (tabs: TabsItem) => void,
     value: ArticleType,
 }
 
@@ -34,7 +34,7 @@ export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
         ]
     ), [t]);
 
-    const onTabClick = useCallback((tab) => {
+    const onTabClick = useCallback((tab: TabsItem) => {
         onChangeType(tab);
     }, [onChangeType]);
 

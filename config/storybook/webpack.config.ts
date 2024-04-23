@@ -1,6 +1,7 @@
 import webpack, { RuleSetRule } from 'webpack';
 import path from 'path';
 
+import * as http from 'node:http';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 import { BuildPaths } from '../build/types/config';
 
@@ -37,7 +38,7 @@ export default ({ config }: { config: webpack.Configuration }): webpack.Configur
 
     config.plugins!.push(new webpack.DefinePlugin({
         __IS_DEV__: true,
-        __API_URL__: JSON.stringify(''),
+        __API_URL__: JSON.stringify('https://storybook.com'),
         __PROJECT__: JSON.stringify('storybook'),
     }));
     return config;
