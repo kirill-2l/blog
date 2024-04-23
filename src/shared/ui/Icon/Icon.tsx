@@ -1,16 +1,18 @@
 import { classNames } from 'shared/libs/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import React, { memo } from 'react';
+import React, { FunctionComponent, memo, VFC } from 'react';
 import cls from './Icon.module.scss';
 
 interface IconProps {
     className?: string,
-    Svg: React.VFC<React.SVGProps<SVGSVGElement>>;
+    Svg: FunctionComponent<React.SVGProps<SVGSVGElement>>;
+    inverted?: boolean
 }
 
 export const Icon = memo(({
     className,
+    inverted,
     Svg,
 }: IconProps) => (
-    <Svg className={classNames(cls.Icon, {}, [className])} />
+    <Svg className={classNames(inverted ? cls.inverted : cls.Icon, {}, [className])} />
 ));
