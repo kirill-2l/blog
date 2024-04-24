@@ -27,6 +27,7 @@ export const Popover = memo((props: PopoverProps) => {
         <div className={classNames(cls.Popover, {}, [className, popupCls.popup])}>
             <HeadlessPopover className="relative">
                 <HeadlessPopover.Button
+                    as="div"
                     className={popupCls.trigger}
                 >
                     {trigger}
