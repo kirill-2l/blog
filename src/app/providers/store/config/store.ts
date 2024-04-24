@@ -1,11 +1,11 @@
 import {
     CombinedState, configureStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { userReducer } from 'entities/User';
-import { createReducerManager } from 'app/providers/store/config/reducerManager';
-import { api } from 'shared/api/axios.instance';
-import { scrollPositionReducer } from 'features/persistScrollPosition';
-import { rtkApi } from 'shared/api/rtkApi.instance';
+import { userReducer } from '@/entities/User';
+import { createReducerManager } from '@/app/providers/store/config/reducerManager';
+import { api } from '@/shared/api/axios.instance';
+import { scrollPositionReducer } from '@/features/persistScrollPosition';
+import { rtkApi } from '@/shared/api/rtkApi.instance';
 import { StateSchema } from './state.schema';
 
 export function createReduxStore(

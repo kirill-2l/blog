@@ -1,30 +1,30 @@
-import { classNames } from 'shared/libs/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import React, { memo, useCallback } from 'react';
-
-import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/libs/hooks/useAppDispatch/useAppDispatch';
-import { BaseText } from 'shared/ui';
-import { TextTheme } from 'shared/ui/BaseText/BaseText';
-import { ProfileCard } from 'entities/Profile';
+import { useParams } from 'react-router-dom';
+import { classNames } from '@/shared/libs/classNames/classNames';
+
+import { Currency } from '@/entities/Currency';
+import { Country } from '@/entities/Country';
+import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
+import { BaseText } from '@/shared/ui';
+import { TextTheme } from '@/shared/ui/BaseText/BaseText';
+import { ProfileCard } from '@/entities/Profile';
 import {
     DynamicModuleLoader, ReducersList,
-} from 'shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
+} from '@/shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
 
 import {
     getProfileForm,
-} from 'features/editableProfileCard/model/selectors/getProfileForm/getProfileForm';
-import { useInitialEffect } from 'shared/libs/hooks/useInitialEffect/useInitialEffect';
-import { useParams } from 'react-router-dom';
+} from '@/features/editableProfileCard/model/selectors/getProfileForm/getProfileForm';
+import { useInitialEffect } from '@/shared/libs/hooks/useInitialEffect/useInitialEffect';
 import {
     fetchProfileData,
-} from 'features/editableProfileCard/model/services/fetchProfileData/fetchProfileData';
+} from '@/features/editableProfileCard/model/services/fetchProfileData/fetchProfileData';
 import {
     EditableProfileCardHeader,
-} from 'features/editableProfileCard/ui/EditableProfileCardHeader/EditableProfileCardHeader';
-import { VStack } from 'shared/ui/Stack';
+} from '@/features/editableProfileCard/ui/EditableProfileCardHeader/EditableProfileCardHeader';
+import { VStack } from '@/shared/ui/Stack';
 import {
     getProfileError,
 } from '../../model/selectors/getProfileError/getProfileError';

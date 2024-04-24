@@ -1,15 +1,15 @@
-import { classNames } from 'shared/libs/classNames/classNames';
 import {
     memo, MutableRefObject, UIEvent, useRef,
 } from 'react';
-import { useInfiniteScroll } from 'shared/libs/hooks/UseInfiniteScroll/UseInfiniteScroll';
-import { useAppDispatch } from 'shared/libs/hooks/useAppDispatch/useAppDispatch';
-import { getScrollPositionByPath, scrollPositionActions } from 'features/persistScrollPosition';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { StateSchema } from 'app/providers/store';
-import { useInitialEffect } from 'shared/libs/hooks/useInitialEffect/useInitialEffect';
-import { useThrottle } from 'shared/libs/hooks/useThrottle/useThrottle';
+import { classNames } from '@/shared/libs/classNames/classNames';
+import { useInfiniteScroll } from '@/shared/libs/hooks/UseInfiniteScroll/UseInfiniteScroll';
+import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
+import { getScrollPositionByPath, scrollPositionActions } from '@/features/persistScrollPosition';
+import { StateSchema } from '@/app/providers/store';
+import { useInitialEffect } from '@/shared/libs/hooks/useInitialEffect/useInitialEffect';
+import { useThrottle } from '@/shared/libs/hooks/useThrottle/useThrottle';
 import cls from './PageWrapper.module.scss';
 
 interface PageWrapperProps {

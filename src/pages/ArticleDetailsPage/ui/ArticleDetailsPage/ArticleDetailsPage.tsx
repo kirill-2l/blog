@@ -1,23 +1,23 @@
-import { classNames } from 'shared/libs/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-
-import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { memo } from 'react';
+import { classNames } from '@/shared/libs/classNames/classNames';
+
+import { ArticleDetails } from '@/entities/Article';
 import {
     DynamicModuleLoader,
     ReducersList,
-} from 'shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useDispatch } from 'react-redux';
-import { PageWrapper } from 'shared/ui/PageWrapper/PageWrapper';
-import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices';
+} from '@/shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
+import { PageWrapper } from '@/shared/ui/PageWrapper/PageWrapper';
+import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/model/slices';
 import {
     ArticleDetailsPageHeader,
-} from 'pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
-import { memo } from 'react';
-import { ArticlesRecommendationsList } from 'features/articlesRecommendationsList';
+} from '@/pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { ArticlesRecommendationsList } from '@/features/articlesRecommendationsList';
 import {
     ArticleDetailsComments,
-} from 'features/articlesRecommendationsList/ui/ArticleDetailsComments/ArticleDetailsComments';
+} from '@/features/articlesRecommendationsList/ui/ArticleDetailsComments/ArticleDetailsComments';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {

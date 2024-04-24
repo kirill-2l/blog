@@ -1,7 +1,7 @@
-import { StateSchema } from 'app/providers/store';
+import { StateSchema } from '@/app/providers/store';
 import {
     getProfileIsLoading,
-} from 'features/editableProfileCard/model/selectors/getProfileIsLoading/getProfileIsLoading';
+} from '@/features/editableProfileCard/model/selectors/getProfileIsLoading/getProfileIsLoading';
 
 describe('getProfileIsLoading.test', () => {
     test('should work with filled state', () => {

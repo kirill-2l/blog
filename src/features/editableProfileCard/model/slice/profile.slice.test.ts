@@ -1,11 +1,11 @@
-import { LoginSchema } from 'features/AuthByUsername';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
-import { ProfileSchema } from 'features/editableProfileCard';
-import { ValidateProfileError } from 'features/editableProfileCard/model/types/profile';
+import { LoginSchema } from '@/features/AuthByUsername';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import { ProfileSchema } from '@/features/editableProfileCard';
+import { ValidateProfileError } from '@/features/editableProfileCard/model/types/profile';
 import {
     updateProfileData,
-} from 'features/editableProfileCard/model/services/updateProfileData/updateProfileData';
+} from '@/features/editableProfileCard/model/services/updateProfileData/updateProfileData';
 import { profileActions, profileReducer } from './profile.slice';
 
 const data = {

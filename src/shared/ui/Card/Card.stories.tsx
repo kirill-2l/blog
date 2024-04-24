@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { BaseText } from 'shared/ui';
+import { BaseText } from '@/shared/ui';
 import { Card } from './Card';
 
 export default {

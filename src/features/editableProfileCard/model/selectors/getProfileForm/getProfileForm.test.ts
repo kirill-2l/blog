@@ -1,9 +1,9 @@
-import { StateSchema } from 'app/providers/store';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
+import { StateSchema } from '@/app/providers/store';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
 import {
     getProfileForm,
-} from 'features/editableProfileCard/model/selectors/getProfileForm/getProfileForm';
+} from '@/features/editableProfileCard/model/selectors/getProfileForm/getProfileForm';
 
 const data = {
     country: Country.Ukraine,

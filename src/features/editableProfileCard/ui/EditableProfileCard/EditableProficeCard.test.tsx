@@ -1,11 +1,11 @@
-import { fireEvent, screen } from '@testing-library/react';
-import { componentRender } from 'shared/libs/tests/componentRender';
-import { Profile } from 'entities/Profile';
-import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
-import { profileReducer } from 'features/editableProfileCard/model/slice/profile.slice';
+import { screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import { api } from 'shared/api/axios.instance';
+import { componentRender } from '@/shared/libs/tests/componentRender';
+import { Profile } from '@/entities/Profile';
+import { Currency } from '@/entities/Currency';
+import { Country } from '@/entities/Country';
+import { profileReducer } from '@/features/editableProfileCard/model/slice/profile.slice';
+import { api } from '@/shared/api/axios.instance';
 import { EditableProfileCard } from './EditableProfileCard';
 
 const profile: Profile = {

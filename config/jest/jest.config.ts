@@ -27,7 +27,6 @@ export default {
         '<rootDir>src',
     ],
     testMatch: [
-        // Обнаружил разницу между МАК ОС и ВИНДОУС!!!
         '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
     ],
     rootDir: '../../',

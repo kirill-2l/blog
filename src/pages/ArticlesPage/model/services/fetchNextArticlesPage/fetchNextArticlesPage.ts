@@ -1,14 +1,14 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/store/config/state.schema';
+import { ThunkConfig } from '@/app/providers/store/config/state.schema';
 import {
     getArticlesPageHasMore,
     getArticlesPageIsLoading,
     getArticlesPageNum,
-} from 'pages/ArticlesPage/model/selectors/articlesPageSelector';
-import { articlesPageActions } from 'pages/ArticlesPage/model/slice/articlesPage.slice';
+} from '@/pages/ArticlesPage/model/selectors/articlesPageSelector';
+import { articlesPageActions } from '@/pages/ArticlesPage/model/slice/articlesPage.slice';
 import {
     fetchArticlesList,
-} from 'pages/ArticlesPage/model/services/fetchArticlesList.ts/fetchArticlesList';
+} from '@/pages/ArticlesPage/model/services/fetchArticlesList.ts/fetchArticlesList';
 
 interface FetchArticlesListArgs {
     page: number;

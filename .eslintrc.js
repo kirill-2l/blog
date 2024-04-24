@@ -50,6 +50,7 @@ module.exports = {
                 ignoreComments: true,
                 ignoreTrailingComments: true,
                 ignoreUrls: true,
+                ignorePattern: '^import\\s.+\\sfrom\\s.+;$',
             },
         ],
         'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks

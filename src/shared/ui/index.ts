@@ -4,6 +4,6 @@ export { Input } from './Input/Input';
 export { Loader } from './Loader/Loader';
 export { Modal } from './Modal/Modal';
 export { Portal } from './Portal/Portal';
-export { BaseText } from 'shared/ui/BaseText/BaseText';
+export { BaseText } from '@/shared/ui/BaseText/BaseText';
 export { Icon } from './Icon/Icon';
 export { Skeleton } from './Skeleton/Skeleton';

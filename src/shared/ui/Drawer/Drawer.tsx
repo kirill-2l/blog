@@ -1,9 +1,9 @@
-import { classNames } from 'shared/libs/classNames/classNames';
 import { ReactNode, useCallback, useEffect } from 'react';
-import { useTheme } from 'app/providers/ThemeProvider';
-import { Portal } from 'shared/ui';
-import { Overlay } from 'shared/ui/Overlay/Overlay';
-import { useAnimationLibs } from 'shared/libs/components/AnimationProvider';
+import { classNames } from '@/shared/libs/classNames/classNames';
+import { useTheme } from '@/app/providers/ThemeProvider';
+import { Portal } from '@/shared/ui';
+import { Overlay } from '@/shared/ui/Overlay/Overlay';
+import { AnimationProvider, useAnimationLibs } from '@/shared/libs/components/AnimationProvider';
 import cls from './Drawer.module.scss';
 
 interface DrawerProps {
@@ -16,7 +16,7 @@ interface DrawerProps {
 
 const height = window.innerHeight - 100;
 
-export const DrawerContent = (props: DrawerProps) => {
+const DrawerContent = (props: DrawerProps) => {
     const {
         isOpen,
         children,
@@ -119,10 +119,16 @@ export const DrawerContent = (props: DrawerProps) => {
     );
 };
 
-export const Drawer = (props: DrawerProps) => {
+const DrawerAsync = (props: DrawerProps) => {
     const { isLoaded } = useAnimationLibs();
     if (!isLoaded) {
         return null;
     }
     return <DrawerContent {...props} />;
 };
+
+export const Drawer = (props: DrawerProps) => (
+    <AnimationProvider>
+        <DrawerAsync {...props} />
+    </AnimationProvider>
+);

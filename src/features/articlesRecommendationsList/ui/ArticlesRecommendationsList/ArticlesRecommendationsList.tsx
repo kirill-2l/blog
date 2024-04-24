@@ -1,13 +1,13 @@
-import { classNames } from 'shared/libs/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { BaseText } from 'shared/ui';
-import { TextSize } from 'shared/ui/BaseText/BaseText';
-import { ArticleList, ArticleView } from 'entities/Article';
-import { VStack } from 'shared/ui/Stack';
+import { classNames } from '@/shared/libs/classNames/classNames';
+import { BaseText } from '@/shared/ui';
+import { TextSize } from '@/shared/ui/BaseText/BaseText';
+import { ArticleList, ArticleView } from '@/entities/Article';
+import { VStack } from '@/shared/ui/Stack';
 import {
     useArticlesRecommendationsList,
-} from 'features/articlesRecommendationsList/api/articleRecommendations.api';
+} from '@/features/articlesRecommendationsList/api/articleRecommendations.api';
 
 interface ArticlesRecommendationsProps {
     className?: string,

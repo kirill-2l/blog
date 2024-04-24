@@ -1,7 +1,7 @@
-import { TestAsyncThunk } from 'shared/libs/tests/TestAsyncThunk';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
-import { ValidateProfileError } from 'features/editableProfileCard/model/types/profile';
+import { TestAsyncThunk } from '@/shared/libs/tests/TestAsyncThunk';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import { ValidateProfileError } from '@/features/editableProfileCard/model/types/profile';
 import { updateProfileData } from './updateProfileData';
 
 const data = {

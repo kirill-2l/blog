@@ -1,15 +1,15 @@
-import { classNames } from 'shared/libs/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { Input } from 'shared/ui/Input/Input';
 import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
-import { loginActions, loginReducer } from 'features/AuthByUsername/model/slice/login.slice';
-import { BaseText, TextTheme } from 'shared/ui/BaseText/BaseText';
-import i18n from 'shared/config/i18n/i18n';
+import { classNames } from '@/shared/libs/classNames/classNames';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Input } from '@/shared/ui/Input/Input';
+import { loginActions, loginReducer } from '@/features/AuthByUsername/model/slice/login.slice';
+import { BaseText, TextTheme } from '@/shared/ui/BaseText/BaseText';
+import i18n from '@/shared/config/i18n/i18n';
 import { DynamicModuleLoader } from
-    'shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/libs/hooks/useAppDispatch/useAppDispatch';
+    '@/shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';

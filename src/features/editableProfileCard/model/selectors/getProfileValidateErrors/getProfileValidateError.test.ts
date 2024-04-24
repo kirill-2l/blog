@@ -1,9 +1,9 @@
-import { StateSchema } from 'app/providers/store';
+import { StateSchema } from '@/app/providers/store';
 
-import { ValidateProfileError } from 'features/editableProfileCard/model/types/profile';
+import { ValidateProfileError } from '@/features/editableProfileCard/model/types/profile';
 import {
     getProfileValidateErrors,
-} from 'features/editableProfileCard/model/selectors/getProfileValidateErrors/getProfileValidateErrors';
+} from '@/features/editableProfileCard/model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 
 describe('getProfileValidateErrors.test', () => {
     test('should return error', () => {

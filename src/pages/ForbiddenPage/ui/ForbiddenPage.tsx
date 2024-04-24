@@ -1,6 +1,6 @@
-import { classNames } from 'shared/libs/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { PageWrapper } from 'shared/ui/PageWrapper/PageWrapper';
+import { classNames } from '@/shared/libs/classNames/classNames';
+import { PageWrapper } from '@/shared/ui/PageWrapper/PageWrapper';
 
 interface ForbiddenPageProps {
     className?: string,

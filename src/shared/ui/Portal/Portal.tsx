@@ -1,6 +1,6 @@
-import { classNames } from 'shared/libs/classNames/classNames';
 import { ReactNode } from 'react';
 import { createPortal } from 'react-dom';
+import { classNames } from '@/shared/libs/classNames/classNames';
 import cls from './Portal.module.scss';
 
 interface PortalProps {
