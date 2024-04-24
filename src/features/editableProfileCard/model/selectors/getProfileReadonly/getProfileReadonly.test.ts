@@ -1,7 +1,7 @@
-import { StateSchema } from 'app/providers/store';
+import { StateSchema } from '@/app/providers/store';
 import {
     getProfileReadonly,
-} from 'features/editableProfileCard/model/selectors/getProfileReadonly/getProfileReadonly';
+} from '@/features/editableProfileCard/model/selectors/getProfileReadonly/getProfileReadonly';
 
 describe('getProfileReadonly.test', () => {
     test('should work with filled state', () => {

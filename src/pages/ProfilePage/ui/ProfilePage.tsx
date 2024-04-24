@@ -1,8 +1,8 @@
 import React from 'react';
-import { PageWrapper } from 'shared/ui/PageWrapper/PageWrapper';
-import { VStack } from 'shared/ui/Stack';
-import { EditableProfileCard } from 'features/editableProfileCard';
 import { useParams } from 'react-router-dom';
+import { PageWrapper } from '@/shared/ui/PageWrapper/PageWrapper';
+import { VStack } from '@/shared/ui/Stack';
+import { EditableProfileCard } from '@/features/editableProfileCard';
 
 const ProfilePage = () => {
     const { id } = useParams();

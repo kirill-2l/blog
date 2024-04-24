@@ -1,4 +1,4 @@
-import { rtkApi } from 'shared/api/rtkApi.instance';
+import { rtkApi } from '@/shared/api/rtkApi.instance';
 import { INotification } from '../model/types/notifications';
 
 const notificationApi = rtkApi.injectEndpoints({

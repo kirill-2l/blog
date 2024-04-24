@@ -2,10 +2,10 @@ import {
     Fragment, memo, ReactNode, useState,
 } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
-import { classNames } from 'shared/libs/classNames/classNames';
-import { Button } from 'shared/ui';
-import { HStack } from 'shared/ui/Stack';
-import { DropdownDirection } from 'shared/types/ui';
+import { classNames } from '@/shared/libs/classNames/classNames';
+import { Button } from '@/shared/ui';
+import { HStack } from '@/shared/ui/Stack';
+import { DropdownDirection } from '@/shared/types/ui';
 import { mapDirectionClass } from '../../utils/styleMapper';
 import cls from './ListBox.module.scss';
 import popupCls from '../../styles/popup.module.scss';

@@ -1,13 +1,13 @@
 import { useTranslation } from 'react-i18next';
 import { FC, ReactNode, useEffect } from 'react';
 import { useStore } from 'react-redux';
+import { Reducer } from '@reduxjs/toolkit';
 import {
     ReduxStoreWithManager,
     StateSchema,
     StateSchemaKey,
-} from 'app/providers/store/config/state.schema';
-import { Reducer } from '@reduxjs/toolkit';
-import { useAppDispatch } from 'shared/libs/hooks/useAppDispatch/useAppDispatch';
+} from '@/app/providers/store/config/state.schema';
+import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
 
 export type ReducersList = {
     [key in StateSchemaKey]?: Reducer<NonNullable<StateSchema[key]>>

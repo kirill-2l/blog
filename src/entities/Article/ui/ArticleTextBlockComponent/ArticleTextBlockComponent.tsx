@@ -1,8 +1,8 @@
-import { classNames } from 'shared/libs/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { ArticleTextBlock } from 'entities/Article/model/types/article';
-import { BaseText } from 'shared/ui';
+import { classNames } from '@/shared/libs/classNames/classNames';
+import { ArticleTextBlock } from '@/entities/Article/model/types/article';
+import { BaseText } from '@/shared/ui';
 import cls from './ArticleTextBlockComponent.module.scss';
 
 interface ArticleTextBlockComponentProps {

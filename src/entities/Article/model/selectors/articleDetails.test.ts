@@ -1,10 +1,10 @@
-import { StateSchema } from 'app/providers/store';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
+import { StateSchema } from '@/app/providers/store';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
 import {
     getArticleDetailsData, getArticleDetailsError,
     getArticleDetailsIsLoading,
-} from 'entities/Article/model/selectors/articleDetails';
+} from '@/entities/Article/model/selectors/articleDetails';
 
 const data = {
     country: Country.Ukraine,

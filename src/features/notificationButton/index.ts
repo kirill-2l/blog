@@ -1,3 +1,3 @@
 export {
     NotificationButton,
-} from 'features/notificationButton/ui/NotificationButton/NotificationButton';
+} from '@/features/notificationButton/ui/NotificationButton/NotificationButton';

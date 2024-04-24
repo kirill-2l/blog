@@ -1,32 +1,32 @@
 import { useTranslation } from 'react-i18next';
+import { memo, useCallback } from 'react';
+import { useSelector } from 'react-redux';
 import {
     DynamicModuleLoader,
     ReducersList,
-} from 'shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
-import { memo, useCallback } from 'react';
+} from '@/shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
     fetchArticleById,
-} from 'entities/Article/model/services/fetchArticleById/fetchArticleById';
-import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/libs/hooks/useAppDispatch/useAppDispatch';
-import { BaseText, Icon } from 'shared/ui';
-import { TextAlign, TextSize } from 'shared/ui/BaseText/BaseText';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
-import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
-import { ArticleBlock, ArticleBlockType } from 'entities/Article/model/types/article';
+} from '@/entities/Article/model/services/fetchArticleById/fetchArticleById';
+import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
+import { BaseText, Icon } from '@/shared/ui';
+import { TextAlign, TextSize } from '@/shared/ui/BaseText/BaseText';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
+import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
+import { ArticleBlock, ArticleBlockType } from '@/entities/Article/model/types/article';
 import {
     ArticleCodeBlockComponent,
-} from 'entities/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+} from '@/entities/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import {
     ArticleTextBlockComponent,
-} from 'entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
+} from '@/entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
 import {
     ArticleImageBlockComponent,
-} from 'entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
-import { useInitialEffect } from 'shared/libs/hooks/useInitialEffect/useInitialEffect';
-import { HStack, VStack } from 'shared/ui/Stack';
+} from '@/entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { useInitialEffect } from '@/shared/libs/hooks/useInitialEffect/useInitialEffect';
+import { HStack, VStack } from '@/shared/ui/Stack';
 import { articleDetailsReducer } from '../../model/slice/articleDetails.slice';
 import {
     getArticleDetailsData,

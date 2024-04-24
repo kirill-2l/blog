@@ -1,15 +1,15 @@
-import { classNames } from 'shared/libs/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { HTMLAttributeAnchorTarget, HTMLAttributes, memo } from 'react';
+import { classNames } from '@/shared/libs/classNames/classNames';
 import {
     AppLink, BaseText, Button, Icon,
-} from 'shared/ui';
-import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
-import { Card } from 'shared/ui/Card/Card';
+} from '@/shared/ui';
+import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
+import { Card } from '@/shared/ui/Card/Card';
 import {
     ArticleTextBlockComponent,
-} from 'entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+} from '@/entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import cls from './ArticleListItem.module.scss';
 import {
     Article,
