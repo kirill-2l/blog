@@ -16,8 +16,9 @@ interface RatingCardProps {
     title?: string;
     feedbackTitle?: string;
     hasFeedback?: boolean;
+    rate?: number;
     onCancel?: (starsCount: number) => void;
-    onAccept?: (starsCount: number, feedback?: string) => void;
+    onAccept?: (starsCount: number, feedback: string) => void;
 }
 
 export const RatingCard = memo((props: RatingCardProps) => {
@@ -29,10 +30,11 @@ export const RatingCard = memo((props: RatingCardProps) => {
         title,
         onCancel,
         onAccept,
+        rate = 0,
     } = props;
 
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [starsCount, setStarsCount] = useState(0);
+    const [starsCount, setStarsCount] = useState(rate);
     const [feedback, setFeedback] = useState('');
 
     const onSelectStars = useCallback((selectedStarsCount: number) => {
@@ -40,9 +42,9 @@ export const RatingCard = memo((props: RatingCardProps) => {
         if (hasFeedback) {
             setIsModalOpen(true);
         } else {
-            onAccept?.(selectedStarsCount);
+            onCancel?.(selectedStarsCount);
         }
-    }, [hasFeedback, onAccept]);
+    }, [hasFeedback, onCancel]);
 
     const acceptHandler = useCallback(() => {
         setIsModalOpen(false);
@@ -51,8 +53,8 @@ export const RatingCard = memo((props: RatingCardProps) => {
 
     const cancelHandler = useCallback(() => {
         setIsModalOpen(false);
-        onAccept?.(starsCount);
-    }, [onAccept, starsCount]);
+        onCancel?.(starsCount);
+    }, [onCancel, starsCount]);
 
     const modalContent = (
         <VStack max gap="32">
@@ -73,10 +75,10 @@ export const RatingCard = memo((props: RatingCardProps) => {
     );
 
     return (
-        <Card className={classNames(cls.RatingCard, {}, [className])}>
+        <Card className={classNames('', {}, [className])}>
             <VStack gap="8">
-                <BaseText title={title} />
-                <StarRating size={40} onSelect={onSelectStars} />
+                <BaseText title={rate ? 'Thank you for review' : title} />
+                <StarRating selectedStars={starsCount} size={40} onSelect={onSelectStars} />
                 <BrowserView>
                     <Modal isOpen={isModalOpen} lazy>
                         {modalContent}
