@@ -7,7 +7,7 @@ import {
     ArticleListItemSkeleton,
 } from '@/entities/Article/ui/ArticleListItemSkeleton/ArticleListItemSkeleton';
 import { BaseText } from '@/shared/ui';
-import { TextSize } from '@/shared/ui/BaseText/BaseText';
+import { TextSize } from '@/shared/ui/BaseText';
 import cls from './ArticleList.module.scss';
 
 interface ArticleListProps {

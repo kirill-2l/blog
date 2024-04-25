@@ -5,7 +5,7 @@ import {
     AppLink, BaseText, Button, Icon,
 } from '@/shared/ui';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
-import { Card } from '@/shared/ui/Card/Card';
+import { Card } from '@/shared/ui/Card';
 import {
     ArticleTextBlockComponent,
 } from '@/entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';

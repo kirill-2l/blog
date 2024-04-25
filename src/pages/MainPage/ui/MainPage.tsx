@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { PageWrapper } from '@/shared/ui/PageWrapper/PageWrapper';
-import { StarRating } from '@/shared/ui/StarRating/StarRating';
+import { PageWrapper } from '@/shared/ui/PageWrapper';
+import { StarRating } from '@/shared/ui/StarRating';
 import { RatingCard } from '@/entities/Rating';
 
 const MainPage = () => {

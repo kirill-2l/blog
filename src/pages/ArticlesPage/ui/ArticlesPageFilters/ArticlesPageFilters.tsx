@@ -18,7 +18,7 @@ import {
     ArticleViewSwitcher,
 } from '@/entities/Article';
 import { articlesPageActions } from '@/pages/ArticlesPage/model/slice/articlesPage.slice';
-import { Card } from '@/shared/ui/Card/Card';
+import { Card } from '@/shared/ui/Card';
 import { Input } from '@/shared/ui';
 import {
     fetchArticlesList,
@@ -26,7 +26,7 @@ import {
 import { useDebounce } from '@/shared/libs/hooks/useDebounce/useDebounce';
 import { SortOrder } from '@/shared/types/types';
 import { ArticleType } from '@/entities/Article/model/types/article';
-import { TabsItem } from '@/shared/ui/Tabs/Tabs';
+import { TabsItem } from '@/shared/ui/Tabs';
 import cls from './ArticlesPageFilters.module.scss';
 
 interface ArticlesPageFiltersProps {

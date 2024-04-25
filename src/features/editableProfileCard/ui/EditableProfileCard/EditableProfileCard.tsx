@@ -8,7 +8,7 @@ import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
 import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
 import { BaseText } from '@/shared/ui';
-import { TextTheme } from '@/shared/ui/BaseText/BaseText';
+import { TextTheme } from '@/shared/ui/BaseText';
 import { ProfileCard } from '@/entities/Profile';
 import {
     DynamicModuleLoader, ReducersList,

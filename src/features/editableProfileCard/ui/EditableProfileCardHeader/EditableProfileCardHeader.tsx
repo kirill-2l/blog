@@ -16,7 +16,7 @@ import {
 } from '@/features/editableProfileCard/model/services/updateProfileData/updateProfileData';
 import { HStack } from '@/shared/ui/Stack';
 import { BaseText, Button } from '@/shared/ui';
-import { ButtonTheme } from '@/shared/ui/Button/Button';
+import { ButtonTheme } from '@/shared/ui/Button';
 
 interface EditableProfileCardHeaderProps {
     className?: string,

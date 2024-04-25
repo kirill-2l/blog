@@ -8,7 +8,7 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
-import { PageWrapper } from '@/shared/ui/PageWrapper/PageWrapper';
+import { PageWrapper } from '@/shared/ui/PageWrapper';
 import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/model/slices';
 import {
     ArticleDetailsPageHeader,

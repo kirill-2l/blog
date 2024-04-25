@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/app/providers/ThemeProvider';
-import { AppLink, AppLinksTheme } from '@/shared/ui/AppLink/AppLink';
+import { AppLink, AppLinksTheme } from '@/shared/ui/AppLink';
 
 export default {
     title: 'shared/AppLink',
