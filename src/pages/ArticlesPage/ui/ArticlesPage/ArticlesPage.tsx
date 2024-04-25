@@ -8,7 +8,7 @@ import {
 import { articlesPageReducer } from '@/pages/ArticlesPage/model/slice/articlesPage.slice';
 import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/libs/hooks/useInitialEffect/useInitialEffect';
-import { PageWrapper } from '@/shared/ui/PageWrapper/PageWrapper';
+import { PageWrapper } from '@/shared/ui/PageWrapper';
 import {
     fetchNextArticlesPage,
 } from '@/pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage';

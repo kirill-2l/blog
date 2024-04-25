@@ -1,6 +1,4 @@
 import { TestAsyncThunk } from '@/shared/libs/tests/TestAsyncThunk';
-import { Country } from '@/entities/Country';
-import { Currency } from '@/entities/Currency';
 import { ArticleView } from '@/entities/Article';
 import { ArticleSortField, ArticleType } from '@/entities/Article/model/types/article';
 import {

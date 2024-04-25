@@ -1,5 +1,5 @@
 import {
-    Fragment, memo, ReactNode, useState,
+    Fragment, memo, ReactNode,
 } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
 import { classNames } from '@/shared/libs/classNames/classNames';

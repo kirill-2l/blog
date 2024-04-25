@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { LoginSchema } from '@/features/AuthByUsername/model/types/Login.schema';
 import { addCommentFormSchema } from '@/features/addCommentForm';
 
 const initialState: addCommentFormSchema = {

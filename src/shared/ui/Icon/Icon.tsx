@@ -1,5 +1,4 @@
-import { useTranslation } from 'react-i18next';
-import React, { FunctionComponent, memo, VFC } from 'react';
+import React, { FunctionComponent, memo } from 'react';
 import { classNames } from '@/shared/libs/classNames/classNames';
 import cls from './Icon.module.scss';
 

@@ -2,10 +2,10 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
 import { classNames } from '@/shared/libs/classNames/classNames';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import { Input } from '@/shared/ui/Input/Input';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Input } from '@/shared/ui/Input';
 import { loginActions, loginReducer } from '@/features/AuthByUsername/model/slice/login.slice';
-import { BaseText, TextTheme } from '@/shared/ui/BaseText/BaseText';
+import { BaseText, TextTheme } from '@/shared/ui/BaseText';
 import i18n from '@/shared/config/i18n/i18n';
 import { DynamicModuleLoader } from
     '@/shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';

@@ -1,7 +1,5 @@
 import webpack, { RuleSetRule } from 'webpack';
 import path from 'path';
-
-import * as http from 'node:http';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 import { BuildPaths } from '../build/types/config';
 
@@ -29,7 +27,11 @@ export default ({ config }: { config: webpack.Configuration }): webpack.Configur
 
         return rule;
     });
-
+    // eslint-disable-next-line no-param-reassign
+    config!.resolve!.alias = {
+        ...config!.resolve!.alias,
+        '@': paths.src,
+    };
     config.module!.rules.push({
         test: /\.svg$/,
         use: ['@svgr/webpack'],

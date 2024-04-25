@@ -10,9 +10,9 @@ import {
 } from '@/entities/Article/model/services/fetchArticleById/fetchArticleById';
 import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
 import { BaseText, Icon } from '@/shared/ui';
-import { TextAlign, TextSize } from '@/shared/ui/BaseText/BaseText';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { TextAlign, TextSize } from '@/shared/ui/BaseText';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { Avatar } from '@/shared/ui/Avatar';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
 import { ArticleBlock, ArticleBlockType } from '@/entities/Article/model/types/article';
@@ -26,7 +26,7 @@ import {
     ArticleImageBlockComponent,
 } from '@/entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { useInitialEffect } from '@/shared/libs/hooks/useInitialEffect/useInitialEffect';
-import { HStack, VStack } from '@/shared/ui/Stack';
+import { HStack } from '@/shared/ui/Stack';
 import { articleDetailsReducer } from '../../model/slice/articleDetails.slice';
 import {
     getArticleDetailsData,

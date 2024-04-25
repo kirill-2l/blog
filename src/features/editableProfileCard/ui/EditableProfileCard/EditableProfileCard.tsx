@@ -1,14 +1,13 @@
 import { useTranslation } from 'react-i18next';
 import React, { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
 import { classNames } from '@/shared/libs/classNames/classNames';
 
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
 import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
 import { BaseText } from '@/shared/ui';
-import { TextTheme } from '@/shared/ui/BaseText/BaseText';
+import { TextTheme } from '@/shared/ui/BaseText';
 import { ProfileCard } from '@/entities/Profile';
 import {
     DynamicModuleLoader, ReducersList,
