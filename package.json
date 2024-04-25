@@ -24,7 +24,8 @@
     "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
     "storybook:build": "build-storybook -c ./config/storybook",
-    "prepare": "husky"
+    "prepare": "husky",
+    "postinstall": "rimraf ./node_modules/.cache"
   },
   "keywords": [],
   "author": "",
@@ -90,6 +91,7 @@
     "react-refresh": "^0.14.0",
     "reg-cli": "^0.18.1",
     "regenerator-runtime": "^0.13.11",
+    "rimraf": "^5.0.5",
     "sass": "^1.49.9",
     "sass-loader": "^12.6.0",
     "storybook-addon-mock": "^2.4.1",
