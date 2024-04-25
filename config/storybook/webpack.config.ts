@@ -29,7 +29,11 @@ export default ({ config }: { config: webpack.Configuration }): webpack.Configur
 
         return rule;
     });
-
+    // eslint-disable-next-line no-param-reassign
+    config!.resolve!.alias = {
+        ...config!.resolve!.alias,
+        '@': paths.src,
+    };
     config.module!.rules.push({
         test: /\.svg$/,
         use: ['@svgr/webpack'],
