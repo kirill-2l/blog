@@ -551,6 +551,21 @@
       ]
     }
   ],
+  "article-ratings": [
+    {
+      "userId": "1",
+      "rate": 5,
+      "feedback": "test",
+      "articleId": "1",
+      "id": 1
+    },
+    {
+      "userId": "1",
+      "rate": 5,
+      "articleId": "2",
+      "id": 2
+    }
+  ],
   "comments": [
     {
       "id": "1",
