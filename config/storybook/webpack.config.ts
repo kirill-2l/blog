@@ -1,7 +1,5 @@
 import webpack, { RuleSetRule } from 'webpack';
 import path from 'path';
-
-import * as http from 'node:http';
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 import { BuildPaths } from '../build/types/config';
 

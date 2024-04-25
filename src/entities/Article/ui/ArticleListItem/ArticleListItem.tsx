@@ -9,7 +9,7 @@ import { Card } from '@/shared/ui/Card/Card';
 import {
     ArticleTextBlockComponent,
 } from '@/entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { RoutePath } from '@/app/providers/ThemeProvider/router/config/routeConfig';
 import cls from './ArticleListItem.module.scss';
 import {
     Article,

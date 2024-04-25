@@ -4,7 +4,7 @@ import { IComment } from '@/entities/Comment';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { AppLink, BaseText, Skeleton } from '@/shared/ui';
 import { TextSize } from '@/shared/ui/BaseText/BaseText';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { RoutePath } from '@/app/providers/ThemeProvider/router/config/routeConfig';
 import cls from './CommentCard.module.scss';
 
 interface CommentCardProps {
