@@ -4,8 +4,8 @@ import { IComment } from '@/entities/Comment';
 import { Avatar } from '@/shared/ui/Avatar';
 import { AppLink, BaseText, Skeleton } from '@/shared/ui';
 import { TextSize } from '@/shared/ui/BaseText';
-import { RoutePath } from '@/app/providers/ThemeProvider/router/config/routeConfig';
 import cls from './CommentCard.module.scss';
+import { getRouteProfile } from '@/shared/const/router';
 
 interface CommentCardProps {
     className?: string,
@@ -39,7 +39,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
 
     return (
         <div className={classNames(cls.CommentCard, {}, [className, cls.loading])}>
-            <AppLink to={`${RoutePath.profile}${comment.user.id}`} className={cls.header}>
+            <AppLink to={getRouteProfile(comment.user.id)} className={cls.header}>
                 {comment?.user?.avatar && <Avatar src={comment.user.avatar} size={30} />}
                 <BaseText
                     className={cls.username}

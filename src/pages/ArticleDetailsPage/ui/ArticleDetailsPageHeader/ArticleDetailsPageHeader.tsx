@@ -3,11 +3,11 @@ import { memo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Button } from '@/shared/ui';
-import { RoutePath } from '@/app/providers/ThemeProvider/router/config/routeConfig';
 import { classNames } from '@/shared/libs/classNames/classNames';
 import { getArticleDetailsData } from '@/entities/Article/model/selectors/articleDetails';
 import { getCanEditArticle } from '@/pages/ArticleDetailsPage/model/selectors/article';
 import cls from './ArticleDetailsPageHeader.module.scss';
+import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
 
 interface ArticleDetailsPageHeaderProps {
     className?: string,
@@ -19,10 +19,10 @@ export const ArticleDetailsPageHeader = memo(({ className }: ArticleDetailsPageH
     const canEdit = useSelector(getCanEditArticle);
     const article = useSelector(getArticleDetailsData);
     const onBackToList = useCallback(() => {
-        navigate(RoutePath.articles);
+        navigate(getRouteArticles());
     }, [navigate]);
     const onEditArticle = useCallback(() => {
-        navigate(`${RoutePath.article_detail}${article?.id}/edit`);
+        navigate(getRouteArticleEdit(article?.id || ''));
     }, [article?.id, navigate]);
     return (
         <div className={classNames(cls.ArticleDetailsPageHeader, {}, [className])}>

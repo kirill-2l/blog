@@ -6,7 +6,6 @@ import { classNames } from '@/shared/libs/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { LoginModal } from '@/features/AuthByUsername';
 import { getUserAuthData } from '@/entities/User';
-import { RoutePath } from '@/app/providers/ThemeProvider/router/config/routeConfig';
 import { AppLink, BaseText } from '@/shared/ui';
 import { TextSize, TextTheme } from '@/shared/ui/BaseText';
 import { AppLinksTheme } from '@/shared/ui/AppLink';
@@ -14,6 +13,7 @@ import { HStack } from '@/shared/ui/Stack';
 import { NotificationButton } from '@/features/notificationButton';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import cls from './Navbar.module.scss';
+import { getRouteArticleCreate, getRouteMain } from '@/shared/const/router';
 
 interface NavbarProps {
     className?: string;
@@ -33,7 +33,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const onSuccess = useCallback(
         () => {
             onCloseModal();
-            navigate(RoutePath.main);
+            navigate(getRouteMain());
         },
         [navigate, onCloseModal],
     );
@@ -53,7 +53,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 />
                 <AppLink
                     theme={AppLinksTheme.SECONDARY}
-                    to={RoutePath.article_create}
+                    to={getRouteArticleCreate()}
                 >
                     {t('Create article')}
                 </AppLink>
