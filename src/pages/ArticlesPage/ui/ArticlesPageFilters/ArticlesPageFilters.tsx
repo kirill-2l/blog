@@ -13,9 +13,7 @@ import {
 } from '@/pages/ArticlesPage/model/selectors/articlesPageSelector';
 import {
     ArticleSortField,
-    ArticleSortSelector,
-    ArticleTypeTabs, ArticleView,
-    ArticleViewSwitcher,
+    ArticleView,
 } from '@/entities/Article';
 import { articlesPageActions } from '@/pages/ArticlesPage/model/slice/articlesPage.slice';
 import { Card } from '@/shared/ui/Card';
@@ -28,6 +26,9 @@ import { SortOrder } from '@/shared/types/types';
 import { ArticleType } from '@/entities/Article/model/types/article';
 import { TabsItem } from '@/shared/ui/Tabs';
 import cls from './ArticlesPageFilters.module.scss';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
+import { ArticleViewSwitcher } from '@/features/ArticleViewSwitcher';
 
 interface ArticlesPageFiltersProps {
     className?: string,
