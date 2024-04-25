@@ -9,7 +9,6 @@ import { Card } from '@/shared/ui/Card';
 import {
     ArticleTextBlockComponent,
 } from '@/entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { RoutePath } from '@/app/providers/ThemeProvider/router/config/routeConfig';
 import cls from './ArticleListItem.module.scss';
 import {
     Article,
@@ -17,6 +16,7 @@ import {
     ArticleTextBlock,
     ArticleView,
 } from '../../model/types/article';
+import { getRouteArticleDetails } from '@/shared/const/router';
 
 interface ArticleListItemProps {
     className?: string,
@@ -49,7 +49,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         return (
             <AppLink
                 target={target}
-                to={RoutePath.article_detail + article.id}
+                to={getRouteArticleDetails(article.id)}
                 className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
             >
                 <Card>
@@ -82,7 +82,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                 {textBlock
                     && <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />}
                 <div className={cls.footer}>
-                    <AppLink target={target} to={RoutePath.article_detail + article.id}>
+                    <AppLink target={target} to={getRouteArticleDetails(article.id)}>
                         <Button>{t('Read more')}</Button>
                     </AppLink>
                 </div>
