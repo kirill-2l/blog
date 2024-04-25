@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import React, { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
 import { classNames } from '@/shared/libs/classNames/classNames';
 
 import { Currency } from '@/entities/Currency';

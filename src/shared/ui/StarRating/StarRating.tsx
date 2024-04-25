@@ -1,5 +1,4 @@
-import { useTranslation } from 'react-i18next';
-import { memo, useMemo, useState } from 'react';
+import { memo, useState } from 'react';
 import { classNames } from '@/shared/libs/classNames/classNames';
 import cls from './StarRating.module.scss';
 import StarIcon from '@/shared/assets/icons/star-20-20.svg';

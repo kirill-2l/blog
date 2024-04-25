@@ -1,4 +1,3 @@
-import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { classNames } from '@/shared/libs/classNames/classNames';
 import { ArticleCodeBlock } from '@/entities/Article/model/types/article';

@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { classNames } from '@/shared/libs/classNames/classNames';
 import { INotification } from '@/entities/Notification/model/types/notifications';
 import { Card, CardTheme } from '@/shared/ui/Card';
-import { AppLink, BaseText } from '@/shared/ui';
+import { BaseText } from '@/shared/ui';
 import cls from './NotificationItem.module.scss';
 
 interface NotificationItemProps {

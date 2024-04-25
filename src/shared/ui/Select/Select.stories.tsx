@@ -1,7 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Select } from '@/shared/ui/Select';
-import AvatarSrc from './avatar.png';
 
 export default {
     title: 'shared/Select',

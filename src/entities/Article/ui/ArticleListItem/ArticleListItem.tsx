@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { HTMLAttributeAnchorTarget, HTMLAttributes, memo } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { classNames } from '@/shared/libs/classNames/classNames';
 import {
     AppLink, BaseText, Button, Icon,

@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 import { Button } from '@/shared/ui';
 import { RoutePath } from '@/app/providers/ThemeProvider/router/config/routeConfig';
 import { classNames } from '@/shared/libs/classNames/classNames';
-import { getUserAuthData } from '@/entities/User';
 import { getArticleDetailsData } from '@/entities/Article/model/selectors/articleDetails';
 import { getCanEditArticle } from '@/pages/ArticleDetailsPage/model/selectors/article';
 import cls from './ArticleDetailsPageHeader.module.scss';
