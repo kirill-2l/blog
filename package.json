@@ -127,6 +127,9 @@
     "react-redux": "^7.2.9",
     "react-router-dom": "^6.2.1"
   },
+  "lint-staged": {
+    "**/*.{ts, .tsx}": "eslint"
+  },
   "loki": {
     "configurations": {
       "chrome.laptop": {
