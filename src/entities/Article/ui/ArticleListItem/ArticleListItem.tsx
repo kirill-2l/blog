@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { classNames } from '@/shared/libs/classNames/classNames';
 import {
-    AppLink, BaseText, Button, Icon,
+    AppLink, BaseText, Button, Icon, Skeleton,
 } from '@/shared/ui';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import { Card } from '@/shared/ui/Card';
@@ -17,6 +17,7 @@ import {
     ArticleView,
 } from '../../model/types/article';
 import { getRouteArticleDetails } from '@/shared/const/router';
+import { AppImage } from '@/shared/ui/AppImage';
 
 interface ArticleListItemProps {
     className?: string,
@@ -54,7 +55,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             >
                 <Card>
                     <div className={cls.imgWrapper}>
-                        <img src={article.img} alt={article.title} className={cls.img} />
+                        <AppImage
+                            fallback={<Skeleton width="100%" height={250} />}
+                            src={article.img}
+                            alt={article.title}
+                            className={cls.img}
+                        />
                         <BaseText text={article.createdAt} className={cls.date} />
                     </div>
                     <div className={cls.infoWrapper}>
@@ -78,7 +84,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                 <BaseText text={article.title} className={cls.title} />
                 <div className={cls.header} />
                 {types}
-                <img className={cls.img} src={article.img} alt={article.title} />
+                <AppImage
+                    fallback={<Skeleton width={200} height={250} />}
+                    className={cls.img}
+                    src={article.img}
+                    alt={article.title}
+                />
                 {textBlock
                     && <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />}
                 <div className={cls.footer}>
