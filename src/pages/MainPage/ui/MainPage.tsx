@@ -12,7 +12,7 @@ const MainPage = () => {
     };
 
     return (
-        <PageWrapper>
+        <PageWrapper data-testid="MainPage">
             {t('main page')}
             <RatingCard
                 title="How it was?"

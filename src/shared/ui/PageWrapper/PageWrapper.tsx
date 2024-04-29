@@ -11,18 +11,22 @@ import { StateSchema } from '@/app/providers/store';
 import { useInitialEffect } from '@/shared/libs/hooks/useInitialEffect/useInitialEffect';
 import { useThrottle } from '@/shared/libs/hooks/useThrottle/useThrottle';
 import cls from './PageWrapper.module.scss';
+import { TestProps } from '@/shared/types/testPropType';
 
-interface PageWrapperProps {
+interface PageWrapperProps extends TestProps {
     className?: string,
     children: React.ReactNode,
     onScrollEnd?: () => void;
 }
 
-export const PageWrapper = memo(({
-    className,
-    children,
-    onScrollEnd,
-}: PageWrapperProps) => {
+export const PageWrapper = memo((props: PageWrapperProps) => {
+    const {
+        className,
+        children,
+        onScrollEnd,
+        'data-testid': dataTestid = 'Page',
+    } = props;
+
     const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const dispatch = useAppDispatch();
@@ -50,6 +54,7 @@ export const PageWrapper = memo(({
 
     return (
         <main
+            data-testid={dataTestid}
             onScroll={onScroll}
             ref={wrapperRef}
             className={classNames(cls.PageWrapper, {}, [className])}

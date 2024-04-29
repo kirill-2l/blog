@@ -22,7 +22,8 @@ function AppRouter() {
                 <Route
                     key={path}
                     path={path}
-                    element={route.authOnly ? <RequireAuth>{element}</RequireAuth> : element}
+                    element={route.authOnly
+                        ? <RequireAuth roles={route?.roles}>{element}</RequireAuth> : element}
                 />
             );
         },

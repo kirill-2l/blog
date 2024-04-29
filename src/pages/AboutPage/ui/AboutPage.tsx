@@ -5,7 +5,7 @@ import { PageWrapper } from '@/shared/ui/PageWrapper';
 const AboutPage = () => {
     const { t } = useTranslation('about');
     return (
-        <PageWrapper>
+        <PageWrapper data-testid="AboutPage">
             {t('About page')}
         </PageWrapper>
     );

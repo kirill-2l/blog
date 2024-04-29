@@ -8,7 +8,7 @@ const ProfilePage = () => {
     const { id } = useParams();
     if (!id) return null;
     return (
-        <PageWrapper>
+        <PageWrapper data-testid="ProfilePage">
             <VStack gap="16" max>
 
                 <EditableProfileCard id={id} />
