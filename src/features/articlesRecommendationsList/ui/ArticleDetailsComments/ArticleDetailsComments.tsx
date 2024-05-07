@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/libs/classNames/classNames';
 import { BaseText } from '@/shared/ui';
 import { AddCommentForm } from '@/features/addCommentForm';
@@ -15,8 +15,8 @@ import {
 import { useInitialEffect } from '@/shared/libs/hooks/useInitialEffect/useInitialEffect';
 import {
     fetchCommentsByArticleId,
-} from
-    '@/pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+} from '@/pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
 
 interface ArticleDetailsCommentsProps {
     className?: string,
@@ -28,7 +28,7 @@ export const ArticleDetailsComments = memo(({
     id,
 }: ArticleDetailsCommentsProps) => {
     const { t } = useTranslation();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const comments = useSelector(getArticlesComments.selectAll);
     const isLoading = useSelector(getArticleCommentsIsLoading);
     const onSendComment = useCallback((text: string) => {
