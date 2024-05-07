@@ -120,20 +120,20 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     } else {
         content = (
             <>
-                <HStack justify="center" max>
+                <HStack justify="center" max data-testid="ArticlesDetail.Info">
                     <Avatar
                         size={200}
                         className={cls.avatar}
                         src={article?.img}
                     />
 
+                    <BaseText
+                        className={cls.title}
+                        title={article?.title}
+                        text={article?.subtitle}
+                        size={TextSize.L}
+                    />
                 </HStack>
-                <BaseText
-                    className={cls.title}
-                    title={article?.title}
-                    text={article?.subtitle}
-                    size={TextSize.L}
-                />
                 <HStack gap="8">
                     <Icon Svg={EyeIcon} className={cls.icon} />
                     <BaseText text={String(article?.views)} />

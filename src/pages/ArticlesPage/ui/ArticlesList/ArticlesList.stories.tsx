@@ -1,17 +1,17 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ArticlesInfiniteList } from './ArticlesInfiniteList';
+import { ArticlesList } from './ArticlesList';
 
 export default {
     title: 'shared/ArticlesInfiniteList',
-    component: ArticlesInfiniteList,
+    component: ArticlesList,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof ArticlesInfiniteList>;
+} as ComponentMeta<typeof ArticlesList>;
 
-const Template: ComponentStory<typeof ArticlesInfiniteList> = (args) => (
-    <ArticlesInfiniteList {...args} />
+const Template: ComponentStory<typeof ArticlesList> = (args) => (
+    <ArticlesList {...args} />
 );
 
 export const Normal = Template.bind({});
