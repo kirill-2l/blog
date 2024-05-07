@@ -1,6 +1,32 @@
-npm ERR! code ETARGET
-npm ERR! notarget No matching version found for @storybook/test@^6.4.19.
-npm ERR! notarget In most cases you or one of your dependencies are requesting
-npm ERR! notarget a package version that doesn't exist.
+npm ERR! code ERESOLVE
+npm ERR! ERESOLVE could not resolve
+npm ERR! 
+npm ERR! While resolving: loki@0.35.0
+npm ERR! Found: @storybook/react@8.0.9
+npm ERR! node_modules/@storybook/react
+npm ERR!   dev @storybook/react@"^8.0.9" from the root project
+npm ERR!   @storybook/react@"8.0.9" from @storybook/react-webpack5@8.0.9
+npm ERR!   node_modules/@storybook/react-webpack5
+npm ERR!     dev @storybook/react-webpack5@"^8.0.9" from the root project
+npm ERR!   1 more (@storybook/preset-react-webpack)
+npm ERR! 
+npm ERR! Could not resolve dependency:
+npm ERR! peerOptional @storybook/react@"^5 || ^6 || ^7" from loki@0.35.0
+npm ERR! node_modules/loki
+npm ERR!   dev loki@"^0.35.0" from the root project
+npm ERR! 
+npm ERR! Conflicting peer dependency: @storybook/react@7.6.18
+npm ERR! node_modules/@storybook/react
+npm ERR!   peerOptional @storybook/react@"^5 || ^6 || ^7" from loki@0.35.0
+npm ERR!   node_modules/loki
+npm ERR!     dev loki@"^0.35.0" from the root project
+npm ERR! 
+npm ERR! Fix the upstream dependency conflict, or retry
+npm ERR! this command with --force or --legacy-peer-deps
+npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
+npm ERR! 
+npm ERR! 
+npm ERR! For a full report see:
+npm ERR! /Users/kirill/.npm/_logs/2024-04-29T21_33_39_323Z-eresolve-report.txt
 
-npm ERR! A complete log of this run can be found in: /Users/kirill/.npm/_logs/2024-03-05T17_39_36_187Z-debug-0.log
+npm ERR! A complete log of this run can be found in: /Users/kirill/.npm/_logs/2024-04-29T21_33_39_323Z-debug-0.log
