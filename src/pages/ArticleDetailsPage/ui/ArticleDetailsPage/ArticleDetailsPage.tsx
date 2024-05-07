@@ -42,7 +42,9 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <PageWrapper className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+            <PageWrapper
+                className={classNames(cls.ArticleDetailsPage, {}, [className])}
+            >
                 <ArticleDetailsPageHeader />
                 <ArticleDetails id={id} />
                 <ArticleRating articleId={id} />

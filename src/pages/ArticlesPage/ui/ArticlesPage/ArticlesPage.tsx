@@ -18,8 +18,8 @@ import {
 import { ArticlesPageFilters } from
     '@/pages/ArticlesPage/ui/ArticlesPageFilters/ArticlesPageFilters';
 import {
-    ArticlesInfiniteList,
-} from '@/pages/ArticlesPage/ui/ArticlesInfiniteList/ArticlesInfiniteList';
+    ArticlesList,
+} from '@/pages/ArticlesPage/ui/ArticlesList/ArticlesList';
 
 interface ArticlesPageProps {
     className?: string,
@@ -48,7 +48,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
                 className={classNames('', {}, [className])}
             >
                 <ArticlesPageFilters />
-                <ArticlesInfiniteList />
+                <ArticlesList />
             </PageWrapper>
         </DynamicModuleLoader>
     );

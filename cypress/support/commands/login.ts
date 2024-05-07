@@ -1,4 +1,5 @@
 import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
+import { User } from '@/entities/User';
 
 export const login = (username: string = 'cypressUserAdmin', password = '123') => {
     cy.request({
@@ -11,5 +12,14 @@ export const login = (username: string = 'cypressUserAdmin', password = '123') =
     })
         .then(({ body }) => {
             localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(body));
+            return body;
         });
 };
+
+declare global {
+    namespace Cypress {
+        interface Chainable {
+            login(email?: string, password?: string): Chainable<User>;
+        }
+    }
+}

@@ -49,6 +49,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     if (view === ArticleView.TILE) {
         return (
             <AppLink
+                data-testid="ArticlesListItem"
                 target={target}
                 to={getRouteArticleDetails(article.id)}
                 className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
@@ -74,7 +75,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         );
     }
     return (
-        <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+        <div
+            className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+            data-testid="ArticlesListItem"
+        >
             <Card>
                 <div className={cls.header}>
                     {/* <Avatar src={article.user.avatar} size={50} alt={article.user.username} /> */}
