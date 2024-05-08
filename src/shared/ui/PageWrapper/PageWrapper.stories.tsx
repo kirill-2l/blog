@@ -10,9 +10,7 @@ export default {
     },
 } as Meta<typeof PageWrapper>;
 
-const Template: StoryFn<typeof PageWrapper> = (args) => (
-    <PageWrapper {...args} />
-);
+const Template: StoryFn<typeof PageWrapper> = (args) => <PageWrapper {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};

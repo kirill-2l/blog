@@ -1,9 +1,7 @@
 import { StateSchema } from '@/app/providers/store';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
-import {
-    getProfileData,
-} from '@/features/editableProfileCard/model/selectors/getProfileData/getProfileData';
+import { getProfileData } from '@/features/editableProfileCard/model/selectors/getProfileData/getProfileData';
 
 const data = {
     country: Country.Ukraine,
@@ -23,13 +21,11 @@ describe('getProfileData.test', () => {
                 data: {},
             },
         };
-        expect(getProfileData(state as StateSchema))
-            .toEqual({});
+        expect(getProfileData(state as StateSchema)).toEqual({});
     });
 
     test('should work with empty state', () => {
         const state: DeepPartial<StateSchema> = {};
-        expect(getProfileData(state as StateSchema))
-            .toEqual(undefined);
+        expect(getProfileData(state as StateSchema)).toEqual(undefined);
     });
 });

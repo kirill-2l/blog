@@ -9,10 +9,7 @@ import { getUserIsInited, userActions } from '@/entities/User';
 import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
 
 const App = () => {
-    const {
-        theme,
-        toggleTheme,
-    } = useTheme();
+    const { theme, toggleTheme } = useTheme();
     const dispatch = useAppDispatch();
     const isInited = useSelector(getUserIsInited);
 

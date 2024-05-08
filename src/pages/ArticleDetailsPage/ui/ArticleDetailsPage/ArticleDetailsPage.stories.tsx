@@ -48,7 +48,7 @@ const article = {
         {
             id: '3',
             type: ArticleBlockType.CODE,
-            code: 'const path = require(\'path\');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, \'db.json\'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);',
+            code: "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);",
         },
         {
             id: '7',
@@ -70,10 +70,10 @@ const article = {
             type: ArticleBlockType.TEXT,
             title: 'Заголовок этого блока',
             paragraphs: [
-                'JavaScript — это язык, программы на котором можно выполнять в разных средах. '
-                + 'В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы '
-                + 'не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере,'
-                + ' это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.',
+                'JavaScript — это язык, программы на котором можно выполнять в разных средах. ' +
+                    'В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы ' +
+                    'не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере,' +
+                    ' это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.',
             ],
         },
     ],
@@ -87,15 +87,14 @@ export default {
     },
 } as Meta<typeof ArticleDetailsPage>;
 
-const Template: StoryFn<typeof ArticleDetailsPage> = (args) => (
-    <ArticleDetailsPage {...args} />
-);
+const Template: StoryFn<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({
-    articleDetails: {
-        data: article,
-
-    },
-})];
+Normal.decorators = [
+    StoreDecorator({
+        articleDetails: {
+            data: article,
+        },
+    }),
+];

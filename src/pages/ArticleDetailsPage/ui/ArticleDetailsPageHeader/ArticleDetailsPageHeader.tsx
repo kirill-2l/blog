@@ -10,7 +10,7 @@ import cls from './ArticleDetailsPageHeader.module.scss';
 import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
 
 interface ArticleDetailsPageHeaderProps {
-    className?: string,
+    className?: string;
 }
 
 export const ArticleDetailsPageHeader = memo(({ className }: ArticleDetailsPageHeaderProps) => {

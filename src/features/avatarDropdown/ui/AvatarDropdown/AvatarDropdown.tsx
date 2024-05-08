@@ -3,15 +3,13 @@ import React, { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Dropdown } from '@/shared/ui/Popups';
-import {
-    getUserAuthData, isUserAdmin, isUserManager, userActions,
-} from '@/entities/User';
+import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
 import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
 
 import { AppRoutes } from '@/shared/const/router';
 
 interface AvatarDropdownProps {
-    className?: string,
+    className?: string;
 }
 
 export const AvatarDropdown = memo(({ className }: AvatarDropdownProps) => {
@@ -22,10 +20,7 @@ export const AvatarDropdown = memo(({ className }: AvatarDropdownProps) => {
     const isAdminPanelAvailable = isAdmin || isManager;
     const dispatch = useAppDispatch();
 
-    const onLogout = useCallback(
-        () => dispatch(userActions.logout()),
-        [dispatch],
-    );
+    const onLogout = useCallback(() => dispatch(userActions.logout()), [dispatch]);
 
     if (!authData) return null;
 
@@ -33,10 +28,14 @@ export const AvatarDropdown = memo(({ className }: AvatarDropdownProps) => {
         <Dropdown
             direction="bottom-left"
             items={[
-                ...(isAdminPanelAvailable ? [{
-                    content: t('Admin panel'),
-                    href: `${AppRoutes.ADMIN_PANEL}`,
-                }] : []),
+                ...(isAdminPanelAvailable
+                    ? [
+                          {
+                              content: t('Admin panel'),
+                              href: `${AppRoutes.ADMIN_PANEL}`,
+                          },
+                      ]
+                    : []),
                 {
                     content: t('Profile page'),
                     href: `${AppRoutes.PROFILE}/${authData.id}`,

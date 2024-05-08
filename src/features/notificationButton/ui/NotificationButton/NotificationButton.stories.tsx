@@ -10,9 +10,7 @@ export default {
     },
 } as Meta<typeof NotificationButton>;
 
-const Template: StoryFn<typeof NotificationButton> = (args) => (
-    <NotificationButton {...args} />
-);
+const Template: StoryFn<typeof NotificationButton> = (args) => <NotificationButton {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};

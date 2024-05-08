@@ -28,10 +28,6 @@ export const addCommentFormSlice = createSlice({
         //         state.error = action.payload;
         //     });
     },
-
 });
 
-export const {
-    actions: addCommentFormActions,
-    reducer: addCommentFormReducer,
-} = addCommentFormSlice;
+export const { actions: addCommentFormActions, reducer: addCommentFormReducer } = addCommentFormSlice;

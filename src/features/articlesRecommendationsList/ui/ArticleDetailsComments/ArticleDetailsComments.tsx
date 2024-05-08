@@ -5,35 +5,29 @@ import { classNames } from '@/shared/libs/classNames/classNames';
 import { BaseText } from '@/shared/ui';
 import { AddCommentForm } from '@/features/addCommentForm';
 import { CommentList } from '@/entities/Comment';
-import {
-    getArticlesComments,
-} from '@/pages/ArticleDetailsPage/model/slices/articleDetailsComments.slice';
+import { getArticlesComments } from '@/pages/ArticleDetailsPage/model/slices/articleDetailsComments.slice';
 import { getArticleCommentsIsLoading } from '@/pages/ArticleDetailsPage/model/selectors/comments';
-import {
-    addCommentForArticle,
-} from '@/pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle';
+import { addCommentForArticle } from '@/pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle';
 import { useInitialEffect } from '@/shared/libs/hooks/useInitialEffect/useInitialEffect';
-import {
-    fetchCommentsByArticleId,
-} from '@/pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { fetchCommentsByArticleId } from '@/pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
 
 interface ArticleDetailsCommentsProps {
-    className?: string,
-    id: string
+    className?: string;
+    id: string;
 }
 
-export const ArticleDetailsComments = memo(({
-    className,
-    id,
-}: ArticleDetailsCommentsProps) => {
+export const ArticleDetailsComments = memo(({ className, id }: ArticleDetailsCommentsProps) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const comments = useSelector(getArticlesComments.selectAll);
     const isLoading = useSelector(getArticleCommentsIsLoading);
-    const onSendComment = useCallback((text: string) => {
-        dispatch(addCommentForArticle(text));
-    }, [dispatch]);
+    const onSendComment = useCallback(
+        (text: string) => {
+            dispatch(addCommentForArticle(text));
+        },
+        [dispatch],
+    );
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
@@ -42,10 +36,7 @@ export const ArticleDetailsComments = memo(({
         <div className={classNames('', {}, [className])}>
             <BaseText title={t('Comments')} />
             <AddCommentForm onSendComment={onSendComment} />
-            <CommentList
-                isLoading={isLoading}
-                comments={comments}
-            />
+            <CommentList isLoading={isLoading} comments={comments} />
         </div>
     );
 });

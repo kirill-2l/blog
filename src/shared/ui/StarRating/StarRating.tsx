@@ -12,12 +12,7 @@ interface StarRatingProps {
 }
 
 export const StarRating = memo((props: StarRatingProps) => {
-    const {
-        selectedStars,
-        onSelect,
-        className,
-        size = 30,
-    } = props;
+    const { selectedStars, onSelect, className, size = 30 } = props;
 
     const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars || 0);
     const [isSelected, setIsSelected] = useState(Boolean(currentStarsCount));
@@ -46,11 +41,15 @@ export const StarRating = memo((props: StarRatingProps) => {
             {[1, 2, 3, 4, 5].map((starNumber) => (
                 <Icon
                     key={starNumber}
-                    className={classNames(cls.starIcon, {
-                        [cls.hovered]: currentStarsCount >= starNumber,
-                        [cls.normal]: currentStarsCount <= starNumber,
-                        [cls.isSelected]: isSelected,
-                    }, [])}
+                    className={classNames(
+                        cls.starIcon,
+                        {
+                            [cls.hovered]: currentStarsCount >= starNumber,
+                            [cls.normal]: currentStarsCount <= starNumber,
+                            [cls.isSelected]: isSelected,
+                        },
+                        [],
+                    )}
                     Svg={StarIcon}
                     width={size}
                     height={size}

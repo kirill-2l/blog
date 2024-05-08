@@ -9,11 +9,10 @@ export const login = (username: string = 'cypressUserAdmin', password = '123') =
             username,
             password,
         },
-    })
-        .then(({ body }) => {
-            localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(body));
-            return body;
-        });
+    }).then(({ body }) => {
+        localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(body));
+        return body;
+    });
 };
 
 declare global {

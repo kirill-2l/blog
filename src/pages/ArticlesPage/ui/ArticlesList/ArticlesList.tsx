@@ -12,7 +12,7 @@ import {
 import { BaseText } from '@/shared/ui';
 
 interface ArticlesInfiniteListProps {
-    className?: string,
+    className?: string;
 }
 
 export const ArticlesList = memo(({ className }: ArticlesInfiniteListProps) => {
@@ -23,11 +23,7 @@ export const ArticlesList = memo(({ className }: ArticlesInfiniteListProps) => {
     const view = useSelector(getArticlesPageView);
     const error = useSelector(getArticlesPageError);
     if (error) {
-        return (
-            <BaseText
-                text={t('page error')}
-            />
-        );
+        return <BaseText text={t('page error')} />;
     }
     return (
         <ArticleList

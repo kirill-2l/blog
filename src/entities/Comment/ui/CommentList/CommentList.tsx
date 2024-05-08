@@ -7,19 +7,14 @@ import { IComment } from '@/entities/Comment';
 import cls from './CommentList.module.scss';
 
 interface CommentListProps {
-    className?: string,
-    comments?: IComment[],
-    isLoading?: boolean
-
+    className?: string;
+    comments?: IComment[];
+    isLoading?: boolean;
 }
 
 export const CommentList = memo((props: CommentListProps) => {
     const { t } = useTranslation();
-    const {
-        className,
-        comments,
-        isLoading,
-    } = props;
+    const { className, comments, isLoading } = props;
 
     if (isLoading) {
         return (
@@ -33,15 +28,13 @@ export const CommentList = memo((props: CommentListProps) => {
 
     return (
         <div className={classNames(cls.CommentList, {}, [className])}>
-            {comments?.length ? comments.map((comment) => (
-                <CommentCard
-                    isLoading={isLoading}
-                    className={cls.comment}
-                    key={comment.id}
-                    comment={comment}
-                />
-            ))
-                : <BaseText text={t('No comments')} />}
+            {comments?.length ? (
+                comments.map((comment) => (
+                    <CommentCard isLoading={isLoading} className={cls.comment} key={comment.id} comment={comment} />
+                ))
+            ) : (
+                <BaseText text={t('No comments')} />
+            )}
         </div>
     );
 });

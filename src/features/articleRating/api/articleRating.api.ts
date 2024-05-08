@@ -16,10 +16,7 @@ interface SaveArticleRatingParams {
 const articleRatingApi = rtkApi.injectEndpoints({
     endpoints: (build) => ({
         fetchArticleRating: build.query<Rating[], FetchArticleRatingParams>({
-            query: ({
-                articleId,
-                userId,
-            }) => ({
+            query: ({ articleId, userId }) => ({
                 url: '/article-ratings',
                 params: {
                     userId,

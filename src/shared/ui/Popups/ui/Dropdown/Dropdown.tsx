@@ -22,12 +22,7 @@ interface DropdownProps {
 }
 
 export function Dropdown(props: DropdownProps) {
-    const {
-        items,
-        className,
-        trigger,
-        direction = 'bottom-right',
-    } = props;
+    const { items, className, trigger, direction = 'bottom-right' } = props;
 
     return (
         <Menu as="div" className={classNames(popupCls.popup, {}, [className])}>
@@ -39,9 +34,7 @@ export function Dropdown(props: DropdownProps) {
                             type="button"
                             onClick={item.onClick}
                             disabled={item?.disabled}
-                            className={
-                                classNames(cls.item, { [popupCls.active]: active })
-                            }
+                            className={classNames(cls.item, { [popupCls.active]: active })}
                         >
                             {item.content}
                         </button>
@@ -53,26 +46,21 @@ export function Dropdown(props: DropdownProps) {
                                 key={index}
                                 as={AppLink}
                                 to={item.href}
-
                             >
                                 {item.content}
                             </Menu.Item>
-
                         );
                     }
 
                     return (
-
                         <Menu.Item
                             /* eslint-disable-next-line react/no-array-index-key */
                             key={index}
                             as={Fragment}
                             disabled={item?.disabled}
                         >
-
                             {content}
                         </Menu.Item>
-
                     );
                 })}
             </Menu.Items>

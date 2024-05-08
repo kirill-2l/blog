@@ -13,9 +13,7 @@ export default {
     },
 } as Meta<typeof ProfileCard>;
 
-const Template: StoryFn<typeof ProfileCard> = (args) => (
-    <ProfileCard {...args} />
-);
+const Template: StoryFn<typeof ProfileCard> = (args) => <ProfileCard {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -28,7 +26,6 @@ Primary.args = {
         avatar,
         city: 'Kiev',
         currency: Currency.USD,
-
     },
 };
 

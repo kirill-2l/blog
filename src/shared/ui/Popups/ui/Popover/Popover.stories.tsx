@@ -10,9 +10,7 @@ export default {
     },
 } as Meta<typeof Popover>;
 
-const Template: StoryFn<typeof Popover> = (args) => (
-    <Popover {...args} />
-);
+const Template: StoryFn<typeof Popover> = (args) => <Popover {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};

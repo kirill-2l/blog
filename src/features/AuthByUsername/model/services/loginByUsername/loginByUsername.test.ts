@@ -10,9 +10,11 @@ describe('loginByUsername.test', () => {
         };
         const thunk = new TestAsyncThunk(loginByUsername);
 
-        thunk.api.post.mockResolvedValue(Promise.resolve({
-            data: userData,
-        }));
+        thunk.api.post.mockResolvedValue(
+            Promise.resolve({
+                data: userData,
+            }),
+        );
 
         const res = await thunk.callThunk({ username: '123', password: '123' });
 

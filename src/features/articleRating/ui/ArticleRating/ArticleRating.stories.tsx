@@ -10,9 +10,7 @@ export default {
     },
 } as Meta<typeof ArticleRating>;
 
-const Template: StoryFn<typeof ArticleRating> = (args) => (
-    <ArticleRating {...args} />
-);
+const Template: StoryFn<typeof ArticleRating> = (args) => <ArticleRating {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};

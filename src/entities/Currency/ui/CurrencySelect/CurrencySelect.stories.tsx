@@ -11,9 +11,7 @@ export default {
     },
 } as Meta<typeof CurrencySelect>;
 
-const Template: StoryFn<typeof CurrencySelect> = (args) => (
-    <CurrencySelect {...args} />
-);
+const Template: StoryFn<typeof CurrencySelect> = (args) => <CurrencySelect {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {};

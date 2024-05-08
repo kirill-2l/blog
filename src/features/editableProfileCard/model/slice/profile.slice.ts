@@ -1,8 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Profile } from '@/entities/Profile';
-import {
-    fetchProfileData,
-} from '@/features/editableProfileCard/model/services/fetchProfileData/fetchProfileData';
+import { fetchProfileData } from '@/features/editableProfileCard/model/services/fetchProfileData/fetchProfileData';
 import { ProfileSchema } from '../types/profile';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 
@@ -38,14 +36,11 @@ export const userSlice = createSlice({
                 state.error = undefined;
                 state.isLoading = true;
             })
-            .addCase(
-                fetchProfileData.fulfilled,
-                (state, action: PayloadAction<Profile>) => {
-                    state.isLoading = false;
-                    state.data = action.payload;
-                    state.form = action.payload;
-                },
-            )
+            .addCase(fetchProfileData.fulfilled, (state, action: PayloadAction<Profile>) => {
+                state.isLoading = false;
+                state.data = action.payload;
+                state.form = action.payload;
+            })
             .addCase(fetchProfileData.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = action.payload;
@@ -55,16 +50,13 @@ export const userSlice = createSlice({
                 state.validateErrors = undefined;
                 state.isLoading = true;
             })
-            .addCase(
-                updateProfileData.fulfilled,
-                (state, action: PayloadAction<Profile>) => {
-                    state.isLoading = false;
-                    state.data = action.payload;
-                    state.form = action.payload;
-                    state.readonly = true;
-                    state.validateErrors = undefined;
-                },
-            )
+            .addCase(updateProfileData.fulfilled, (state, action: PayloadAction<Profile>) => {
+                state.isLoading = false;
+                state.data = action.payload;
+                state.form = action.payload;
+                state.readonly = true;
+                state.validateErrors = undefined;
+            })
             .addCase(updateProfileData.rejected, (state, action) => {
                 state.isLoading = false;
                 state.validateErrors = action.payload;
@@ -72,7 +64,4 @@ export const userSlice = createSlice({
     },
 });
 
-export const {
-    actions: profileActions,
-    reducer: profileReducer,
-} = userSlice;
+export const { actions: profileActions, reducer: profileReducer } = userSlice;

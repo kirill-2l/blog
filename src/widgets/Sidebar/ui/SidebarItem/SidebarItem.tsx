@@ -6,15 +6,12 @@ import { SidebarItemType } from '@/widgets/Sidebar/model/types/sidebar';
 import cls from './SidebarItem.module.scss';
 
 interface SidebarItemProps {
-    item: SidebarItemType,
-    collapsed: boolean
+    item: SidebarItemType;
+    collapsed: boolean;
 }
 
 export const SidebarItem = memo((props: SidebarItemProps) => {
-    const {
-        item,
-        collapsed,
-    } = props;
+    const { item, collapsed } = props;
     const { t } = useTranslation();
     return (
         <AppLink

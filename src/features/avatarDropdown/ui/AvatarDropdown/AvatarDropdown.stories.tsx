@@ -10,9 +10,7 @@ export default {
     },
 } as Meta<typeof AvatarDropdown>;
 
-const Template: StoryFn<typeof AvatarDropdown> = (args) => (
-    <AvatarDropdown {...args} />
-);
+const Template: StoryFn<typeof AvatarDropdown> = (args) => <AvatarDropdown {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};

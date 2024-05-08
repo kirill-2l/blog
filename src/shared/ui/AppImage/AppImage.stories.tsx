@@ -10,9 +10,7 @@ export default {
     },
 } as Meta<typeof AppImage>;
 
-const Template: StoryFn<typeof AppImage> = (args) => (
-    <AppImage {...args} />
-);
+const Template: StoryFn<typeof AppImage> = (args) => <AppImage {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};

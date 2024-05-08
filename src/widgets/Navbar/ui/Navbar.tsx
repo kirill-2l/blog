@@ -24,65 +24,38 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation();
     const authData = useSelector(getUserAuthData);
     const navigate = useNavigate();
-    const onCloseModal = useCallback(
-        () => {
-            setIsAuthModalOpened(false);
-        },
-        [],
-    );
-    const onSuccess = useCallback(
-        () => {
-            onCloseModal();
-            navigate(getRouteMain());
-        },
-        [navigate, onCloseModal],
-    );
-    const onShowModal = useCallback(
-        () => setIsAuthModalOpened(true),
-        [],
-    );
+    const onCloseModal = useCallback(() => {
+        setIsAuthModalOpened(false);
+    }, []);
+    const onSuccess = useCallback(() => {
+        onCloseModal();
+        navigate(getRouteMain());
+    }, [navigate, onCloseModal]);
+    const onShowModal = useCallback(() => setIsAuthModalOpened(true), []);
 
     if (authData) {
         return (
             <div className={classNames(cls.navbar)}>
-                <BaseText
-                    className={cls.logo}
-                    theme={TextTheme.INVERTED}
-                    title="LOGO"
-                    size={TextSize.L}
-                />
-                <AppLink
-                    theme={AppLinksTheme.SECONDARY}
-                    to={getRouteArticleCreate()}
-                >
+                <BaseText className={cls.logo} theme={TextTheme.INVERTED} title="LOGO" size={TextSize.L} />
+                <AppLink theme={AppLinksTheme.SECONDARY} to={getRouteArticleCreate()}>
                     {t('Create article')}
                 </AppLink>
                 <HStack className={cls.actions} gap="16">
                     <NotificationButton />
                     <AvatarDropdown />
                 </HStack>
-
             </div>
         );
     }
     return (
-
         <header className={classNames(cls.navbar)}>
-            <Button
-                theme={ButtonTheme.CLEAR_INVERTED}
-                onClick={onShowModal}
-            >
+            <Button theme={ButtonTheme.CLEAR_INVERTED} onClick={onShowModal}>
                 {t('Log in')}
             </Button>
 
             {isAuthModalOpened && (
-                <LoginModal
-                    isOpen={isAuthModalOpened}
-                    onClose={onCloseModal}
-                    onSuccess={onSuccess}
-                />
+                <LoginModal isOpen={isAuthModalOpened} onClose={onCloseModal} onSuccess={onSuccess} />
             )}
-
         </header>
     );
 });

@@ -1,5 +1,5 @@
 import {
-// @ts-ignore
+    // @ts-ignore
     CombinedState,
     EnhancedStore,
     Reducer,
@@ -20,8 +20,8 @@ import { ProfileSchema } from '@/features/editableProfileCard';
 
 export interface StateSchema {
     user: UserSchema;
-    scrollPosition: ScrollPositionSchema,
-    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
+    scrollPosition: ScrollPositionSchema;
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
     // async reducers
     login?: LoginSchema;
     profile?: ProfileSchema;
@@ -32,7 +32,7 @@ export interface StateSchema {
 }
 
 export type StateSchemaKey = keyof StateSchema;
-export type MountedReducers = Partial<Record<StateSchemaKey, boolean>>
+export type MountedReducers = Partial<Record<StateSchemaKey, boolean>>;
 
 export interface ReducerManager {
     getReducerMap: () => ReducersMapObject<StateSchema>;

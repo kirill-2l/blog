@@ -10,9 +10,7 @@ export default {
     },
 } as Meta<typeof ArticleSortSelector>;
 
-const Template: StoryFn<typeof ArticleSortSelector> = (args) => (
-    <ArticleSortSelector {...args} />
-);
+const Template: StoryFn<typeof ArticleSortSelector> = (args) => <ArticleSortSelector {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};

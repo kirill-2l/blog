@@ -5,18 +5,14 @@ import { PageWrapper } from '@/shared/ui/PageWrapper';
 import { classNames } from '@/shared/libs/classNames/classNames';
 
 interface ArticleEditPageProps {
-    className?: string,
+    className?: string;
 }
 
 const ArticleEditPage = memo(({ className }: ArticleEditPageProps) => {
     const { t } = useTranslation();
     const { id } = useParams<{ id: string }>();
     const isEdit = Boolean(id);
-    return (
-        <PageWrapper className={classNames('', {}, [className])}>
-            ArticleEditPageAsync
-        </PageWrapper>
-    );
+    return <PageWrapper className={classNames('', {}, [className])}>ArticleEditPageAsync</PageWrapper>;
 });
 
 export default ArticleEditPage;

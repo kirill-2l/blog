@@ -39,8 +39,7 @@ describe('EditableProfileCard', () => {
     test('Readonly mode has  to switch', async () => {
         componentRender(<EditableProfileCard id="1" />, options);
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
-        expect(screen.getByTestId('EditableProfileCardHeader.CancelButton'))
-            .toBeInTheDocument();
+        expect(screen.getByTestId('EditableProfileCardHeader.CancelButton')).toBeInTheDocument();
     });
 
     test('Form reset to initial data on reset button click ', async () => {
@@ -50,25 +49,19 @@ describe('EditableProfileCard', () => {
         await userEvent.clear(screen.getByTestId('ProfileCard.FirstNameInput'));
         await userEvent.clear(screen.getByTestId('ProfileCard.LastNameInput'));
 
-        expect(screen.getByTestId('ProfileCard.FirstNameInput'))
-            .toHaveValue('');
-        expect(screen.getByTestId('ProfileCard.LastNameInput'))
-            .toHaveValue('');
+        expect(screen.getByTestId('ProfileCard.FirstNameInput')).toHaveValue('');
+        expect(screen.getByTestId('ProfileCard.LastNameInput')).toHaveValue('');
 
         await userEvent.type(screen.getByTestId('ProfileCard.FirstNameInput'), 'test');
         await userEvent.type(screen.getByTestId('ProfileCard.LastNameInput'), 'test');
 
-        expect(screen.getByTestId('ProfileCard.FirstNameInput'))
-            .toHaveValue('test');
-        expect(screen.getByTestId('ProfileCard.LastNameInput'))
-            .toHaveValue('test');
+        expect(screen.getByTestId('ProfileCard.FirstNameInput')).toHaveValue('test');
+        expect(screen.getByTestId('ProfileCard.LastNameInput')).toHaveValue('test');
 
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.CancelButton'));
 
-        expect(screen.getByTestId('ProfileCard.FirstNameInput'))
-            .toHaveValue('admin');
-        expect(screen.getByTestId('ProfileCard.LastNameInput'))
-            .toHaveValue('admin');
+        expect(screen.getByTestId('ProfileCard.FirstNameInput')).toHaveValue('admin');
+        expect(screen.getByTestId('ProfileCard.LastNameInput')).toHaveValue('admin');
     });
 
     test('Error block has to appear', async () => {
@@ -76,8 +69,7 @@ describe('EditableProfileCard', () => {
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
         await userEvent.clear(screen.getByTestId('ProfileCard.FirstNameInput'));
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.SaveButton'));
-        expect(screen.getByTestId('EditableProfileCard.Error.Paragraph'))
-            .toBeInTheDocument();
+        expect(screen.getByTestId('EditableProfileCard.Error.Paragraph')).toBeInTheDocument();
     });
     test('If there are no any errors data put request has to be sent', async () => {
         componentRender(<EditableProfileCard id="1" />, options);
@@ -86,7 +78,6 @@ describe('EditableProfileCard', () => {
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
         await userEvent.type(screen.getByTestId('ProfileCard.FirstNameInput'), 'user');
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.SaveButton'));
-        expect(mockPutRequest)
-            .toHaveBeenCalled();
+        expect(mockPutRequest).toHaveBeenCalled();
     });
 });

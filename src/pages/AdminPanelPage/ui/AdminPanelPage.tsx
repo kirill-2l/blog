@@ -3,7 +3,7 @@ import { classNames } from '@/shared/libs/classNames/classNames';
 import { PageWrapper } from '@/shared/ui/PageWrapper';
 
 interface AdminPanelPageProps {
-    className?: string,
+    className?: string;
 }
 
 const AdminPanelPage = ({ className }: AdminPanelPageProps) => {

@@ -22,12 +22,9 @@ describe('fetchProfileData.test', () => {
 
         const res = await thunk.callThunk('1');
 
-        expect(thunk.api.get)
-            .toHaveBeenCalled();
-        expect(res.meta.requestStatus)
-            .toBe('fulfilled');
-        expect(res.payload)
-            .toEqual(data);
+        expect(thunk.api.get).toHaveBeenCalled();
+        expect(res.meta.requestStatus).toBe('fulfilled');
+        expect(res.payload).toEqual(data);
     });
 
     test('error login', async () => {
@@ -35,7 +32,6 @@ describe('fetchProfileData.test', () => {
 
         thunk.api.get.mockResolvedValue(Promise.resolve({ status: 403 }));
         const res = await thunk.callThunk('1');
-        expect(res.meta.requestStatus)
-            .toBe('rejected');
+        expect(res.meta.requestStatus).toBe('rejected');
     });
 });

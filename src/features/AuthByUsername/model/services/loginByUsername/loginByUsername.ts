@@ -5,14 +5,10 @@ import { ThunkConfig } from '@/app/providers/store/config/state.schema';
 
 export interface LoginByUsernameProps {
     username: string;
-    password: string
+    password: string;
 }
 
-export const loginByUsername = createAsyncThunk<
-    User,
-    LoginByUsernameProps,
-    ThunkConfig<string>
->(
+export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, ThunkConfig<string>>(
     'login/loginByUsername',
     async (payload, thunkApi) => {
         const { dispatch, extra, rejectWithValue } = thunkApi;

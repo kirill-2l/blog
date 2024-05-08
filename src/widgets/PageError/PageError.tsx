@@ -4,7 +4,7 @@ import { Button, ButtonTheme } from '@/shared/ui/Button';
 import cls from './PageError.module.scss';
 
 interface PageErrorProps {
-    className?: string,
+    className?: string;
 }
 
 export const PageError = ({ className }: PageErrorProps) => {
@@ -15,10 +15,7 @@ export const PageError = ({ className }: PageErrorProps) => {
     return (
         <div className={classNames(cls.PageError)}>
             <p>{t('Errors sometimes happen')}</p>
-            <Button
-                theme={ButtonTheme.CLEAR}
-                onClick={refreshPage}
-            >
+            <Button theme={ButtonTheme.CLEAR} onClick={refreshPage}>
                 <p>{t('Refresh page')}</p>
             </Button>
         </div>

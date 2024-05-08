@@ -26,12 +26,9 @@ describe('updateProfileData.test', () => {
 
         const res = await thunk.callThunk();
 
-        expect(thunk.api.put)
-            .toHaveBeenCalled();
-        expect(res.meta.requestStatus)
-            .toBe('fulfilled');
-        expect(res.payload)
-            .toEqual(data);
+        expect(thunk.api.put).toHaveBeenCalled();
+        expect(res.meta.requestStatus).toBe('fulfilled');
+        expect(res.payload).toEqual(data);
     });
 
     test('error', async () => {
@@ -43,10 +40,8 @@ describe('updateProfileData.test', () => {
 
         thunk.api.put.mockResolvedValue(Promise.resolve({ status: 403 }));
         const res = await thunk.callThunk();
-        expect(res.meta.requestStatus)
-            .toBe('rejected');
-        expect(res.payload)
-            .toEqual([ValidateProfileError.SERVER_ERROR]);
+        expect(res.meta.requestStatus).toBe('rejected');
+        expect(res.payload).toEqual([ValidateProfileError.SERVER_ERROR]);
     });
 
     test('validate error', async () => {
@@ -59,9 +54,7 @@ describe('updateProfileData.test', () => {
             },
         });
         const res = await thunk.callThunk();
-        expect(res.meta.requestStatus)
-            .toBe('rejected');
-        expect(res.payload)
-            .toEqual([ValidateProfileError.INCORRECT_USER_DATA]);
+        expect(res.meta.requestStatus).toBe('rejected');
+        expect(res.payload).toEqual([ValidateProfileError.INCORRECT_USER_DATA]);
     });
 });

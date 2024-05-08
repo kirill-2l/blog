@@ -11,9 +11,7 @@ export default {
     },
 } as Meta<typeof CountrySelect>;
 
-const Template: StoryFn<typeof CountrySelect> = (args) => (
-    <CountrySelect {...args} />
-);
+const Template: StoryFn<typeof CountrySelect> = (args) => <CountrySelect {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {};
