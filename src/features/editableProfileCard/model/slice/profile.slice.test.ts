@@ -62,6 +62,7 @@ describe('profile.slice.test', () => {
             isLoading: false,
             validateErrors: [ValidateProfileError.SERVER_ERROR],
         };
+        // @ts-ignore
         expect(profileReducer(state as LoginSchema, updateProfileData.pending))
             .toEqual({
                 isLoading: true,

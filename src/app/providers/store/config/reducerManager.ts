@@ -5,6 +5,7 @@ import {
     MountedReducers, ReducerManager, StateSchema, StateSchemaKey,
 } from './state.schema';
 
+let a: number;
 export const createReducerManager = (initialReducers: ReducersMapObject<StateSchema>)
     : ReducerManager => {
     const reducers = { ...initialReducers };
@@ -27,6 +28,7 @@ export const createReducerManager = (initialReducers: ReducersMapObject<StateSch
                 });
                 keysToRemove = [];
             }
+            // @ts-ignore
             return combinedReducer(state, action);
         },
         add: (key: StateSchemaKey, reducer: Reducer) => {

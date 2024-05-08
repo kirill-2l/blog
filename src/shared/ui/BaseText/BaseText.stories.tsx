@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { BaseText, TextSize, TextTheme } from '@/shared/ui/BaseText';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/app/providers/ThemeProvider';
@@ -9,9 +9,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof BaseText>;
+} as Meta<typeof BaseText>;
 
-const Template: ComponentStory<typeof BaseText> = (args) => <BaseText {...args} />;
+const Template: StoryFn<typeof BaseText> = (args) => <BaseText {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {

@@ -8,6 +8,8 @@ import {
 } from '@/pages/ArticleDetailsPage/model/slices/articleDetailsPageRecommendation.slice';
 
 export const articleDetailsPageReducer = combineReducers<ArticleDetailsPageSchema>({
+    // @ts-ignore
     comments: articleDetailsCommentsReducer,
+    // @ts-ignore
     recommendations: articleDetailsPageRecommendationsReducer,
 });

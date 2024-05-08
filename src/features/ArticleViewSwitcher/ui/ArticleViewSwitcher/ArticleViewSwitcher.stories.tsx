@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { ArticleViewSwitcher } from './ArticleViewSwitcher';
 
 export default {
@@ -8,9 +8,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof ArticleViewSwitcher>;
+} as Meta<typeof ArticleViewSwitcher>;
 
-const Template: ComponentStory<typeof ArticleViewSwitcher> = (args) => (
+const Template: StoryFn<typeof ArticleViewSwitcher> = (args) => (
     <ArticleViewSwitcher {...args} />
 );
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ArticleRating } from './ArticleRating';
+import { Meta, StoryFn } from '@storybook/react';
+import ArticleRating from './ArticleRating';
 
 export default {
     title: 'shared/ArticleRating',
@@ -8,9 +8,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof ArticleRating>;
+} as Meta<typeof ArticleRating>;
 
-const Template: ComponentStory<typeof ArticleRating> = (args) => (
+const Template: StoryFn<typeof ArticleRating> = (args) => (
     <ArticleRating {...args} />
 );
 

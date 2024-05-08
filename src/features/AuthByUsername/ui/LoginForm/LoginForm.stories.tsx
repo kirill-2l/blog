@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/app/providers/ThemeProvider';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
@@ -11,27 +11,37 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof LoginForm>;
+} as Meta<typeof LoginForm>;
 
-const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args} />;
+const Template: StoryFn<typeof LoginForm> = (args) => <LoginForm {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {};
 Primary.decorators = [StoreDecorator({
-    login: { username: '123', password: 'asd' },
+    login: {
+        username: '123',
+        password: 'asd',
+    },
 })];
 
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
 Dark.decorators = [StoreDecorator({
-    login: { username: '123', password: 'asd' },
+    login: {
+        username: '123',
+        password: 'asd',
+    },
 })];
 
 export const WithError = Template.bind({});
 WithError.args = {};
 WithError.decorators = [StoreDecorator({
-    login: { username: 'asd', password: 'asd', error: 'Error' },
+    login: {
+        username: 'asd',
+        password: 'asd',
+        error: 'Error',
+    },
 })];
 
 export const Loading = Template.bind({});

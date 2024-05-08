@@ -13,8 +13,8 @@ export default (env: BuildEnv) => {
         buildLocales: path.resolve(__dirname, 'build', 'locales'),
     };
 
-    const mode = env.mode || 'development';
-    const PORT = env.port || 3000;
+    const mode = env?.mode || 'development';
+    const PORT = env?.port || 3000;
 
     const isDev = mode === 'development';
 
@@ -23,7 +23,7 @@ export default (env: BuildEnv) => {
         paths,
         isDev,
         port: PORT,
-        apiUrl: env.apiUrl || 'http://localhost:8000',
+        apiUrl: env?.apiUrl || 'http://localhost:8000',
         project: 'frontend',
     });
 

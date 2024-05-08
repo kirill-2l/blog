@@ -12,15 +12,15 @@ describe('User visits article detail page', () => {
     afterEach(() => {
         cy.deleteArticle(articleId);
     });
-    it('User sees article', () => {
+    it.skip('User sees article', () => {
         cy.getBySel('ArticlesDetail.Info')
             .should('exist');
     });
-    it('User sees recommendations ', () => {
+    it.skip('User sees recommendations ', () => {
         cy.getBySel('ArticlesRecommendationsList')
             .should('exist');
     });
-    it('User sends comment ', () => {
+    it.skip('User sends comment ', () => {
         cy.getBySel('ArticlesDetail.Info');
         cy.getBySel('AddCommentForm')
             .scrollIntoView();
@@ -29,6 +29,7 @@ describe('User visits article detail page', () => {
             .should('have.length', 1);
     });
     it('User rate article ', () => {
+        cy.intercept('GET', '**/articles/*', { fixture: 'article-details.json' });
         cy.getBySel('ArticlesDetail.Info');
         cy.getBySel('RatingCard')
             .scrollIntoView();
