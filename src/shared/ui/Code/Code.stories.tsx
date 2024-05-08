@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { Code } from './Code';
 
 export default {
@@ -8,15 +8,15 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof Code>;
+} as Meta<typeof Code>;
 
-const Template: ComponentStory<typeof Code> = (args) => (
+const Template: StoryFn<typeof Code> = (args) => (
     <Code {...args} />
 );
 
 export const Normal = Template.bind({});
 Normal.args = {
-    text: 'const Template: ComponentStory<typeof Code> = (args) => (\n'
+    text: 'const Template: StoryFn<typeof Code> = (args) => (\n'
         + '    <Code {...args} />\n'
         + ');',
 };

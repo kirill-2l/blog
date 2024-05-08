@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { ArticleDetailsComments } from './ArticleDetailsComments';
 
 export default {
@@ -8,9 +8,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof ArticleDetailsComments>;
+} as Meta<typeof ArticleDetailsComments>;
 
-const Template: ComponentStory<typeof ArticleDetailsComments> = (args) => (
+const Template: StoryFn<typeof ArticleDetailsComments> = (args) => (
     <ArticleDetailsComments {...args} />
 );
 

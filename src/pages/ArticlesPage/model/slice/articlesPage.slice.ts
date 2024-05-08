@@ -9,8 +9,8 @@ import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 import { ArticleSortField, ArticleType } from '@/entities/Article/model/types/article';
 import { SortOrder } from '@/shared/types/types';
 
-const articlesAdapter = createEntityAdapter<Article>({
-    selectId: (article) => article.id,
+const articlesAdapter = createEntityAdapter({
+    selectId: (article: Article) => article.id,
 });
 
 export const getArticles = articlesAdapter.getSelectors<StateSchema>(

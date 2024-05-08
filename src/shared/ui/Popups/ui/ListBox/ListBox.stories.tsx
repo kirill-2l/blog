@@ -1,6 +1,6 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import { Meta, StoryFn } from '@storybook/react';
 import { ListBox } from './ListBox';
 
 export default {
@@ -12,9 +12,9 @@ export default {
     decorators: [
         (Story) => <div style={{ padding: 100 }}><Story /></div>,
     ],
-} as ComponentMeta<typeof ListBox>;
+} as Meta<typeof ListBox>;
 
-const Template: ComponentStory<typeof ListBox> = (args) => <ListBox {...args} />;
+const Template: StoryFn<typeof ListBox> = (args) => <ListBox {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {

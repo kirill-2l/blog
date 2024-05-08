@@ -1,4 +1,5 @@
 import {
+// @ts-ignore
     CombinedState,
     EnhancedStore,
     Reducer,

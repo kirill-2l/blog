@@ -27,6 +27,7 @@ export const createReducerManager = (initialReducers: ReducersMapObject<StateSch
                 });
                 keysToRemove = [];
             }
+            // @ts-ignore
             return combinedReducer(state, action);
         },
         add: (key: StateSchemaKey, reducer: Reducer) => {

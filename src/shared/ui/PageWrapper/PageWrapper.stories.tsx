@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { PageWrapper } from './PageWrapper';
 
 export default {
@@ -8,9 +8,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof PageWrapper>;
+} as Meta<typeof PageWrapper>;
 
-const Template: ComponentStory<typeof PageWrapper> = (args) => (
+const Template: StoryFn<typeof PageWrapper> = (args) => (
     <PageWrapper {...args} />
 );
 

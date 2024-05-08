@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { CountrySelect } from '@/entities/Country';
 
 export default {
@@ -9,9 +9,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof CountrySelect>;
+} as Meta<typeof CountrySelect>;
 
-const Template: ComponentStory<typeof CountrySelect> = (args) => (
+const Template: StoryFn<typeof CountrySelect> = (args) => (
     <CountrySelect {...args} />
 );
 

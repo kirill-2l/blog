@@ -1,4 +1,5 @@
 import {
+// @ts-ignore
     CombinedState, configureStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { userReducer } from '@/entities/User';

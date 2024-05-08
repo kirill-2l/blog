@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { EditableProfileCardHeader } from './EditableProfileCardHeader';
 
 export default {
@@ -8,9 +8,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof EditableProfileCardHeader>;
+} as Meta<typeof EditableProfileCardHeader>;
 
-const Template: ComponentStory<typeof EditableProfileCardHeader> = (args) => (
+const Template: StoryFn<typeof EditableProfileCardHeader> = (args) => (
     <EditableProfileCardHeader {...args} />
 );
 
