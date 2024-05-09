@@ -45,7 +45,11 @@ export const parameters: Preview = {
     //         },
     //     ],
     // },
-
 };
-export const decorators = [StyleDecorator, TranslationDecorator, ThemeDecorator(Theme.LIGHT),
-    RouterDecorator, SuspenseDecorator];
+export const decorators = [
+    StyleDecorator,
+    TranslationDecorator,
+    ThemeDecorator(Theme.LIGHT),
+    RouterDecorator,
+    SuspenseDecorator,
+];

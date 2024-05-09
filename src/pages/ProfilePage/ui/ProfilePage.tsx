@@ -10,11 +10,9 @@ const ProfilePage = () => {
     return (
         <PageWrapper data-testid="ProfilePage">
             <VStack gap="16" max>
-
                 <EditableProfileCard id={id} />
             </VStack>
         </PageWrapper>
-
     );
 };
 

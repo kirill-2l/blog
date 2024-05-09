@@ -5,9 +5,7 @@ import { classNames } from '@/shared/libs/classNames/classNames';
 import { Card } from '@/shared/ui/Card';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { StarRating } from '@/shared/ui/StarRating';
-import {
-    BaseText, Button, Input, Modal,
-} from '@/shared/ui';
+import { BaseText, Button, Input, Modal } from '@/shared/ui';
 import { ButtonTheme } from '@/shared/ui/Button';
 import { Drawer } from '@/shared/ui/Drawer';
 
@@ -23,28 +21,23 @@ interface RatingCardProps {
 
 export const RatingCard = memo((props: RatingCardProps) => {
     const { t } = useTranslation();
-    const {
-        className,
-        hasFeedback,
-        feedbackTitle,
-        title,
-        onCancel,
-        onAccept,
-        rate = 0,
-    } = props;
+    const { className, hasFeedback, feedbackTitle, title, onCancel, onAccept, rate = 0 } = props;
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [starsCount, setStarsCount] = useState(rate);
     const [feedback, setFeedback] = useState('');
 
-    const onSelectStars = useCallback((selectedStarsCount: number) => {
-        setStarsCount(selectedStarsCount);
-        if (hasFeedback) {
-            setIsModalOpen(true);
-        } else {
-            onCancel?.(selectedStarsCount);
-        }
-    }, [hasFeedback, onCancel]);
+    const onSelectStars = useCallback(
+        (selectedStarsCount: number) => {
+            setStarsCount(selectedStarsCount);
+            if (hasFeedback) {
+                setIsModalOpen(true);
+            } else {
+                onCancel?.(selectedStarsCount);
+            }
+        },
+        [hasFeedback, onCancel],
+    );
 
     const acceptHandler = useCallback(() => {
         setIsModalOpen(false);
@@ -66,17 +59,10 @@ export const RatingCard = memo((props: RatingCardProps) => {
                 placeholder={t('Your feedback')}
             />
             <HStack gap="16" justify="end">
-                <Button
-                    onClick={cancelHandler}
-                    data-testid="RatingCard.Close"
-                    theme={ButtonTheme.OUTLINE_RED}
-                >
+                <Button onClick={cancelHandler} data-testid="RatingCard.Close" theme={ButtonTheme.OUTLINE_RED}>
                     {t('Close')}
                 </Button>
-                <Button
-                    onClick={acceptHandler}
-                    data-testid="RatingCard.Submit"
-                >
+                <Button onClick={acceptHandler} data-testid="RatingCard.Submit">
                     {t('Submit')}
                 </Button>
             </HStack>

@@ -50,12 +50,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
     };
     if (isLoading) {
         return (
-            <HStack
-                justify="center"
-                className={classNames(cls.ProfileCard, { [cls.loading]: true }, [
-                    className,
-                ])}
-            >
+            <HStack justify="center" className={classNames(cls.ProfileCard, { [cls.loading]: true }, [className])}>
                 <Loader />
             </HStack>
         );
@@ -63,10 +58,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (error) {
         return (
-            <HStack
-                justify="center"
-                className={classNames(cls.ProfileCard, {}, [className, cls.error])}
-            >
+            <HStack justify="center" className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
                 <BaseText
                     theme={TextTheme.ERROR}
                     title={t('Error with loading profile')}
@@ -77,12 +69,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         );
     }
     return (
-        <VStack
-            align="start"
-            max
-            gap="16"
-            className={classNames(cls.ProfileCard, mods, [className])}
-        >
+        <VStack align="start" max gap="16" className={classNames(cls.ProfileCard, mods, [className])}>
             {data?.avatar && (
                 <HStack max justify="start" className={cls.avatarWrapper}>
                     <Avatar src={data?.avatar} />
@@ -139,12 +126,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 onChange={onChangeCurrency}
                 readonly={readonly}
             />
-            <CountrySelect
-                className={cls.input}
-                value={data?.country}
-                onChange={onChangeCountry}
-                readonly={readonly}
-            />
+            <CountrySelect className={cls.input} value={data?.country} onChange={onChangeCountry} readonly={readonly} />
         </VStack>
     );
 };

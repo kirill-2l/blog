@@ -12,9 +12,7 @@ export default {
     },
 } as Meta<typeof ArticlesRecommendationsList>;
 
-const Template: StoryFn<typeof ArticlesRecommendationsList> = (args) => (
-    <ArticlesRecommendationsList {...args} />
-);
+const Template: StoryFn<typeof ArticlesRecommendationsList> = (args) => <ArticlesRecommendationsList {...args} />;
 
 const article: Article = {
     id: '1',
@@ -44,10 +42,12 @@ Normal.parameters = {
                 {
                     ...article,
                     id: 1,
-                }, {
+                },
+                {
                     ...article,
                     id: 2,
-                }, {
+                },
+                {
                     ...article,
                     id: 3,
                 },

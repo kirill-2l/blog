@@ -17,19 +17,10 @@ interface DrawerProps {
 const height = window.innerHeight - 100;
 
 const DrawerContent = (props: DrawerProps) => {
-    const {
-        isOpen,
-        children,
-        onClose,
-        className,
-        lazy,
-    } = props;
+    const { isOpen, children, onClose, className, lazy } = props;
 
     const { theme } = useTheme();
-    const {
-        Spring,
-        Gesture,
-    } = useAnimationLibs();
+    const { Spring, Gesture } = useAnimationLibs();
     const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
 
     const openDrawer = useCallback(() => {
@@ -45,26 +36,23 @@ const DrawerContent = (props: DrawerProps) => {
         }
     }, [isOpen, openDrawer]);
 
-    const close = useCallback((velocity = 0) => {
-        api.start({
-            y: height,
-            immediate: false,
-            config: {
-                ...Spring.config.stiff,
-                velocity,
-            },
-            onResolve: onClose,
-        });
-    }, [Spring.config.stiff, api, onClose]);
+    const close = useCallback(
+        (velocity = 0) => {
+            api.start({
+                y: height,
+                immediate: false,
+                config: {
+                    ...Spring.config.stiff,
+                    velocity,
+                },
+                onResolve: onClose,
+            });
+        },
+        [Spring.config.stiff, api, onClose],
+    );
 
     const bind = Gesture.useDrag(
-        ({
-            last,
-            velocity: [, vy],
-            direction: [, dy],
-            movement: [, my],
-            cancel,
-        }) => {
+        ({ last, velocity: [, vy], direction: [, dy], movement: [, my], cancel }) => {
             if (my < -70) cancel();
 
             if (last) {

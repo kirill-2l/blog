@@ -1,13 +1,13 @@
 .navbar {
-  width: 100%;
-  height: var(--navbar-height);
-  background-color: var(--inverted-bg-color);
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 20px;
+    width: 100%;
+    height: var(--navbar-height);
+    background-color: var(--inverted-bg-color);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
 }
 
 .actions {
-  margin-left: auto;
+    margin-left: auto;
 }

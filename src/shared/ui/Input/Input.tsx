@@ -8,7 +8,7 @@ export enum InputTheme {
     OUTLINE = 'outline',
     OUTLINE_DARK = 'outline-dark',
     BACKGROUND = 'background',
-    BACKGROUND_INVERTED = 'background-inverted'
+    BACKGROUND_INVERTED = 'background-inverted',
 }
 
 export enum InputSize {
@@ -17,23 +17,15 @@ export enum InputSize {
     XL = 'size_xl',
 }
 
-interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>,
-    'value' | 'onChange' | 'readOnly'> {
-    className?: string,
-    value?: string,
-    onChange?: (value: string) => void,
-    readonly?: boolean
+interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'> {
+    className?: string;
+    value?: string;
+    onChange?: (value: string) => void;
+    readonly?: boolean;
 }
 
 export const Input = memo((props: InputProps) => {
-    const {
-        className,
-        value,
-        onChange,
-        type = 'text',
-        readonly = false,
-        ...rest
-    } = props;
+    const { className, value, onChange, type = 'text', readonly = false, ...rest } = props;
 
     const modes = {
         [cls.readonly]: readonly,

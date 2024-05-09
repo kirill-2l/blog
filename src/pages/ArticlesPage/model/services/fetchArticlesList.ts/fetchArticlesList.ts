@@ -14,23 +14,15 @@ import { ArticleType } from '@/entities/Article/model/types/article';
 
 interface FetchArticlesListProps {
     replace?: true;
-    order?: SortOrder,
-    sort?: ArticleSortField,
-    search?: string,
+    order?: SortOrder;
+    sort?: ArticleSortField;
+    search?: string;
 }
 
-export const fetchArticlesList = createAsyncThunk<
-    Article[],
-    FetchArticlesListProps,
-    ThunkConfig<string>
->(
+export const fetchArticlesList = createAsyncThunk<Article[], FetchArticlesListProps, ThunkConfig<string>>(
     'articlesPage/fetchArticlesList',
     async (payload, thunkApi) => {
-        const {
-            extra,
-            rejectWithValue,
-            getState,
-        } = thunkApi;
+        const { extra, rejectWithValue, getState } = thunkApi;
         const page = getArticlesPageNum(getState());
         const limit = getArticlesPageLimit(getState());
         const order = getArticlesPageOrder(getState());

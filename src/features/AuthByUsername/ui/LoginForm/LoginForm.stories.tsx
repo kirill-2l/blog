@@ -17,36 +17,44 @@ const Template: StoryFn<typeof LoginForm> = (args) => <LoginForm {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {};
-Primary.decorators = [StoreDecorator({
-    login: {
-        username: '123',
-        password: 'asd',
-    },
-})];
+Primary.decorators = [
+    StoreDecorator({
+        login: {
+            username: '123',
+            password: 'asd',
+        },
+    }),
+];
 
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
-Dark.decorators = [StoreDecorator({
-    login: {
-        username: '123',
-        password: 'asd',
-    },
-})];
+Dark.decorators = [
+    StoreDecorator({
+        login: {
+            username: '123',
+            password: 'asd',
+        },
+    }),
+];
 
 export const WithError = Template.bind({});
 WithError.args = {};
-WithError.decorators = [StoreDecorator({
-    login: {
-        username: 'asd',
-        password: 'asd',
-        error: 'Error',
-    },
-})];
+WithError.decorators = [
+    StoreDecorator({
+        login: {
+            username: 'asd',
+            password: 'asd',
+            error: 'Error',
+        },
+    }),
+];
 
 export const Loading = Template.bind({});
 Loading.args = {};
 
-Loading.decorators = [StoreDecorator({
-    login: { isLoading: true },
-})];
+Loading.decorators = [
+    StoreDecorator({
+        login: { isLoading: true },
+    }),
+];

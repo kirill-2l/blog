@@ -1,5 +1,4 @@
-import { getLoginUsername } from
-    '@/features/AuthByUsername/model/selectors/getLoginUsername/getLoginUsername';
+import { getLoginUsername } from '@/features/AuthByUsername/model/selectors/getLoginUsername/getLoginUsername';
 import { StateSchema } from '@/app/providers/store';
 
 describe('getLoginUsername.test', () => {

@@ -9,49 +9,30 @@ import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatc
 import { BaseText } from '@/shared/ui';
 import { TextTheme } from '@/shared/ui/BaseText';
 import { ProfileCard } from '@/entities/Profile';
-import {
-    DynamicModuleLoader, ReducersList,
-} from '@/shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
+import { DynamicModuleLoader, ReducersList } from '@/shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
 
-import {
-    getProfileForm,
-} from '@/features/editableProfileCard/model/selectors/getProfileForm/getProfileForm';
+import { getProfileForm } from '@/features/editableProfileCard/model/selectors/getProfileForm/getProfileForm';
 import { useInitialEffect } from '@/shared/libs/hooks/useInitialEffect/useInitialEffect';
-import {
-    fetchProfileData,
-} from '@/features/editableProfileCard/model/services/fetchProfileData/fetchProfileData';
-import {
-    EditableProfileCardHeader,
-} from '@/features/editableProfileCard/ui/EditableProfileCardHeader/EditableProfileCardHeader';
+import { fetchProfileData } from '@/features/editableProfileCard/model/services/fetchProfileData/fetchProfileData';
+import { EditableProfileCardHeader } from '@/features/editableProfileCard/ui/EditableProfileCardHeader/EditableProfileCardHeader';
 import { VStack } from '@/shared/ui/Stack';
-import {
-    getProfileError,
-} from '../../model/selectors/getProfileError/getProfileError';
-import {
-    getProfileIsLoading,
-} from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
-import {
-    getProfileReadonly,
-} from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
+import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { profileActions, profileReducer } from '../../model/slice/profile.slice';
-import {
-    getProfileValidateErrors,
-} from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
+import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { ValidateProfileError } from '../../model/types/profile';
 
 interface EditableProfileCardProps {
-    className?: string,
-    id: string
+    className?: string;
+    id: string;
 }
 
 const reducers: ReducersList = {
     profile: profileReducer,
 };
 
-export const EditableProfileCard = memo(({
-    className,
-    id,
-}: EditableProfileCardProps) => {
+export const EditableProfileCard = memo(({ className, id }: EditableProfileCardProps) => {
     const { t } = useTranslation('profile');
 
     const dispatch = useAppDispatch();
@@ -130,14 +111,15 @@ export const EditableProfileCard = memo(({
         <DynamicModuleLoader reducers={reducers}>
             <VStack gap="16" max className={classNames('', {}, [className])}>
                 <EditableProfileCardHeader />
-                {validateErrors && validateErrors.map((err) => (
-                    <BaseText
-                        key={err}
-                        text={validateErrorsTranslate[err]}
-                        theme={TextTheme.ERROR}
-                        data-testid="EditableProfileCard.Error"
-                    />
-                ))}
+                {validateErrors &&
+                    validateErrors.map((err) => (
+                        <BaseText
+                            key={err}
+                            text={validateErrorsTranslate[err]}
+                            theme={TextTheme.ERROR}
+                            data-testid="EditableProfileCard.Error"
+                        />
+                    ))}
                 <ProfileCard
                     data={form}
                     isLoading={isLoading}

@@ -34,27 +34,27 @@ export interface ArticleCodeBlock extends ArticleBlockBase {
     code: string;
 }
 
-export type ArticleBlock = ArticleCodeBlock | ArticleTextBlock | ArticleImageBlock
+export type ArticleBlock = ArticleCodeBlock | ArticleTextBlock | ArticleImageBlock;
 
 export enum ArticleType {
     ALL = 'ALL',
     IT = 'IT',
-    SINCE = 'SINCE'
+    SINCE = 'SINCE',
 }
 
 export enum ArticleView {
     LIST = 'list',
-    TILE = 'tile'
+    TILE = 'tile',
 }
 
 export interface Article {
-    id: string,
-    title: string,
-    user: User,
-    subtitle: string,
-    img: string,
-    views: number,
-    createdAt: string,
-    type: ArticleType[],
-    blocks: ArticleBlock[]
+    id: string;
+    title: string;
+    user: User;
+    subtitle: string;
+    img: string;
+    views: number;
+    createdAt: string;
+    type: ArticleType[];
+    blocks: ArticleBlock[];
 }

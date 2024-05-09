@@ -21,14 +21,14 @@ export enum TextSize {
 }
 
 export interface TextProps {
-    className?: string,
-    title?: string,
-    text?: string,
-    theme?: TextTheme,
-    align?: TextAlign,
-    size?: TextSize,
+    className?: string;
+    title?: string;
+    text?: string;
+    theme?: TextTheme;
+    align?: TextAlign;
+    size?: TextSize;
 
-    'data-testid'?: string,
+    'data-testid'?: string;
 }
 
 type HeaderTagType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
@@ -60,18 +60,12 @@ export const BaseText = memo((props: TextProps) => {
     return (
         <div className={classNames(cls.Text, modes, [className])}>
             {title && (
-                <HeaderTag
-                    data-testid={`${dataTestId}.Header`}
-                    className={cls.title}
-                >
+                <HeaderTag data-testid={`${dataTestId}.Header`} className={cls.title}>
                     {title}
                 </HeaderTag>
             )}
             {text && (
-                <p
-                    data-testid={`${dataTestId}.Paragraph`}
-                    className={cls.text}
-                >
+                <p data-testid={`${dataTestId}.Paragraph`} className={cls.text}>
                     {text}
                 </p>
             )}

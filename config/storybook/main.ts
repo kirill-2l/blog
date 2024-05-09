@@ -2,21 +2,21 @@ import { Configuration, DefinePlugin, RuleSetRule } from 'webpack';
 import path from 'path';
 
 export default {
-    stories: [
-        '../../src/**/*.stories.@(js|jsx|ts|tsx)',
-    ],
+    stories: ['../../src/**/*.stories.@(js|jsx|ts|tsx)'],
 
-    addons: ['@storybook/addon-links', {
-        name: '@storybook/addon-essentials',
-        options: {
-            backgrounds: false,
+    addons: [
+        '@storybook/addon-links',
+        {
+            name: '@storybook/addon-essentials',
+            options: {
+                backgrounds: false,
+            },
         },
-    },
-    '@storybook/addon-interactions',
-    'storybook-addon-mock',
-    '@storybook/addon-themes',
-    '@storybook/addon-webpack5-compiler-swc',
-    '@chromatic-com/storybook',
+        '@storybook/addon-interactions',
+        'storybook-addon-mock',
+        '@storybook/addon-themes',
+        '@storybook/addon-webpack5-compiler-swc',
+        '@chromatic-com/storybook',
     ],
 
     framework: {
@@ -73,11 +73,13 @@ export default {
         });
         // config!.module!.rules.push(buildCssLoader(true));
 
-        config!.plugins!.push(new DefinePlugin({
-            __IS_DEV__: JSON.stringify(true),
-            __API__: JSON.stringify('https://testapi.ru'),
-            __PROJECT__: JSON.stringify('storybook'),
-        }));
+        config!.plugins!.push(
+            new DefinePlugin({
+                __IS_DEV__: JSON.stringify(true),
+                __API__: JSON.stringify('https://testapi.ru'),
+                __PROJECT__: JSON.stringify('storybook'),
+            }),
+        );
         // Return the altered config
         return config;
     },

@@ -34,10 +34,6 @@ export const loginSlice = createSlice({
                 state.error = action.payload;
             });
     },
-
 });
 
-export const {
-    actions: loginActions,
-    reducer: loginReducer,
-} = loginSlice;
+export const { actions: loginActions, reducer: loginReducer } = loginSlice;

@@ -2,9 +2,7 @@ import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolki
 import { StateSchema } from '@/app/providers/store';
 import { Article, ArticleView } from '@/entities/Article';
 import { ArticlePageSchema } from '@/pages/ArticlesPage/model/types/ArticlePageSchema';
-import {
-    fetchArticlesList,
-} from '@/pages/ArticlesPage/model/services/fetchArticlesList.ts/fetchArticlesList';
+import { fetchArticlesList } from '@/pages/ArticlesPage/model/services/fetchArticlesList.ts/fetchArticlesList';
 import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 import { ArticleSortField, ArticleType } from '@/entities/Article/model/types/article';
 import { SortOrder } from '@/shared/types/types';
@@ -70,28 +68,21 @@ const articlesPageSlice = createSlice({
                     articlesAdapter.removeAll(state);
                 }
             })
-            .addCase(
-                fetchArticlesList.fulfilled,
-                (state, action) => {
-                    state.isLoading = false;
-                    state.hasMore = action.payload.length >= (state.limit || 0);
+            .addCase(fetchArticlesList.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.hasMore = action.payload.length >= (state.limit || 0);
 
-                    if (action.meta.arg.replace) {
-                        articlesAdapter.setAll(state, action.payload);
-                    } else {
-                        articlesAdapter.addMany(state, action.payload);
-                    }
-                },
-            )
+                if (action.meta.arg.replace) {
+                    articlesAdapter.setAll(state, action.payload);
+                } else {
+                    articlesAdapter.addMany(state, action.payload);
+                }
+            })
             .addCase(fetchArticlesList.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = action.payload;
             });
     },
-
 });
 
-export const {
-    reducer: articlesPageReducer,
-    actions: articlesPageActions,
-} = articlesPageSlice;
+export const { reducer: articlesPageReducer, actions: articlesPageActions } = articlesPageSlice;

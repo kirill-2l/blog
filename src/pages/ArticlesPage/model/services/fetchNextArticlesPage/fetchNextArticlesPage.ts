@@ -6,25 +6,16 @@ import {
     getArticlesPageNum,
 } from '@/pages/ArticlesPage/model/selectors/articlesPageSelector';
 import { articlesPageActions } from '@/pages/ArticlesPage/model/slice/articlesPage.slice';
-import {
-    fetchArticlesList,
-} from '@/pages/ArticlesPage/model/services/fetchArticlesList.ts/fetchArticlesList';
+import { fetchArticlesList } from '@/pages/ArticlesPage/model/services/fetchArticlesList.ts/fetchArticlesList';
 
 interface FetchArticlesListArgs {
     page: number;
 }
 
-export const fetchNextArticlesPage = createAsyncThunk<
-    void,
-    void,
-    ThunkConfig<string>
->(
+export const fetchNextArticlesPage = createAsyncThunk<void, void, ThunkConfig<string>>(
     'articlesPage/fetchNextArticlesPage',
     async (_, thunkApi) => {
-        const {
-            dispatch,
-            getState,
-        } = thunkApi;
+        const { dispatch, getState } = thunkApi;
         const hasMore = getArticlesPageHasMore(getState());
         const page = getArticlesPageNum(getState());
         const isLoading = getArticlesPageIsLoading(getState());

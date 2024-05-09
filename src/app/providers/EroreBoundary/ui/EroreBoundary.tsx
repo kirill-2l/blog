@@ -2,11 +2,11 @@ import React, { ErrorInfo, ReactNode, Suspense } from 'react';
 import { PageError } from '@/widgets/PageError/PageError';
 
 interface ErrorBoundaryProps {
-    children: ReactNode
+    children: ReactNode;
 }
 
 interface ErrorBoundaryState {
-    hasError: boolean
+    hasError: boolean;
 }
 
 export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {

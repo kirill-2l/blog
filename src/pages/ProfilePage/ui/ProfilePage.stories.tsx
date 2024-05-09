@@ -20,21 +20,22 @@ const Template: StoryFn<typeof ProfilePage> = (args) => <ProfilePage />;
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({
-    profile: {
-        data: {
-            country: Country.Ukraine,
-            username: 'test',
-            age: 20,
-            lastname: 'petr',
-            first: 'kir',
-            avatar,
-            city: 'Kiev',
-            currency: Currency.USD,
+Normal.decorators = [
+    StoreDecorator({
+        profile: {
+            data: {
+                country: Country.Ukraine,
+                username: 'test',
+                age: 20,
+                lastname: 'petr',
+                first: 'kir',
+                avatar,
+                city: 'Kiev',
+                currency: Currency.USD,
+            },
         },
-    },
-
-})];
+    }),
+];
 
 export const Dark = Template.bind({});
 Dark.args = {};
@@ -53,4 +54,5 @@ Dark.decorators = [
                 currency: Currency.USD,
             },
         },
-    })];
+    }),
+];

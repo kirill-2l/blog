@@ -3,23 +3,17 @@ import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/libs/classNames/classNames';
 import { getUserAuthData } from '@/entities/User';
-import {
-    getProfileData,
-} from '@/features/editableProfileCard/model/selectors/getProfileData/getProfileData';
-import {
-    getProfileReadonly,
-} from '@/features/editableProfileCard/model/selectors/getProfileReadonly/getProfileReadonly';
+import { getProfileData } from '@/features/editableProfileCard/model/selectors/getProfileData/getProfileData';
+import { getProfileReadonly } from '@/features/editableProfileCard/model/selectors/getProfileReadonly/getProfileReadonly';
 import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
 import { profileActions } from '@/features/editableProfileCard/model/slice/profile.slice';
-import {
-    updateProfileData,
-} from '@/features/editableProfileCard/model/services/updateProfileData/updateProfileData';
+import { updateProfileData } from '@/features/editableProfileCard/model/services/updateProfileData/updateProfileData';
 import { HStack } from '@/shared/ui/Stack';
 import { BaseText, Button } from '@/shared/ui';
 import { ButtonTheme } from '@/shared/ui/Button';
 
 interface EditableProfileCardHeaderProps {
-    className?: string,
+    className?: string;
 }
 
 export const EditableProfileCardHeader = memo(({ className }: EditableProfileCardHeaderProps) => {
@@ -75,7 +69,6 @@ export const EditableProfileCardHeader = memo(({ className }: EditableProfileCar
                     )}
                 </div>
             )}
-
         </HStack>
     );
 });

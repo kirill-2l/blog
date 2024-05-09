@@ -10,9 +10,7 @@ export default {
     },
 } as Meta<typeof EditableProfileCard>;
 
-const Template: StoryFn<typeof EditableProfileCard> = (args) => (
-    <EditableProfileCard {...args} />
-);
+const Template: StoryFn<typeof EditableProfileCard> = (args) => <EditableProfileCard {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};

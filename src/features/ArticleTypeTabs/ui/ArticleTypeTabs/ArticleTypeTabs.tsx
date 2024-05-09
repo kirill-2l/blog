@@ -5,25 +5,22 @@ import { Tabs, TabsItem } from '@/shared/ui/Tabs';
 import { ArticleType } from '@/entities/Article';
 
 interface ArticleTypeTabsProps {
-    className?: string,
-    onChangeType: (tabs: TabsItem) => void,
-    value: ArticleType,
+    className?: string;
+    onChangeType: (tabs: TabsItem) => void;
+    value: ArticleType;
 }
 
 export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
-    const {
-        className,
-        onChangeType,
-        value,
-    } = props;
+    const { className, onChangeType, value } = props;
     const { t } = useTranslation();
 
-    const tabTypes: TabsItem[] = useMemo(() => (
-        [
+    const tabTypes: TabsItem[] = useMemo(
+        () => [
             {
                 value: ArticleType.ALL,
                 content: t('All'),
-            }, {
+            },
+            {
                 value: ArticleType.SINCE,
                 content: t('Since'),
             },
@@ -31,12 +28,16 @@ export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
                 value: ArticleType.IT,
                 content: t('IT'),
             },
-        ]
-    ), [t]);
+        ],
+        [t],
+    );
 
-    const onTabClick = useCallback((tab: TabsItem) => {
-        onChangeType(tab);
-    }, [onChangeType]);
+    const onTabClick = useCallback(
+        (tab: TabsItem) => {
+            onChangeType(tab);
+        },
+        [onChangeType],
+    );
 
     return (
         <div className={classNames('', {}, [className])}>

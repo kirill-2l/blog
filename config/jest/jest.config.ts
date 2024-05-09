@@ -8,27 +8,12 @@ import path from 'path';
 export default {
     clearMocks: true,
     testEnvironment: 'jsdom',
-    coveragePathIgnorePatterns: [
-        '\\\\node_modules\\\\',
-    ],
-    moduleFileExtensions: [
-        'js',
-        'jsx',
-        'ts',
-        'tsx',
-        'json',
-        'node',
-    ],
-    moduleDirectories: [
-        'node_modules',
-    ],
+    coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
+    moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
+    moduleDirectories: ['node_modules'],
 
-    modulePaths: [
-        '<rootDir>src',
-    ],
-    testMatch: [
-        '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
-    ],
+    modulePaths: ['<rootDir>src'],
+    testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
     rootDir: '../../',
     setupFilesAfterEnv: ['<rootDir>config/jest/jest.setup.ts'],
     moduleNameMapper: {
@@ -110,13 +95,16 @@ export default {
     // Use this configuration option to add custom reporters to Jest
     reporters: [
         'default',
-        ['jest-html-reporters', {
-            publicPath: '<rootDir>/reports/unit',
-            filename: 'report.html',
-            inlineSource: true,
-            failureMessageOnly: 2,
-            openReport: true,
-        }],
+        [
+            'jest-html-reporters',
+            {
+                publicPath: '<rootDir>/reports/unit',
+                filename: 'report.html',
+                inlineSource: true,
+                failureMessageOnly: 2,
+                openReport: true,
+            },
+        ],
     ],
 
     // Automatically reset mock state before every test

@@ -12,9 +12,7 @@ export default {
     },
 } as Meta<typeof Skeleton>;
 
-const Template: StoryFn<typeof Skeleton> = (args) => (
-    <Skeleton {...args} />
-);
+const Template: StoryFn<typeof Skeleton> = (args) => <Skeleton {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {

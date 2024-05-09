@@ -9,21 +9,17 @@ import { Drawer } from '@/shared/ui/Drawer';
 import cls from './NotificationButton.module.scss';
 
 interface NotificationsButtonProps {
-    className?: string,
+    className?: string;
 }
 
 export const NotificationButton = memo(({ className }: NotificationsButtonProps) => {
-    const
-        [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
     const onOpenDrawer = useCallback(() => {
         setIsOpen(true);
     }, []);
-    const onCloseDrawer = useCallback(
-        () => {
-            setIsOpen(false);
-        },
-        [],
-    );
+    const onCloseDrawer = useCallback(() => {
+        setIsOpen(false);
+    }, []);
 
     const trigger = (
         <Button onClick={onOpenDrawer} theme={ButtonTheme.CLEAR}>
@@ -31,17 +27,10 @@ export const NotificationButton = memo(({ className }: NotificationsButtonProps)
         </Button>
     );
     return (
-
         <>
             <BrowserView>
-
-                <Popover
-                    trigger={trigger}
-                    direction="bottom-left"
-                >
-                    <NotificationList
-                        className={cls.notifications}
-                    />
+                <Popover trigger={trigger} direction="bottom-left">
+                    <NotificationList className={cls.notifications} />
                 </Popover>
             </BrowserView>
             <MobileView>
@@ -51,7 +40,6 @@ export const NotificationButton = memo(({ className }: NotificationsButtonProps)
                     <NotificationList />
                 </Drawer>
             </MobileView>
-
         </>
     );
 });

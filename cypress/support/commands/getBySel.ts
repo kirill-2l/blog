@@ -6,7 +6,7 @@ declare global {
         interface Chainable {
             getBySel(
                 selector: string,
-                args?: Partial<Loggable & Timeoutable & Withinable & Shadow>
+                args?: Partial<Loggable & Timeoutable & Withinable & Shadow>,
             ): Chainable<JQuery<HTMLElement>>;
         }
     }

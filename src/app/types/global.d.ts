@@ -1,7 +1,7 @@
 declare module '*.scss' {
-    type IClassNames = Record<string, string>
+    type IClassNames = Record<string, string>;
     const classNames: IClassNames;
-    export = classNames
+    export = classNames;
 }
 
 declare module '*.png';
@@ -18,6 +18,8 @@ declare const __IS_DEV__: boolean;
 declare const __API_URL__: string;
 declare const __PROJECT__: 'storybook' | 'frontend' | 'jest';
 
-type DeepPartial<T> = T extends object ? {
-    [P in keyof T]?: DeepPartial<T[P]>
-} : T;
+type DeepPartial<T> = T extends object
+    ? {
+          [P in keyof T]?: DeepPartial<T[P]>;
+      }
+    : T;

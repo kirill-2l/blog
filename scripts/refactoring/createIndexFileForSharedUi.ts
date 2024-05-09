@@ -40,9 +40,7 @@ files.forEach((sourceFile) => {
         const isUiSlice = segments?.[1] === 'ui';
 
         if (isAbsolute(valueWithoutAlias) && isSharedLayer && isUiSlice) {
-            const result = valueWithoutAlias.split('/')
-                .slice(0, 3)
-                .join('/');
+            const result = valueWithoutAlias.split('/').slice(0, 3).join('/');
             importDeclaration.setModuleSpecifier(`@/${result}`);
         }
     });

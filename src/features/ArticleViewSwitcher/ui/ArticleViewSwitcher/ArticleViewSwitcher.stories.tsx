@@ -10,9 +10,7 @@ export default {
     },
 } as Meta<typeof ArticleViewSwitcher>;
 
-const Template: StoryFn<typeof ArticleViewSwitcher> = (args) => (
-    <ArticleViewSwitcher {...args} />
-);
+const Template: StoryFn<typeof ArticleViewSwitcher> = (args) => <ArticleViewSwitcher {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};

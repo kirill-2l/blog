@@ -11,8 +11,7 @@ describe('app/router/ui/AppRouter.component', () => {
         });
 
         const page = await screen.findByTestId('AboutPage');
-        expect(page)
-            .toBeInTheDocument();
+        expect(page).toBeInTheDocument();
     });
     test('Page not Found', async () => {
         componentRender(<AppRouter />, {
@@ -20,18 +19,15 @@ describe('app/router/ui/AppRouter.component', () => {
         });
 
         const page = await screen.findByTestId('NotFoundPage');
-        expect(page)
-            .toBeInTheDocument();
+        expect(page).toBeInTheDocument();
     });
-    test('User doesn\'t have access rights to page if not authorized', async () => {
+    test("User doesn't have access rights to page if not authorized", async () => {
         componentRender(<AppRouter />, {
             route: getRouteProfile('1'),
-
         });
 
         const page = await screen.findByTestId('MainPage');
-        expect(page)
-            .toBeInTheDocument();
+        expect(page).toBeInTheDocument();
     });
     test('User has access rights to page if authorized', async () => {
         componentRender(<AppRouter />, {
@@ -45,8 +41,7 @@ describe('app/router/ui/AppRouter.component', () => {
         });
 
         const page = await screen.findByTestId('ProfilePage');
-        expect(page)
-            .toBeInTheDocument();
+        expect(page).toBeInTheDocument();
     });
     test('User doesnt have enough access rights for the page', async () => {
         componentRender(<AppRouter />, {
@@ -62,8 +57,7 @@ describe('app/router/ui/AppRouter.component', () => {
         });
 
         const page = await screen.findByTestId('ForbiddenPage');
-        expect(page)
-            .toBeInTheDocument();
+        expect(page).toBeInTheDocument();
     });
     test('User has enough access rights for the page', async () => {
         componentRender(<AppRouter />, {
@@ -79,7 +73,6 @@ describe('app/router/ui/AppRouter.component', () => {
         });
 
         const page = await screen.findByTestId('AdminPanelPage');
-        expect(page)
-            .toBeInTheDocument();
+        expect(page).toBeInTheDocument();
     });
 });

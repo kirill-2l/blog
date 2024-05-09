@@ -9,10 +9,7 @@ import {
     getAddCommentText,
 } from '@/features/addCommentForm/model/selectors/addCommentFormSelectors/addCommentFormSelectors';
 
-import {
-    DynamicModuleLoader,
-    ReducersList,
-} from '@/shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
+import { DynamicModuleLoader, ReducersList } from '@/shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
     addCommentFormActions,
     addCommentFormReducer,
@@ -31,18 +28,18 @@ const reducers: ReducersList = {
 };
 
 const AddCommentForm = memo((props: AddCommentFormProps) => {
-    const {
-        className,
-        onSendComment,
-    } = props;
+    const { className, onSendComment } = props;
     const { t } = useTranslation();
     const text = useSelector(getAddCommentText);
     const error = useSelector(getAddCommentError);
     const dispatch = useAppDispatch();
 
-    const onCommentTextChange = useCallback((value: string) => {
-        dispatch(addCommentFormActions.setText(value));
-    }, [dispatch]);
+    const onCommentTextChange = useCallback(
+        (value: string) => {
+            dispatch(addCommentFormActions.setText(value));
+        },
+        [dispatch],
+    );
 
     const onSendHandler = useCallback(() => {
         onSendComment(text || '');
@@ -51,10 +48,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div
-                className={classNames(cls.AddCommentForm, {}, [className])}
-                data-testid="AddCommentForm"
-            >
+            <div className={classNames(cls.AddCommentForm, {}, [className])} data-testid="AddCommentForm">
                 <Input
                     className={cls.input}
                     placeholder={t('Введите текст комментария')}
@@ -62,11 +56,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
                     onChange={onCommentTextChange}
                     data-testid="AddCommentForm.Input"
                 />
-                <Button
-                    theme={ButtonTheme.OUTLINE}
-                    onClick={onSendHandler}
-                    data-testid="AddCommentForm.Submit"
-                >
+                <Button theme={ButtonTheme.OUTLINE} onClick={onSendHandler} data-testid="AddCommentForm.Submit">
                     {t('Отправить')}
                 </Button>
             </div>

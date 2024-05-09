@@ -4,20 +4,11 @@ export interface UpdateProfileProps {
 }
 
 export const updateProfile = (props?: UpdateProfileProps) => {
-    const {
-        firstName = 'first',
-        lastName = 'last',
-    } = props ?? {};
-    cy.getBySel('EditableProfileCardHeader.EditButton')
-        .click();
-    cy.getBySel('ProfileCard.FirstNameInput')
-        .clear()
-        .type(firstName);
-    cy.getBySel('ProfileCard.LastNameInput')
-        .clear()
-        .type(lastName);
-    cy.getBySel('EditableProfileCardHeader.SaveButton')
-        .click();
+    const { firstName = 'first', lastName = 'last' } = props ?? {};
+    cy.getBySel('EditableProfileCardHeader.EditButton').click();
+    cy.getBySel('ProfileCard.FirstNameInput').clear().type(firstName);
+    cy.getBySel('ProfileCard.LastNameInput').clear().type(lastName);
+    cy.getBySel('EditableProfileCardHeader.SaveButton').click();
 };
 export const resetProfile = (profileId: string) => {
     cy.request({
@@ -45,7 +36,7 @@ declare global {
         interface Chainable {
             updateProfile(props?: UpdateProfileProps): Chainable<void>;
 
-            resetProfile(profileId: string,): Chainable<void>;
+            resetProfile(profileId: string): Chainable<void>;
         }
     }
 }

@@ -10,6 +10,7 @@ module.exports = {
         'plugin:i18next/recommended',
         'plugin:storybook/recommended',
         'plugin:react-hooks/recommended',
+        'prettier',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -21,13 +22,7 @@ module.exports = {
     },
     plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'unused-imports'],
     rules: {
-        'react/jsx-indent': [2, 4],
-        'react/jsx-indent-props': [2, 4],
-        indent: [2, 4],
-        'react/jsx-filename-extension': [
-            2,
-            { extensions: ['.js', '.jsx', '.tsx'] },
-        ],
+        'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
         'no-unused-vars': 'off',
@@ -44,20 +39,11 @@ module.exports = {
         'i18next/no-literal-string': [0, { markupOnly: true }],
         'no-undef': 'off',
         'no-console': 'off',
-        'max-len': [
-            'error',
-            {
-                code: 100,
-                ignoreComments: true,
-                ignoreTrailingComments: true,
-                ignoreUrls: true,
-                ignorePattern: '^import\\s.+\\sfrom\\s.+;$',
-            },
-        ],
         'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
         'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
         'jsx-a11y/no-static-element-interactions': 'off',
         'jsx-a11y/click-events-have-key-events': 'off',
+        'react/jsx-max-props-per-line': ['error', { maximum: 3 }],
     },
     globals: {
         __IS_DEV__: true,

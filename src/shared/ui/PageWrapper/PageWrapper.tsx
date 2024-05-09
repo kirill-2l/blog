@@ -1,6 +1,4 @@
-import {
-    memo, MutableRefObject, UIEvent, useRef,
-} from 'react';
+import { memo, MutableRefObject, UIEvent, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/libs/classNames/classNames';
@@ -14,26 +12,19 @@ import cls from './PageWrapper.module.scss';
 import { TestProps } from '@/shared/types/testPropType';
 
 interface PageWrapperProps extends TestProps {
-    className?: string,
-    children: React.ReactNode,
+    className?: string;
+    children: React.ReactNode;
     onScrollEnd?: () => void;
 }
 
 export const PageWrapper = memo((props: PageWrapperProps) => {
-    const {
-        className,
-        children,
-        onScrollEnd,
-        'data-testid': dataTestid = 'Page',
-    } = props;
+    const { className, children, onScrollEnd, 'data-testid': dataTestid = 'Page' } = props;
 
     const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const dispatch = useAppDispatch();
     const { pathname } = useLocation();
-    const scrollPosition = useSelector(
-        (state: StateSchema) => getScrollPositionByPath(state, pathname),
-    );
+    const scrollPosition = useSelector((state: StateSchema) => getScrollPositionByPath(state, pathname));
     useInfiniteScroll({
         wrapperRef,
         triggerRef,
@@ -46,10 +37,12 @@ export const PageWrapper = memo((props: PageWrapperProps) => {
     });
 
     const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-        dispatch(scrollPositionActions.setScrollPosition({
-            position: e.currentTarget.scrollTop,
-            path: pathname,
-        }));
+        dispatch(
+            scrollPositionActions.setScrollPosition({
+                position: e.currentTarget.scrollTop,
+                path: pathname,
+            }),
+        );
     }, 500);
 
     return (
@@ -62,6 +55,5 @@ export const PageWrapper = memo((props: PageWrapperProps) => {
             {children}
             {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
         </main>
-
     );
 });

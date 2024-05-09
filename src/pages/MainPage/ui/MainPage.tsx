@@ -6,10 +6,8 @@ import { RatingCard } from '@/entities/Rating';
 const MainPage = () => {
     const { t } = useTranslation();
 
-    const onCancel = () => {
-    };
-    const onAccept = () => {
-    };
+    const onCancel = () => {};
+    const onAccept = () => {};
 
     return (
         <PageWrapper data-testid="MainPage">

@@ -6,19 +6,14 @@ import { Loader } from '@/shared/ui/Loader';
 import cls from './LoginModal.module.scss';
 
 interface LoginModalProps {
-    className?: string,
-    isOpen: boolean,
-    onClose: () => void
-    onSuccess: () => void
+    className?: string;
+    isOpen: boolean;
+    onClose: () => void;
+    onSuccess: () => void;
 }
 
 export const LoginModal = (props: LoginModalProps) => {
-    const {
-        className,
-        isOpen,
-        onClose,
-        onSuccess,
-    } = props;
+    const { className, isOpen, onClose, onSuccess } = props;
     return (
         <Modal isOpen={isOpen} onClose={onClose} className={classNames(cls.LoginModal)}>
             <Suspense fallback={<Loader />}>

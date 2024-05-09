@@ -11,9 +11,7 @@ export default {
     },
 } as Meta<typeof Card>;
 
-const Template: StoryFn<typeof Card> = (args) => (
-    <Card {...args} />
-);
+const Template: StoryFn<typeof Card> = (args) => <Card {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {

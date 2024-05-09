@@ -10,9 +10,7 @@ export default {
     },
 } as Meta<typeof Drawer>;
 
-const Template: StoryFn<typeof Drawer> = (args) => (
-    <Drawer {...args} />
-);
+const Template: StoryFn<typeof Drawer> = (args) => <Drawer {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};
