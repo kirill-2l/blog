@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { Input , Button, ButtonTheme } from '@/shared/ui';
+import { Input, Button } from '@/shared/ui';
 
 import {
     getAddCommentError,
@@ -47,7 +47,10 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.AddCommentForm, {}, [className])} data-testid="AddCommentForm">
+            <div
+                className={classNames(cls.AddCommentForm, {}, [className])}
+                data-testid="AddCommentForm"
+            >
                 <Input
                     className={cls.input}
                     placeholder={t('Введите текст комментария')}
@@ -55,7 +58,11 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
                     onChange={onCommentTextChange}
                     data-testid="AddCommentForm.Input"
                 />
-                <Button theme={ButtonTheme.OUTLINE} onClick={onSendHandler} data-testid="AddCommentForm.Submit">
+                <Button
+                    variant="outline"
+                    onClick={onSendHandler}
+                    data-testid="AddCommentForm.Submit"
+                >
                     {t('Отправить')}
                 </Button>
             </div>

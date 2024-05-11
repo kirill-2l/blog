@@ -1,11 +1,13 @@
-export { Button, ButtonTheme } from './deprecated/Button/Button';
-export { AppLink, AppLinksTheme } from './deprecated/AppLink/AppLink';
+export { Button } from '@/shared/ui/Button/Button';
+export type { ButtonVariant } from '@/shared/ui/Button/Button';
+export { AppLink } from '@/shared/ui/AppLink/AppLink';
+export type { AppLinkVariant } from '@/shared/ui/AppLink/AppLink';
 export { Input } from './deprecated/Input/Input';
 export { Loader } from './deprecated/Loader/Loader';
 export { Modal } from './deprecated/Modal/Modal';
 export { Portal } from './deprecated/Portal/Portal';
 export { BaseText, TextTheme, TextSize, TextAlign } from './deprecated/BaseText/BaseText';
-export { Icon } from './deprecated/Icon/Icon';
+export { Icon } from '@/shared/ui/Icon/Icon';
 export { Skeleton } from './deprecated/Skeleton';
 export { Select } from './deprecated/Select/Select';
 export type { SelectOption } from './deprecated/Select/Select';

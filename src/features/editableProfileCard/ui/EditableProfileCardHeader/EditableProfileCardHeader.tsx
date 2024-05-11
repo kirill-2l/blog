@@ -8,7 +8,7 @@ import { getProfileReadonly } from '@/features/editableProfileCard/model/selecto
 import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
 import { profileActions } from '@/features/editableProfileCard/model/slice/profile.slice';
 import { updateProfileData } from '@/features/editableProfileCard/model/services/updateProfileData/updateProfileData';
-import { HStack, BaseText, Button , ButtonTheme } from '@/shared/ui';
+import { HStack, BaseText, Button } from '@/shared/ui';
 
 interface EditableProfileCardHeaderProps {
     className?: string;
@@ -35,13 +35,17 @@ export const EditableProfileCardHeader = memo(({ className }: EditableProfileCar
     }, [dispatch]);
 
     return (
-        <HStack max justify="between" className={classNames('', {}, [className])}>
+        <HStack
+            max
+            justify="between"
+            className={classNames('', {}, [className])}
+        >
             <BaseText title={t('Profile page')} />
             {canEdit && (
                 <div>
                     {readonly ? (
                         <Button
-                            theme={ButtonTheme.OUTLINE}
+                            variant="outline"
                             onClick={onEdit}
                             data-testid="EditableProfileCardHeader.EditButton"
                         >
@@ -50,14 +54,14 @@ export const EditableProfileCardHeader = memo(({ className }: EditableProfileCar
                     ) : (
                         <HStack gap="8">
                             <Button
-                                theme={ButtonTheme.OUTLINE}
+                                variant="outline"
                                 data-testid="EditableProfileCardHeader.CancelButton"
                                 onClick={onCancelEdit}
                             >
                                 {t('Cancel')}
                             </Button>
                             <Button
-                                theme={ButtonTheme.OUTLINE}
+                                variant="outline"
                                 onClick={onSave}
                                 data-testid="EditableProfileCardHeader.SaveButton"
                             >

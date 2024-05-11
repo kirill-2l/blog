@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { classNames } from '@/shared/libs/classNames/classNames';
-import { Card, BaseText, Button, Input, Modal, ButtonTheme, HStack, VStack, Drawer , StarRating } from '@/shared/ui';
+import { Card, BaseText, Button, Input, Modal, HStack, VStack, Drawer, StarRating } from '@/shared/ui';
 
 interface RatingCardProps {
     className?: string;
@@ -45,7 +45,10 @@ export const RatingCard = memo((props: RatingCardProps) => {
     }, [onCancel, starsCount]);
 
     const modalContent = (
-        <VStack max gap="32">
+        <VStack
+            max
+            gap="32"
+        >
             <BaseText title={feedbackTitle} />
             <Input
                 data-testid="RatingCard.Input"
@@ -53,11 +56,21 @@ export const RatingCard = memo((props: RatingCardProps) => {
                 onChange={setFeedback}
                 placeholder={t('Your feedback')}
             />
-            <HStack gap="16" justify="end">
-                <Button onClick={cancelHandler} data-testid="RatingCard.Close" theme={ButtonTheme.OUTLINE_RED}>
+            <HStack
+                gap="16"
+                justify="end"
+            >
+                <Button
+                    onClick={cancelHandler}
+                    data-testid="RatingCard.Close"
+                    variant="outline"
+                >
                     {t('Close')}
                 </Button>
-                <Button onClick={acceptHandler} data-testid="RatingCard.Submit">
+                <Button
+                    onClick={acceptHandler}
+                    data-testid="RatingCard.Submit"
+                >
                     {t('Submit')}
                 </Button>
             </HStack>
@@ -65,17 +78,31 @@ export const RatingCard = memo((props: RatingCardProps) => {
     );
 
     return (
-        <Card className={classNames('', {}, [className])} data-testid="RatingCard">
+        <Card
+            className={classNames('', {}, [className])}
+            data-testid="RatingCard"
+        >
             <VStack gap="8">
                 <BaseText title={rate ? 'Thank you for review' : title} />
-                <StarRating selectedStars={starsCount} size={40} onSelect={onSelectStars} />
+                <StarRating
+                    selectedStars={starsCount}
+                    size={40}
+                    onSelect={onSelectStars}
+                />
                 <BrowserView>
-                    <Modal isOpen={isModalOpen} lazy>
+                    <Modal
+                        isOpen={isModalOpen}
+                        lazy
+                    >
                         {modalContent}
                     </Modal>
                 </BrowserView>
                 <MobileView>
-                    <Drawer isOpen={isModalOpen} lazy onClose={cancelHandler}>
+                    <Drawer
+                        isOpen={isModalOpen}
+                        lazy
+                        onClose={cancelHandler}
+                    >
                         {modalContent}
                     </Drawer>
                 </MobileView>
