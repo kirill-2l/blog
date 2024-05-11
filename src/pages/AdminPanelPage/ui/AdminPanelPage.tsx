@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/libs/classNames/classNames';
-import { PageWrapper } from '@/shared/ui/PageWrapper';
+import { PageWrapper } from '@/shared/ui';
 
 interface AdminPanelPageProps {
     className?: string;

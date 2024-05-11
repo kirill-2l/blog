@@ -3,13 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { classNames } from '@/shared/libs/classNames/classNames';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Button, ButtonTheme, AppLink, BaseText, HStack, AppLinksTheme , TextSize, TextTheme } from '@/shared/ui';
 import { LoginModal } from '@/features/AuthByUsername';
 import { getUserAuthData } from '@/entities/User';
-import { AppLink, BaseText } from '@/shared/ui';
-import { TextSize, TextTheme } from '@/shared/ui/BaseText';
-import { AppLinksTheme } from '@/shared/ui/AppLink';
-import { HStack } from '@/shared/ui/Stack';
 import { NotificationButton } from '@/features/notificationButton';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import cls from './Navbar.module.scss';
@@ -36,7 +32,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     if (authData) {
         return (
             <div className={classNames(cls.navbar)}>
-                <BaseText className={cls.logo} theme={TextTheme.INVERTED} title="LOGO" size={TextSize.L} />
+                <BaseText className={cls.logo} theme={TextTheme.INVERTED} title="LOGO"
+size={TextSize.L} />
                 <AppLink theme={AppLinksTheme.SECONDARY} to={getRouteArticleCreate()}>
                     {t('Create article')}
                 </AppLink>

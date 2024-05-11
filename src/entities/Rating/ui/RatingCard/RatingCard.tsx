@@ -2,12 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { classNames } from '@/shared/libs/classNames/classNames';
-import { Card } from '@/shared/ui/Card';
-import { HStack, VStack } from '@/shared/ui/Stack';
-import { StarRating } from '@/shared/ui/StarRating';
-import { BaseText, Button, Input, Modal } from '@/shared/ui';
-import { ButtonTheme } from '@/shared/ui/Button';
-import { Drawer } from '@/shared/ui/Drawer';
+import { Card, BaseText, Button, Input, Modal, ButtonTheme, HStack, VStack, Drawer , StarRating } from '@/shared/ui';
 
 interface RatingCardProps {
     className?: string;

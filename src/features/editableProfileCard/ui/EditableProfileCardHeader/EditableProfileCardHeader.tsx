@@ -8,9 +8,7 @@ import { getProfileReadonly } from '@/features/editableProfileCard/model/selecto
 import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
 import { profileActions } from '@/features/editableProfileCard/model/slice/profile.slice';
 import { updateProfileData } from '@/features/editableProfileCard/model/services/updateProfileData/updateProfileData';
-import { HStack } from '@/shared/ui/Stack';
-import { BaseText, Button } from '@/shared/ui';
-import { ButtonTheme } from '@/shared/ui/Button';
+import { HStack, BaseText, Button , ButtonTheme } from '@/shared/ui';
 
 interface EditableProfileCardHeaderProps {
     className?: string;

@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import React, { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { Avatar } from '@/shared/ui/Avatar';
-import { Dropdown } from '@/shared/ui/Popups';
+import { Avatar , Dropdown } from '@/shared/ui';
+
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
 import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
 

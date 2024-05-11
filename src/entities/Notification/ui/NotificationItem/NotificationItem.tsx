@@ -1,8 +1,7 @@
 import { memo } from 'react';
 import { classNames } from '@/shared/libs/classNames/classNames';
 import { INotification } from '@/entities/Notification/model/types/notifications';
-import { Card, CardTheme } from '@/shared/ui/Card';
-import { BaseText } from '@/shared/ui';
+import { Card, CardTheme , BaseText } from '@/shared/ui';
 import cls from './NotificationItem.module.scss';
 
 interface NotificationItemProps {
@@ -18,7 +17,8 @@ export const NotificationItem = memo(({ className, item }: NotificationItemProps
     );
     if (item.link) {
         return (
-            <a className={cls.link} target="_blank" href={item.link} rel="noreferrer">
+            <a className={cls.link} target="_blank" href={item.link}
+rel="noreferrer">
                 {content}
             </a>
         );

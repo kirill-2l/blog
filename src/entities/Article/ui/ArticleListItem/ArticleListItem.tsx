@@ -1,14 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { classNames } from '@/shared/libs/classNames/classNames';
-import { AppLink, BaseText, Button, Icon, Skeleton } from '@/shared/ui';
+import { AppLink, BaseText, Button, Icon, Skeleton, Card , AppImage } from '@/shared/ui';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
-import { Card } from '@/shared/ui/Card';
 import { ArticleTextBlockComponent } from '@/entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
 import cls from './ArticleListItem.module.scss';
 import { Article, ArticleBlockType, ArticleTextBlock, ArticleView } from '../../model/types/article';
 import { getRouteArticleDetails } from '@/shared/const/router';
-import { AppImage } from '@/shared/ui/AppImage';
 
 interface ArticleListItemProps {
     className?: string;

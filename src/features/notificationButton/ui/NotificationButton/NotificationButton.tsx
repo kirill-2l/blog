@@ -1,11 +1,9 @@
 import React, { memo, useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
-import { Popover } from '@/shared/ui/Popups';
-import { Button, Icon } from '@/shared/ui';
-import { ButtonTheme } from '@/shared/ui/Button';
+import { Popover , Button, Icon, ButtonTheme, Drawer } from '@/shared/ui';
+
 import NotificationIcon from '@/shared/assets/icons/notification-20-20.svg';
 import { NotificationList } from '@/entities/Notification';
-import { Drawer } from '@/shared/ui/Drawer';
 import cls from './NotificationButton.module.scss';
 
 interface NotificationsButtonProps {

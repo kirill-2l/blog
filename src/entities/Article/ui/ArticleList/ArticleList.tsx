@@ -4,8 +4,7 @@ import { classNames } from '@/shared/libs/classNames/classNames';
 import { Article, ArticleView } from '@/entities/Article/model/types/article';
 import { ArticleListItem } from '@/entities/Article/ui/ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '@/entities/Article/ui/ArticleListItemSkeleton/ArticleListItemSkeleton';
-import { BaseText } from '@/shared/ui';
-import { TextSize } from '@/shared/ui/BaseText';
+import { BaseText , TextSize } from '@/shared/ui';
 import cls from './ArticleList.module.scss';
 
 interface ArticleListProps {
@@ -21,7 +20,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
     const { t } = useTranslation();
 
     const renderArticle = (article: Article) => (
-        <ArticleListItem target={target} article={article} view={view} key={article.id} />
+        <ArticleListItem target={target} article={article} view={view}
+key={article.id} />
     );
 
     if (!isLoading && !articles.length) {

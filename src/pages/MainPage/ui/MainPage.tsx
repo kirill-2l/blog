@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { PageWrapper } from '@/shared/ui/PageWrapper';
+import { PageWrapper } from '@/shared/ui';
 import { RatingCard } from '@/entities/Rating';
 
 const MainPage = () => {
