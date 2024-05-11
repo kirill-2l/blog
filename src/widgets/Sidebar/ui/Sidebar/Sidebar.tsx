@@ -3,11 +3,11 @@ import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/libs/classNames/classNames';
 import { ThemeSwitcher } from '@/widgets/ThemeSwitcher';
 import { LanguageSwitcher } from '@/widgets/LanguageSwitcher/LanguageSwitcher';
-import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button';
 import { getSidebarItems } from '@/widgets/Sidebar/model/getSidebarItems/getSidebarItems';
 import { VStack } from '@/shared/ui/Stack';
 import cls from './Sidebar.module.scss';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
+import { AppLogo } from '@/shared/ui/AppLogo/AppLogo';
 
 interface SidebarProps {
     className?: string;
@@ -18,16 +18,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     const sidebarItems = useSelector(getSidebarItems);
     return (
         <aside data-testid="sidebar" className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
-            <Button
-                data-testid="sidebar-toggle"
-                className={cls.collapseBtn}
-                onClick={() => setCollapsed((prev) => !prev)}
-                theme={ButtonTheme.BACKGROUND_INVERTED}
-                square
-                size={ButtonSize.L}
-            >
-                {collapsed ? '>' : '<'}
-            </Button>
+            <AppLogo className={cls.appLogo} />
 
             <VStack gap="16" align="start" className={cls.items}>
                 {sidebarItems.map((i) => (

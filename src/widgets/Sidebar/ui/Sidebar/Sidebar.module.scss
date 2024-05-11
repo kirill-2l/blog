@@ -1,9 +1,8 @@
 .Sidebar {
-    height: calc(100vh - var(--navbar-height));
-    width: var(--sidebar-width);
-    position: relative;
-    background: var(--inverted-bg-color);
-    transition: width 0.3s;
+    background: var(--light-bg-redesigned);
+    width: 220px;
+    height: 100%;
+    border-radius: 32px;
 }
 
 .switchers {
@@ -40,4 +39,8 @@
     .lang {
         margin-left: 0;
     }
+}
+
+.appLogo {
+    padding-top: 20px;
 }
