@@ -7,6 +7,7 @@ import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 import { getUserIsInited, userActions } from '@/entities/User';
 import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
+import { MainLayout } from '@/shared/layouts';
 
 const App = () => {
     const { theme, toggleTheme } = useTheme();
@@ -18,13 +19,14 @@ const App = () => {
     }, [dispatch]);
 
     return (
-        <div className={classNames('app', {}, [theme])}>
+        <div className={classNames('app_redesigned', {}, [theme])}>
             <Suspense fallback="">
-                <Navbar />
-                <div className="content-page">
-                    <Sidebar />
-                    {isInited && <AppRouter />}
-                </div>
+                <MainLayout
+                    header={<Navbar />}
+                    content={<AppRouter />}
+                    sidebar={<Sidebar />}
+                    toolbar={<div>toolbar</div>}
+                />
             </Suspense>
         </div>
     );

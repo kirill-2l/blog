@@ -1,14 +1,11 @@
 import { useTranslation } from 'react-i18next';
 import { classNames, Mods } from '@/shared/libs/classNames/classNames';
-import { Input, Loader, BaseText } from '@/shared/ui';
+import { Input, Loader, BaseText, TextAlign, TextTheme, Avatar , HStack, VStack } from '@/shared/ui';
 import { Profile } from '@/entities/Profile';
-import { TextAlign, TextTheme } from '@/shared/ui/BaseText';
-import { Avatar } from '@/shared/ui/Avatar';
 import { Currency } from '@/entities/Currency/model/types/currency';
 import { CurrencySelect } from '@/entities/Currency';
 import { Country } from '@/entities/Country/model/types/country';
 import { CountrySelect } from '@/entities/Country/ui/CountrySelect/CountrySelect';
-import { HStack, VStack } from '@/shared/ui/Stack';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
@@ -69,7 +66,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
         );
     }
     return (
-        <VStack align="start" max gap="16" className={classNames(cls.ProfileCard, mods, [className])}>
+        <VStack align="start" max gap="16"
+className={classNames(cls.ProfileCard, mods, [className])}>
             {data?.avatar && (
                 <HStack max justify="start" className={cls.avatarWrapper}>
                     <Avatar src={data?.avatar} />
@@ -126,7 +124,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 onChange={onChangeCurrency}
                 readonly={readonly}
             />
-            <CountrySelect className={cls.input} value={data?.country} onChange={onChangeCountry} readonly={readonly} />
+            <CountrySelect className={cls.input} value={data?.country} onChange={onChangeCountry}
+readonly={readonly} />
         </VStack>
     );
 };

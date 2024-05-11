@@ -4,10 +4,7 @@ import { useSelector } from 'react-redux';
 import { DynamicModuleLoader, ReducersList } from '@/shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
 import { fetchArticleById } from '@/entities/Article/model/services/fetchArticleById/fetchArticleById';
 import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
-import { BaseText, Icon } from '@/shared/ui';
-import { TextAlign, TextSize } from '@/shared/ui/BaseText';
-import { Skeleton } from '@/shared/ui/Skeleton';
-import { Avatar } from '@/shared/ui/Avatar';
+import { BaseText, Icon, HStack, TextAlign, TextSize, Avatar , Skeleton } from '@/shared/ui';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
 import { ArticleBlock, ArticleBlockType } from '@/entities/Article/model/types/article';
@@ -15,7 +12,6 @@ import { ArticleCodeBlockComponent } from '@/entities/Article/ui/ArticleCodeBloc
 import { ArticleTextBlockComponent } from '@/entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { ArticleImageBlockComponent } from '@/entities/Article/ui/ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { useInitialEffect } from '@/shared/libs/hooks/useInitialEffect/useInitialEffect';
-import { HStack } from '@/shared/ui/Stack';
 import { articleDetailsReducer } from '../../model/slice/articleDetails.slice';
 import {
     getArticleDetailsData,
@@ -62,7 +58,8 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     if (isLoading) {
         content = (
             <>
-                <Skeleton className={cls.avatar} width={200} height={200} borderRadius="50%" />
+                <Skeleton className={cls.avatar} width={200} height={200}
+borderRadius="50%" />
                 <Skeleton className={cls.skeleton} width={300} height={32} />
                 <Skeleton className={cls.skeleton} width={600} height={24} />
                 <Skeleton className={cls.skeleton} width="100%" height={200} />
@@ -77,7 +74,8 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                 <HStack justify="center" max data-testid="ArticlesDetail.Info">
                     <Avatar size={200} className={cls.avatar} src={article?.img} />
 
-                    <BaseText className={cls.title} title={article?.title} text={article?.subtitle} size={TextSize.L} />
+                    <BaseText className={cls.title} title={article?.title} text={article?.subtitle}
+size={TextSize.L} />
                 </HStack>
                 <HStack gap="8">
                     <Icon Svg={EyeIcon} className={cls.icon} />

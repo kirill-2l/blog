@@ -5,7 +5,7 @@ import { DynamicModuleLoader, ReducersList } from '@/shared/libs/components/Dyna
 import { articlesPageReducer } from '@/pages/ArticlesPage/model/slice/articlesPage.slice';
 import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/libs/hooks/useInitialEffect/useInitialEffect';
-import { PageWrapper } from '@/shared/ui/PageWrapper';
+import { PageWrapper } from '@/shared/ui';
 import { fetchNextArticlesPage } from '@/pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '@/pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage';
 import { ArticlesPageFilters } from '@/pages/ArticlesPage/ui/ArticlesPageFilters/ArticlesPageFilters';

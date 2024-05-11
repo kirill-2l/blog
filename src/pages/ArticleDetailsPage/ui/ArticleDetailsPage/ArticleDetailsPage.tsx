@@ -5,7 +5,7 @@ import { classNames } from '@/shared/libs/classNames/classNames';
 
 import { ArticleDetails } from '@/entities/Article';
 import { DynamicModuleLoader, ReducersList } from '@/shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
-import { PageWrapper } from '@/shared/ui/PageWrapper';
+import { PageWrapper } from '@/shared/ui';
 import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/model/slices';
 import { ArticleDetailsPageHeader } from '@/pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticlesRecommendationsList } from '@/features/articlesRecommendationsList';

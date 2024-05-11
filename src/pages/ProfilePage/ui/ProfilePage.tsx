@@ -1,7 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { PageWrapper } from '@/shared/ui/PageWrapper';
-import { VStack } from '@/shared/ui/Stack';
+import { PageWrapper , VStack } from '@/shared/ui';
 import { EditableProfileCard } from '@/features/editableProfileCard';
 
 const ProfilePage = () => {

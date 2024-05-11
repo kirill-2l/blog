@@ -1,9 +1,7 @@
 import { memo } from 'react';
 import { classNames } from '@/shared/libs/classNames/classNames';
 import { IComment } from '@/entities/Comment';
-import { Avatar } from '@/shared/ui/Avatar';
-import { AppLink, BaseText, Skeleton } from '@/shared/ui';
-import { TextSize } from '@/shared/ui/BaseText';
+import { Avatar , AppLink, BaseText, Skeleton, TextSize } from '@/shared/ui';
 import cls from './CommentCard.module.scss';
 import { getRouteProfile } from '@/shared/const/router';
 

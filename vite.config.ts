@@ -7,6 +7,18 @@ export default defineConfig({
     plugins: [
         svgr({
             include: '**/*.svg',
+            svgrOptions: {
+                icon: true,
+                svgoConfig: {
+                    plugins: [
+                        {
+                            convertColors: {
+                                currentColor: true,
+                            },
+                        },
+                    ],
+                },
+            },
         }),
         react(),
         checker({

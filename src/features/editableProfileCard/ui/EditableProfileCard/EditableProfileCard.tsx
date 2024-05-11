@@ -6,8 +6,7 @@ import { classNames } from '@/shared/libs/classNames/classNames';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
 import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
-import { BaseText } from '@/shared/ui';
-import { TextTheme } from '@/shared/ui/BaseText';
+import { BaseText, TextTheme , VStack } from '@/shared/ui';
 import { ProfileCard } from '@/entities/Profile';
 import { DynamicModuleLoader, ReducersList } from '@/shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
 
@@ -15,7 +14,6 @@ import { getProfileForm } from '@/features/editableProfileCard/model/selectors/g
 import { useInitialEffect } from '@/shared/libs/hooks/useInitialEffect/useInitialEffect';
 import { fetchProfileData } from '@/features/editableProfileCard/model/services/fetchProfileData/fetchProfileData';
 import { EditableProfileCardHeader } from '@/features/editableProfileCard/ui/EditableProfileCardHeader/EditableProfileCardHeader';
-import { VStack } from '@/shared/ui/Stack';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';

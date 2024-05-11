@@ -13,13 +13,11 @@ import {
 } from '@/pages/ArticlesPage/model/selectors/articlesPageSelector';
 import { ArticleSortField, ArticleView } from '@/entities/Article';
 import { articlesPageActions } from '@/pages/ArticlesPage/model/slice/articlesPage.slice';
-import { Card } from '@/shared/ui/Card';
-import { Input } from '@/shared/ui';
+import { Card, Input , TabsItem } from '@/shared/ui';
 import { fetchArticlesList } from '@/pages/ArticlesPage/model/services/fetchArticlesList.ts/fetchArticlesList';
 import { useDebounce } from '@/shared/libs/hooks/useDebounce/useDebounce';
 import { SortOrder } from '@/shared/types/types';
 import { ArticleType } from '@/entities/Article/model/types/article';
-import { TabsItem } from '@/shared/ui/Tabs';
 import cls from './ArticlesPageFilters.module.scss';
 import { ArticleSortSelector } from '@/features/ArticleSortSelector';
 import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
