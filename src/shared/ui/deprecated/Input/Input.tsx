@@ -1,50 +1,77 @@
-import React, { type InputHTMLAttributes, memo } from 'react';
-import { classNames } from '@/shared/libs/classNames/classNames';
+import React, { InputHTMLAttributes, memo, ReactNode, useEffect, useRef, useState } from 'react';
 import cls from './Input.module.scss';
+import { classNames, Mods } from '@/shared/libs/classNames/classNames';
 
-export enum InputTheme {
-    CLEAR = 'clear',
-    CLEAR_INVERTED = 'clear-inverted',
-    OUTLINE = 'outline',
-    OUTLINE_DARK = 'outline-dark',
-    BACKGROUND = 'background',
-    BACKGROUND_INVERTED = 'background-inverted',
-}
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>;
 
-export enum InputSize {
-    M = 'size_m',
-    L = 'size_l',
-    XL = 'size_xl',
-}
-
-interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'> {
+interface InputProps extends HTMLInputProps {
     className?: string;
-    value?: string;
+    value?: string | number;
     onChange?: (value: string) => void;
+    autofocus?: boolean;
     readonly?: boolean;
+    addonLeft?: ReactNode;
+    addonRight?: ReactNode;
 }
 
 export const Input = memo((props: InputProps) => {
-    const { className, value, onChange, type = 'text', readonly = false, ...rest } = props;
+    const {
+        className,
+        value,
+        onChange,
+        type = 'text',
+        placeholder,
+        autofocus,
+        readonly,
+        addonLeft,
+        addonRight,
+        ...otherProps
+    } = props;
+    const ref = useRef<HTMLInputElement>(null);
+    const [isFocused, setIsFocused] = useState(false);
 
-    const modes = {
-        [cls.readonly]: readonly,
-    };
+    useEffect(() => {
+        if (autofocus) {
+            setIsFocused(true);
+            ref.current?.focus();
+        }
+    }, [autofocus]);
 
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value);
     };
 
+    const onBlur = () => {
+        setIsFocused(false);
+    };
+
+    const onFocus = () => {
+        setIsFocused(true);
+    };
+
+    const mods: Mods = {
+        [cls.readonly]: readonly,
+        [cls.focused]: isFocused,
+        [cls.withAddonLeft]: Boolean(addonLeft),
+        [cls.withAddonRight]: Boolean(addonRight),
+    };
+
     return (
-        <div className={classNames(cls.Input, modes, [className])}>
+        <div className={classNames(cls.InputWrapper, mods, [className])}>
+            <div className={cls.addonLeft}>{addonLeft}</div>
             <input
+                ref={ref}
                 type={type}
-                className={cls.input}
-                onChange={onChangeHandler}
                 value={value}
+                onChange={onChangeHandler}
+                className={cls.input}
+                onFocus={onFocus}
+                onBlur={onBlur}
                 readOnly={readonly}
-                {...rest}
+                placeholder={placeholder}
+                {...otherProps}
             />
+            <div className={cls.addonRight}>{addonRight}</div>
         </div>
     );
 });
