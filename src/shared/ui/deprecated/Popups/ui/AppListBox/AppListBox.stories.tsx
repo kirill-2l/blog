@@ -1,11 +1,11 @@
 import React from 'react';
 
 import { Meta, StoryFn } from '@storybook/react';
-import { ListBox } from './ListBox';
+import { AppListBox } from './AppListBox';
 
 export default {
     title: 'shared/ListBox',
-    component: ListBox,
+    component: AppListBox,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
@@ -16,9 +16,9 @@ export default {
             </div>
         ),
     ],
-} as Meta<typeof ListBox>;
+} as Meta<typeof AppListBox>;
 
-const Template: StoryFn<typeof ListBox> = (args) => <ListBox {...args} />;
+const Template: StoryFn<typeof AppListBox> = (args) => <AppListBox {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {

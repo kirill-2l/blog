@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { classNames } from '@/shared/libs/classNames/classNames';
-import { ListBox } from '@/shared/ui';
+import { AppListBox } from '@/shared/ui';
 
 import { Currency } from '../../model/types/currency';
 
@@ -38,7 +38,7 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
     );
 
     return (
-        <ListBox
+        <AppListBox
             className={classNames('', {}, [className])}
             value={value}
             defaultValue={t('Your currency')}

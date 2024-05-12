@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 
 import { memo, useCallback } from 'react';
 import { classNames } from '@/shared/libs/classNames/classNames';
-import { ListBox } from '@/shared/ui';
+import { AppListBox } from '@/shared/ui';
 
 import { Country } from '../../model/types/country';
 
@@ -47,7 +47,7 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
     );
 
     return (
-        <ListBox
+        <AppListBox
             className={classNames('', {}, [className])}
             defaultValue={t('Your country')}
             label={t('Your country')}

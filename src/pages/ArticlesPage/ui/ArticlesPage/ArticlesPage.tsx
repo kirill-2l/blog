@@ -8,8 +8,11 @@ import { useInitialEffect } from '@/shared/libs/hooks/useInitialEffect/useInitia
 import { PageWrapper } from '@/shared/ui';
 import { fetchNextArticlesPage } from '@/pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { initArticlesPage } from '@/pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage';
-import { ArticlesPageFilters } from '@/pages/ArticlesPage/ui/ArticlesPageFilters/ArticlesPageFilters';
 import { ArticlesList } from '@/pages/ArticlesPage/ui/ArticlesList/ArticlesList';
+import { StickyContentLayout } from '@/shared/layouts';
+import cls from './ArticlesPage.module.scss';
+import { ViewSelectorContainer } from '@/pages/ArticlesPage/ui/ViewSelectorContainer/ViewSelectorContainer';
+import { FiltersContainer } from '@/pages/ArticlesPage/ui/FiltersContainer/FiltersContainer';
 
 interface ArticlesPageProps {
     className?: string;
@@ -31,15 +34,23 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     });
 
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-            <PageWrapper
-                data-testid="ArticlesPage"
-                onScrollEnd={onLoadNextPart}
-                className={classNames('', {}, [className])}
-            >
-                <ArticlesPageFilters />
-                <ArticlesList />
-            </PageWrapper>
+        <DynamicModuleLoader
+            reducers={reducers}
+            removeAfterUnmount={false}
+        >
+            <StickyContentLayout
+                left={<ViewSelectorContainer />}
+                right={<FiltersContainer />}
+                content={
+                    <PageWrapper
+                        data-testid="ArticlesPage"
+                        onScrollEnd={onLoadNextPart}
+                        className={classNames(cls.ArticlesPage, {}, [className])}
+                    >
+                        <ArticlesList />
+                    </PageWrapper>
+                }
+            />
         </DynamicModuleLoader>
     );
 };

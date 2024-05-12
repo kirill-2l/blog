@@ -24,6 +24,6 @@ export { PageWrapper } from './deprecated/PageWrapper';
 export { Tabs } from './deprecated/Tabs';
 export type { TabsItem } from './deprecated/Tabs';
 export { Drawer } from './deprecated/Drawer';
-export { Popover, Dropdown, ListBox } from './deprecated/Popups';
+export { Popover, Dropdown, AppListBox } from './deprecated/Popups';
 export { StarRating } from './deprecated/StarRating';
 export { Code } from './deprecated/Code';
