@@ -2,10 +2,11 @@ import { memo } from 'react';
 import { classNames } from '@/shared/libs/classNames/classNames';
 import cls from './ArticlesFilters.module.scss';
 import { ArticleSortSelector } from '@/features/ArticleSortSelector';
-import { Card, Input, TabsItem, VStack } from '@/shared/ui';
+import { Card, Icon, Input, TabsItem, VStack } from '@/shared/ui';
 import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
 import { ArticleSortField, ArticleType } from '@/entities/Article';
 import { SortOrder } from '@/shared/types/types';
+import SearchIcon from '@/shared/assets/icons/search.svg';
 
 interface ArticlesFiltersProps {
     className?: string;
@@ -29,7 +30,9 @@ export const ArticlesFilters = memo((props: ArticlesFiltersProps) => {
         >
             <VStack gap="32">
                 <Input
+                    placeholder="Search"
                     value={search}
+                    addonLeft={<Icon Svg={SearchIcon} />}
                     onChange={onChangeSearch}
                 />
                 <ArticleTypeTabs

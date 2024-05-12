@@ -1,11 +1,12 @@
 import { Fragment, ReactNode, useMemo } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
 import { classNames } from '@/shared/libs/classNames/classNames';
-import { Button, HStack } from '@/shared/ui';
+import { Button, HStack, Icon } from '@/shared/ui';
 import { DropdownDirection } from '@/shared/types/ui';
 import { mapDirectionClass } from '../../utils/styleMapper';
 import cls from './AppListBox.module.scss';
 import popupCls from '../../styles/popup.module.scss';
+import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg';
 
 export interface ListBoxItem<T extends string> {
     value: string;
@@ -47,6 +48,7 @@ export const AppListBox = <T extends string>(props: ListBoxProps<T>) => {
                     <Button
                         variant="filled"
                         disabled={readonly}
+                        addonRight={<Icon Svg={ArrowIcon} />}
                     >
                         {selectedValue?.content ?? defaultValue}
                     </Button>
