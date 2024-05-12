@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { classNames, Mods } from '@/shared/libs/classNames/classNames';
-import { Portal , Overlay } from '@/shared/ui';
+import { Portal, Overlay } from '@/shared/ui';
 import { useTheme } from '@/app/providers/ThemeProvider';
 import { useModal } from '@/shared/libs/hooks/useModal/useModal';
 import cls from './Modal.module.scss';
@@ -33,7 +33,7 @@ export const Modal = (props: ModalProps) => {
     }
 
     return (
-        <Portal>
+        <Portal element={document.getElementById('app') ?? document.body}>
             <div className={classNames(cls.Modal, mods, [className, theme])}>
                 <Overlay onClick={close} />
                 <div className={cls.content}>{children}</div>

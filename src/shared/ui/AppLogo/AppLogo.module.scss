@@ -1,7 +1,10 @@
-.AppLogo {
-    font-size: 32px;
-    font-weight: 500;
-    cursor: pointer;
+.appLogoWrapper {
+    position: relative;
+}
+
+.appLogo {
+    position: relative;
+    z-index: 10;
 }
 
 .gradientBig {
@@ -23,10 +26,10 @@
 }
 
 .gradientSmall {
+    pointer-events: none;
     position: absolute;
     width: 200px;
     height: 200px;
-    pointer-events: none;
     background: radial-gradient(
         30.29% 30.29% at 50% 50%,
         rgb(94 211 243 / 18%) 0%,

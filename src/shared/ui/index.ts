@@ -23,7 +23,7 @@ export { Avatar } from './deprecated/Avatar';
 export { PageWrapper } from './deprecated/PageWrapper';
 export { Tabs } from './Tabs';
 export type { TabsItem } from './Tabs';
-export { Drawer } from './deprecated/Drawer';
+export { Drawer } from './Drawer';
 export { Popover, Dropdown, AppListBox } from './deprecated/Popups';
 export { StarRating } from './deprecated/StarRating';
 export { Code } from './deprecated/Code';
