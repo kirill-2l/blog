@@ -2,29 +2,17 @@ import { memo } from 'react';
 import { classNames } from '@/shared/libs/classNames/classNames';
 import cls from './BaseText.module.scss';
 
-export enum TextTheme {
-    PRIMARY = 'primary',
-    INVERTED = 'inverted',
-    ERROR = 'error',
-}
+export type TextVariant = 'primary' | 'error' | 'accent';
 
-export enum TextAlign {
-    RIGHT = 'text-right',
-    LEFT = 'text-left',
-    CENTER = 'text-center',
-}
+export type TextAlign = 'right' | 'left' | 'center';
 
-export enum TextSize {
-    S = 'size_s',
-    M = 'size_m',
-    L = 'size_l',
-}
+export type TextSize = 's' | 'm' | 'l';
 
 export interface TextProps {
     className?: string;
     title?: string;
     text?: string;
-    theme?: TextTheme;
+    variant?: TextVariant;
     align?: TextAlign;
     size?: TextSize;
 
@@ -33,10 +21,16 @@ export interface TextProps {
 
 type HeaderTagType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
+const mapSizeToClass: Record<TextSize, string> = {
+    l: 'size_l',
+    m: 'size_m',
+    s: 'size_s',
+};
+
 const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
-    [TextSize.L]: 'h1',
-    [TextSize.M]: 'h2',
-    [TextSize.S]: 'h3',
+    l: 'h1',
+    m: 'h2',
+    s: 'h3',
 };
 
 export const BaseText = memo((props: TextProps) => {
@@ -44,28 +38,30 @@ export const BaseText = memo((props: TextProps) => {
         className,
         text,
         title,
-        theme = TextTheme.PRIMARY,
-        align = TextAlign.LEFT,
-        size = TextSize.M,
+        variant = 'primary',
+        align = 'left',
+        size = 'm',
         'data-testid': dataTestId = 'Text',
     } = props;
 
-    const modes = {
-        [cls[theme]]: true,
-        [cls[align]]: true,
-        [cls[size]]: true,
-    };
     const HeaderTag = mapSizeToHeaderTag[size];
+    const sizeClass = mapSizeToClass[size];
 
     return (
-        <div className={classNames(cls.Text, modes, [className])}>
+        <div className={classNames(cls.Text, {}, [className, cls[variant], cls[align], sizeClass])}>
             {title && (
-                <HeaderTag data-testid={`${dataTestId}.Header`} className={cls.title}>
+                <HeaderTag
+                    data-testid={`${dataTestId}.Header`}
+                    className={cls.title}
+                >
                     {title}
                 </HeaderTag>
             )}
             {text && (
-                <p data-testid={`${dataTestId}.Paragraph`} className={cls.text}>
+                <p
+                    data-testid={`${dataTestId}.Paragraph`}
+                    className={cls.text}
+                >
                     {text}
                 </p>
             )}

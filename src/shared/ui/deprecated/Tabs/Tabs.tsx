@@ -1,6 +1,6 @@
 import { memo, ReactNode, useCallback } from 'react';
 import { classNames } from '@/shared/libs/classNames/classNames';
-import { Card, CardTheme } from '@/shared/ui';
+import { Card } from '@/shared/ui';
 import cls from './Tabs.module.scss';
 
 export interface TabsItem {
@@ -31,7 +31,7 @@ export const Tabs = memo((props: TabsProps) => {
                     className={cls.tab}
                     key={tab.value}
                     onClick={clickHandle(tab)}
-                    theme={tab.value === value ? CardTheme.NORMAL : CardTheme.OUTLINED}
+                    variant={tab.value === value ? 'normal' : 'outlined'}
                 >
                     {tab.content}
                 </Card>

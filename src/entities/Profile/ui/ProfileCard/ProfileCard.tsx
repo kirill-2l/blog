@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { classNames, Mods } from '@/shared/libs/classNames/classNames';
-import { Input, Loader, BaseText, TextAlign, TextTheme, Avatar , HStack, VStack } from '@/shared/ui';
+import { Input, Loader, BaseText, Avatar, HStack, VStack } from '@/shared/ui';
 import { Profile } from '@/entities/Profile';
 import { Currency } from '@/entities/Currency/model/types/currency';
 import { CurrencySelect } from '@/entities/Currency';
@@ -47,7 +47,10 @@ export const ProfileCard = (props: ProfileCardProps) => {
     };
     if (isLoading) {
         return (
-            <HStack justify="center" className={classNames(cls.ProfileCard, { [cls.loading]: true }, [className])}>
+            <HStack
+                justify="center"
+                className={classNames(cls.ProfileCard, { [cls.loading]: true }, [className])}
+            >
                 <Loader />
             </HStack>
         );
@@ -55,21 +58,32 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (error) {
         return (
-            <HStack justify="center" className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
+            <HStack
+                justify="center"
+                className={classNames(cls.ProfileCard, {}, [className, cls.error])}
+            >
                 <BaseText
-                    theme={TextTheme.ERROR}
+                    variant="error"
                     title={t('Error with loading profile')}
                     text={t('Try to refresh the page')}
-                    align={TextAlign.CENTER}
+                    align="center"
                 />
             </HStack>
         );
     }
     return (
-        <VStack align="start" max gap="16"
-className={classNames(cls.ProfileCard, mods, [className])}>
+        <VStack
+            align="start"
+            max
+            gap="16"
+            className={classNames(cls.ProfileCard, mods, [className])}
+        >
             {data?.avatar && (
-                <HStack max justify="start" className={cls.avatarWrapper}>
+                <HStack
+                    max
+                    justify="start"
+                    className={cls.avatarWrapper}
+                >
                     <Avatar src={data?.avatar} />
                 </HStack>
             )}
@@ -124,8 +138,12 @@ className={classNames(cls.ProfileCard, mods, [className])}>
                 onChange={onChangeCurrency}
                 readonly={readonly}
             />
-            <CountrySelect className={cls.input} value={data?.country} onChange={onChangeCountry}
-readonly={readonly} />
+            <CountrySelect
+                className={cls.input}
+                value={data?.country}
+                onChange={onChangeCountry}
+                readonly={readonly}
+            />
         </VStack>
     );
 };

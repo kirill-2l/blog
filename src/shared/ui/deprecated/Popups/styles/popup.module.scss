@@ -2,20 +2,23 @@
     position: relative;
 }
 
-.disabled {
-    opacity: 0.7;
+.menu {
+    border-radius: 18px;
+    border: 1px solid var(--accent-redesigned);
+    overflow: hidden;
 }
 
 .trigger {
     background: none;
-    border: none;
     outline: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
 }
 
 .active {
-    background: var(--inverted-primary-color);
+    background: var(--light-bg-redesigned);
 }
 
 .optionsBottomLeft {
@@ -36,4 +39,8 @@
 .optionsTopLeft {
     right: 0;
     bottom: 100%;
+}
+
+.disabled {
+    opacity: 0.7;
 }

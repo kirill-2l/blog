@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { DynamicModuleLoader, ReducersList } from '@/shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
 import { fetchArticleById } from '@/entities/Article/model/services/fetchArticleById/fetchArticleById';
 import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
-import { BaseText, Icon, HStack, TextAlign, TextSize, Avatar , Skeleton } from '@/shared/ui';
+import { BaseText, Icon, HStack, Avatar, Skeleton } from '@/shared/ui';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
 import { ArticleBlock, ArticleBlockType } from '@/entities/Article/model/types/article';
@@ -40,11 +40,29 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     const renderBlock = useCallback((block: ArticleBlock) => {
         switch (block.type) {
             case ArticleBlockType.CODE:
-                return <ArticleCodeBlockComponent key={block.id} className={cls.block} block={block} />;
+                return (
+                    <ArticleCodeBlockComponent
+                        key={block.id}
+                        className={cls.block}
+                        block={block}
+                    />
+                );
             case ArticleBlockType.TEXT:
-                return <ArticleTextBlockComponent key={block.id} className={cls.block} block={block} />;
+                return (
+                    <ArticleTextBlockComponent
+                        key={block.id}
+                        className={cls.block}
+                        block={block}
+                    />
+                );
             case ArticleBlockType.IMAGE:
-                return <ArticleImageBlockComponent key={block.id} className={cls.block} block={block} />;
+                return (
+                    <ArticleImageBlockComponent
+                        key={block.id}
+                        className={cls.block}
+                        block={block}
+                    />
+                );
             default:
                 return null;
         }
@@ -58,31 +76,74 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     if (isLoading) {
         content = (
             <>
-                <Skeleton className={cls.avatar} width={200} height={200}
-borderRadius="50%" />
-                <Skeleton className={cls.skeleton} width={300} height={32} />
-                <Skeleton className={cls.skeleton} width={600} height={24} />
-                <Skeleton className={cls.skeleton} width="100%" height={200} />
-                <Skeleton className={cls.skeleton} width="100%" height={200} />
+                <Skeleton
+                    className={cls.avatar}
+                    width={200}
+                    height={200}
+                    borderRadius="50%"
+                />
+                <Skeleton
+                    className={cls.skeleton}
+                    width={300}
+                    height={32}
+                />
+                <Skeleton
+                    className={cls.skeleton}
+                    width={600}
+                    height={24}
+                />
+                <Skeleton
+                    className={cls.skeleton}
+                    width="100%"
+                    height={200}
+                />
+                <Skeleton
+                    className={cls.skeleton}
+                    width="100%"
+                    height={200}
+                />
             </>
         );
     } else if (error) {
-        content = <BaseText align={TextAlign.CENTER} text={t('Error while loading article')} />;
+        content = (
+            <BaseText
+                align="center"
+                text={t('Error while loading article')}
+            />
+        );
     } else {
         content = (
             <>
-                <HStack justify="center" max data-testid="ArticlesDetail.Info">
-                    <Avatar size={200} className={cls.avatar} src={article?.img} />
+                <HStack
+                    justify="center"
+                    max
+                    data-testid="ArticlesDetail.Info"
+                >
+                    <Avatar
+                        size={200}
+                        className={cls.avatar}
+                        src={article?.img}
+                    />
 
-                    <BaseText className={cls.title} title={article?.title} text={article?.subtitle}
-size={TextSize.L} />
+                    <BaseText
+                        className={cls.title}
+                        title={article?.title}
+                        text={article?.subtitle}
+                        size="l"
+                    />
                 </HStack>
                 <HStack gap="8">
-                    <Icon Svg={EyeIcon} className={cls.icon} />
+                    <Icon
+                        Svg={EyeIcon}
+                        className={cls.icon}
+                    />
                     <BaseText text={String(article?.views)} />
                 </HStack>
                 <HStack gap="8">
-                    <Icon Svg={CalendarIcon} className={cls.icon} />
+                    <Icon
+                        Svg={CalendarIcon}
+                        className={cls.icon}
+                    />
                     <BaseText text={article?.createdAt} />
                 </HStack>
                 {article?.blocks.map(renderBlock)}
@@ -91,7 +152,10 @@ size={TextSize.L} />
     }
 
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+        <DynamicModuleLoader
+            reducers={reducers}
+            removeAfterUnmount
+        >
             {content}
         </DynamicModuleLoader>
     );

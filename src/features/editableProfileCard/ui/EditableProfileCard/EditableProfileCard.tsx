@@ -6,7 +6,7 @@ import { classNames } from '@/shared/libs/classNames/classNames';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
 import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
-import { BaseText, TextTheme , VStack } from '@/shared/ui';
+import { BaseText, VStack } from '@/shared/ui';
 import { ProfileCard } from '@/entities/Profile';
 import { DynamicModuleLoader, ReducersList } from '@/shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
 
@@ -107,14 +107,18 @@ export const EditableProfileCard = memo(({ className, id }: EditableProfileCardP
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <VStack gap="16" max className={classNames('', {}, [className])}>
+            <VStack
+                gap="16"
+                max
+                className={classNames('', {}, [className])}
+            >
                 <EditableProfileCardHeader />
                 {validateErrors &&
                     validateErrors.map((err) => (
                         <BaseText
                             key={err}
                             text={validateErrorsTranslate[err]}
-                            theme={TextTheme.ERROR}
+                            variant="error"
                             data-testid="EditableProfileCard.Error"
                         />
                     ))}

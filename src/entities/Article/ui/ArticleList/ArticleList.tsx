@@ -4,7 +4,7 @@ import { classNames } from '@/shared/libs/classNames/classNames';
 import { Article, ArticleView } from '@/entities/Article/model/types/article';
 import { ArticleListItem } from '@/entities/Article/ui/ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '@/entities/Article/ui/ArticleListItemSkeleton/ArticleListItemSkeleton';
-import { BaseText , TextSize } from '@/shared/ui';
+import { BaseText } from '@/shared/ui';
 import cls from './ArticleList.module.scss';
 
 interface ArticleListProps {
@@ -20,23 +20,38 @@ export const ArticleList = memo((props: ArticleListProps) => {
     const { t } = useTranslation();
 
     const renderArticle = (article: Article) => (
-        <ArticleListItem target={target} article={article} view={view}
-key={article.id} />
+        <ArticleListItem
+            target={target}
+            article={article}
+            view={view}
+            key={article.id}
+        />
     );
 
     if (!isLoading && !articles.length) {
-        return <BaseText size={TextSize.L} title={t('Nothing found')} />;
+        return (
+            <BaseText
+                size="l"
+                title={t('Nothing found')}
+            />
+        );
     }
 
     return (
-        <div className={classNames(cls.ArticleList, {}, [className, cls[view]])} data-testid="ArticlesList">
+        <div
+            className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+            data-testid="ArticlesList"
+        >
             {articles.length ? articles.map(renderArticle) : null}
             {isLoading && (
                 <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
                     {/* eslint-disable react/no-array-index-key */}
 
                     {new Array(view === ArticleView.LIST ? 3 : 9).fill('').map((item, i) => (
-                        <ArticleListItemSkeleton view={view} key={i} />
+                        <ArticleListItemSkeleton
+                            view={view}
+                            key={i}
+                        />
                     ))}
                 </div>
             )}

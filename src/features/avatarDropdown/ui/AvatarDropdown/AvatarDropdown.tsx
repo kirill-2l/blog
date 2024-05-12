@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import React, { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { Avatar , Dropdown } from '@/shared/ui';
+import { Avatar, Dropdown } from '@/shared/ui';
 
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
 import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
@@ -45,7 +45,12 @@ export const AvatarDropdown = memo(({ className }: AvatarDropdownProps) => {
                     onClick: onLogout,
                 },
             ]}
-            trigger={<Avatar fallbackInverted size={35} src={authData.avatar} />}
+            trigger={
+                <Avatar
+                    size={40}
+                    src={authData.avatar}
+                />
+            }
         />
     );
 });

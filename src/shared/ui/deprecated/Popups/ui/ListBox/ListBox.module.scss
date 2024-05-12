@@ -1,9 +1,17 @@
+.trigger {
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+}
+
 .options {
-    background: var(--listbox-bg);
+    background: var(--dark-bg-redesigned-bg);
     position: absolute;
     z-index: 10000;
     border-radius: 12px;
-    box-shadow: 4px 4px 8px var(--listbox-bg);
+    box-shadow: 4px 4px 8px var(--dark-bg-redesigned);
 }
 
 .item {
