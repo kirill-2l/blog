@@ -19,6 +19,19 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     const { className, article, view, target } = props;
 
     const types = <BaseText text={article.type.join(', ')} />;
+    const userInfo = (
+        <>
+            <Avatar
+                src={article.user.avatar}
+                size={32}
+                alt={article.user.username}
+            />
+            <BaseText
+                bold
+                text={article.user.username}
+            />
+        </>
+    );
     const views = (
         <HStack
             gap="8"
@@ -38,23 +51,52 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                 to={getRouteArticleDetails(article.id)}
                 className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
             >
-                <Card>
+                <Card
+                    className={cls.card}
+                    border="round"
+                >
                     <AppImage
                         fallback={
                             <Skeleton
-                                width="100%"
-                                height={250}
+                                width={200}
+                                height={200}
                             />
                         }
-                        src={article.img}
                         alt={article.title}
+                        src={article.img}
+                        className={cls.img}
                     />
-                    <BaseText text={article.createdAt} />
-                    <div>
-                        {types}
-                        {views}
-                    </div>
-                    <BaseText text={article.title} />
+                    <VStack
+                        className={cls.info}
+                        gap="4"
+                    >
+                        <BaseText
+                            title={article.title}
+                            className={cls.title}
+                        />
+                        <VStack
+                            gap="4"
+                            className={cls.footer}
+                            max
+                        >
+                            <HStack
+                                justify="between"
+                                max
+                            >
+                                <BaseText
+                                    text={article.createdAt}
+                                    className={cls.date}
+                                />
+                                {views}
+                            </HStack>
+                            <HStack
+                                align="center"
+                                gap="8"
+                            >
+                                {userInfo}
+                            </HStack>
+                        </VStack>
+                    </VStack>
                 </Card>
             </AppLink>
         );
@@ -62,65 +104,58 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     return (
         <Card
             padding="24"
-            className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
-            data-testid="ArticlesListItem"
             max
+            data-testid="ArticleListItem"
+            className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
         >
-            <VStack gap="8">
+            <VStack
+                max
+                gap="16"
+            >
                 <HStack
                     gap="8"
-                    align="center"
+                    max
                 >
-                    <Avatar
-                        src={article.user.avatar}
-                        size={50}
-                        alt={article.user.username}
-                    />
-                    <BaseText
-                        bold
-                        text={article.user.username}
-                    />
+                    {userInfo}
                     <BaseText text={article.createdAt} />
                 </HStack>
                 <BaseText
-                    size="l"
-                    text={article.title}
+                    title={article.title}
                     bold
                 />
                 <BaseText
-                    text={article.subtitle}
-                    bold
+                    title={article.subtitle}
+                    size="s"
                 />
                 <AppImage
                     fallback={
                         <Skeleton
-                            width={200}
+                            width="100%"
                             height={250}
                         />
                     }
-                    className={cls.img}
                     src={article.img}
+                    className={cls.img}
                     alt={article.title}
                 />
-                <HStack
-                    justify="between"
-                    align="center"
-                    max
-                >
-                    <AppLink
-                        target={target}
-                        to={getRouteArticleDetails(article.id)}
-                    >
-                        <Button>{t('Read more')}</Button>
-                    </AppLink>
-                    {views}
-                </HStack>
                 {textBlock?.paragraphs && (
                     <BaseText
                         className={cls.textBlock}
                         text={textBlock.paragraphs.slice(0, 2).join(' ')}
                     />
                 )}
+                <HStack
+                    max
+                    justify="between"
+                >
+                    <AppLink
+                        target={target}
+                        to={getRouteArticleDetails(article.id)}
+                    >
+                        <Button variant="outline">{t('Читать далее...')}</Button>
+                    </AppLink>
+                    {views}
+                </HStack>
             </VStack>
         </Card>
     );

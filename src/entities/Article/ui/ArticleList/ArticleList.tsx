@@ -4,7 +4,7 @@ import { classNames } from '@/shared/libs/classNames/classNames';
 import { Article, ArticleView } from '@/entities/Article/model/types/article';
 import { ArticleListItem } from '@/entities/Article/ui/ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '@/entities/Article/ui/ArticleListItemSkeleton/ArticleListItemSkeleton';
-import { BaseText } from '@/shared/ui';
+import { BaseText, HStack } from '@/shared/ui';
 import cls from './ArticleList.module.scss';
 
 interface ArticleListProps {
@@ -38,8 +38,10 @@ export const ArticleList = memo((props: ArticleListProps) => {
     }
 
     return (
-        <div
-            className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+        <HStack
+            wrap="wrap"
+            gap="16"
+            className={classNames(cls.ArticleList, {})}
             data-testid="ArticlesList"
         >
             {articles.length ? articles.map(renderArticle) : null}
@@ -55,6 +57,6 @@ export const ArticleList = memo((props: ArticleListProps) => {
                     ))}
                 </div>
             )}
-        </div>
+        </HStack>
     );
 });
