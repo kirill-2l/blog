@@ -1,7 +1,7 @@
 import { Fragment, memo, ReactNode } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
 import { classNames } from '@/shared/libs/classNames/classNames';
-import { Button , HStack } from '@/shared/ui';
+import { Button, HStack } from '@/shared/ui';
 import { DropdownDirection } from '@/shared/types/ui';
 import { mapDirectionClass } from '../../utils/styleMapper';
 import cls from './ListBox.module.scss';
@@ -36,15 +36,22 @@ export const ListBox = memo((props: ListBoxProps) => {
                 value={value}
                 onChange={onChange}
                 disabled={readonly}
-                className={classNames(cls.ListBox, {}, [className, popupCls.popup])}
+                className={classNames(cls.ListBox, {}, [className, popupCls.popup, popupCls.menu])}
             >
-                <HListBox.Button as="div" className={popupCls.trigger}>
+                <HListBox.Button
+                    as="div"
+                    className={popupCls.trigger}
+                >
                     <Button disabled={readonly}>{value ?? defaultValue}</Button>
                 </HListBox.Button>
                 <HListBox.Options className={classNames(cls.options, {}, optionsClasses)}>
                     {items?.map((item) => (
-                        <HListBox.Option key={item.value} value={item.value} disabled={item.disabled}
-as={Fragment}>
+                        <HListBox.Option
+                            key={item.value}
+                            value={item.value}
+                            disabled={item.disabled}
+                            as={Fragment}
+                        >
                             {({ active, selected }) => (
                                 <li
                                     className={classNames(cls.item, {

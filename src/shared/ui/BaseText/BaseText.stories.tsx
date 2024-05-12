@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from '@storybook/react';
-import { BaseText, TextSize, TextTheme } from '@/shared/ui';
+import { BaseText } from '@/shared/ui';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { Theme } from '@/app/providers/ThemeProvider';
 
@@ -54,26 +54,26 @@ export const Error = Template.bind({});
 Error.args = {
     title: 'Lorem ipsum dolor sit amet',
     text: 'Lorem ipsum dolor sit amet',
-    theme: TextTheme.ERROR,
+    variant: 'error',
 };
 
 export const SizeL = Template.bind({});
 SizeL.args = {
     title: 'Lorem ipsum dolor sit amet',
     text: 'Lorem ipsum dolor sit amet',
-    size: TextSize.L,
+    size: 'l',
 };
 
 export const SizeM = Template.bind({});
 SizeM.args = {
     title: 'Lorem ipsum dolor sit amet',
     text: 'Lorem ipsum dolor sit amet',
-    size: TextSize.M,
+    size: 'm',
 };
 
 export const SizeS = Template.bind({});
 SizeS.args = {
     title: 'Lorem ipsum dolor sit amet',
     text: 'Lorem ipsum dolor sit amet',
-    size: TextSize.S,
+    size: 's',
 };

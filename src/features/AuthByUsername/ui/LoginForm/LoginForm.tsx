@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
 import { classNames } from '@/shared/libs/classNames/classNames';
-import { Button, BaseText, TextTheme, Input } from '@/shared/ui';
+import { Button, BaseText, Input } from '@/shared/ui';
 import { loginActions, loginReducer } from '@/features/AuthByUsername/model/slice/login.slice';
 import i18n from '@/shared/config/i18n/i18n';
 import { DynamicModuleLoader } from '@/shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -63,7 +63,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
             <div className={classNames(cls.LoginForm, {}, [className])}>
                 {error && (
                     <BaseText
-                        theme={TextTheme.ERROR}
+                        variant="error"
                         text={i18n.t('Wrong login or password')}
                     />
                 )}

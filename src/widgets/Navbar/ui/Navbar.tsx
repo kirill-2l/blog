@@ -3,13 +3,13 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { classNames } from '@/shared/libs/classNames/classNames';
-import { Button, AppLink, BaseText, HStack, TextSize, TextTheme } from '@/shared/ui';
+import { Button, HStack } from '@/shared/ui';
 import { LoginModal } from '@/features/AuthByUsername';
 import { getUserAuthData } from '@/entities/User';
 import { NotificationButton } from '@/features/notificationButton';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import cls from './Navbar.module.scss';
-import { getRouteArticleCreate, getRouteMain } from '@/shared/const/router';
+import { getRouteMain } from '@/shared/const/router';
 
 interface NavbarProps {
     className?: string;
@@ -32,18 +32,12 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     if (authData) {
         return (
             <div className={classNames(cls.navbar)}>
-                <BaseText
-                    className={cls.logo}
-                    theme={TextTheme.INVERTED}
-                    title="LOGO"
-                    size={TextSize.L}
-                />
-                <AppLink
-                    variant="red"
-                    to={getRouteArticleCreate()}
-                >
-                    {t('Create article')}
-                </AppLink>
+                {/* <AppLink */}
+                {/*     variant="red" */}
+                {/*     to={getRouteArticleCreate()} */}
+                {/* > */}
+                {/*     {t('Create article')} */}
+                {/* </AppLink> */}
                 <HStack
                     className={cls.actions}
                     gap="16"
