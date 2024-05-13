@@ -3,15 +3,16 @@ import { useParams } from 'react-router-dom';
 import { memo } from 'react';
 import { classNames } from '@/shared/libs/classNames/classNames';
 
-import { ArticleDetails } from '@/entities/Article';
 import { DynamicModuleLoader, ReducersList } from '@/shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
-import { PageWrapper } from '@/shared/ui';
+import { PageWrapper, VStack } from '@/shared/ui';
 import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/model/slices';
-import { ArticleDetailsPageHeader } from '@/pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticlesRecommendationsList } from '@/features/articlesRecommendationsList';
 import { ArticleDetailsComments } from '@/features/articlesRecommendationsList/ui/ArticleDetailsComments/ArticleDetailsComments';
 import cls from './ArticleDetailsPage.module.scss';
 import { ArticleRating } from '@/features/articleRating';
+import { StickyContentLayout } from '@/shared/layouts';
+import { ArticleDetailsInfoContainer } from '@/pages/ArticleDetailsPage/ui/ArticleDetailsInfoContainer/ArticleDetailsInfoContainer';
+import { DetailsContainer } from '@/pages/ArticleDetailsPage/ui/DetailsContainer/DetailsContainer';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -30,14 +31,26 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     }
 
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <PageWrapper className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-                <ArticleDetailsPageHeader />
-                <ArticleDetails id={id} />
-                <ArticleRating articleId={id} />
-                <ArticlesRecommendationsList />
-                <ArticleDetailsComments id={id} />
-            </PageWrapper>
+        <DynamicModuleLoader
+            reducers={reducers}
+            removeAfterUnmount
+        >
+            <StickyContentLayout
+                content={
+                    <PageWrapper className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+                        <VStack
+                            gap="16"
+                            max
+                        >
+                            <DetailsContainer />
+                            <ArticleRating articleId={id} />
+                            <ArticlesRecommendationsList />
+                            <ArticleDetailsComments id={id} />
+                        </VStack>
+                    </PageWrapper>
+                }
+                right={<ArticleDetailsInfoContainer />}
+            />
         </DynamicModuleLoader>
     );
 };
