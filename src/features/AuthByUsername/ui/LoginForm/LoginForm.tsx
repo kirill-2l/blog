@@ -1,8 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
-import { classNames } from '@/shared/libs/classNames/classNames';
-import { Button, BaseText, Input } from '@/shared/ui';
+import { Button, BaseText, Input, VStack } from '@/shared/ui';
 import { loginActions, loginReducer } from '@/features/AuthByUsername/model/slice/login.slice';
 import i18n from '@/shared/config/i18n/i18n';
 import { DynamicModuleLoader } from '@/shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -12,7 +11,6 @@ import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLogi
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
-import cls from './LoginForm.module.scss';
 
 export interface LoginFormProps {
     className?: string;
@@ -60,7 +58,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
 
     return (
         <DynamicModuleLoader reducers={initialReducers}>
-            <div className={classNames(cls.LoginForm, {}, [className])}>
+            <VStack gap="16">
                 {error && (
                     <BaseText
                         variant="error"
@@ -69,26 +67,25 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
                 )}
 
                 <Input
-                    className={cls.input}
                     onChange={onChangeUserName}
+                    placeholder="login"
                     type="text"
                     value={username}
                 />
                 <Input
-                    className={cls.input}
-                    type="text"
+                    type="password"
                     onChange={onChangePassword}
+                    placeholder="password"
                     value={password}
                 />
                 <Button
-                    className={cls.loginBtn}
                     variant="outline"
                     onClick={onLoginClick}
                     disabled={isLoading}
                 >
                     {t('Log in')}
                 </Button>
-            </div>
+            </VStack>
         </DynamicModuleLoader>
     );
 });

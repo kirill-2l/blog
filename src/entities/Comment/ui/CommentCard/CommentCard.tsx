@@ -1,8 +1,6 @@
 import { memo } from 'react';
-import { classNames } from '@/shared/libs/classNames/classNames';
 import { IComment } from '@/entities/Comment';
-import { Avatar, AppLink, BaseText, Skeleton } from '@/shared/ui';
-import cls from './CommentCard.module.scss';
+import { Avatar, AppLink, BaseText, Skeleton, Card, HStack } from '@/shared/ui';
 import { getRouteProfile } from '@/shared/const/router';
 
 interface CommentCardProps {
@@ -16,58 +14,53 @@ export const CommentCard = memo((props: CommentCardProps) => {
 
     if (isLoading) {
         return (
-            <div
-                className={classNames(cls.CommentCard, {}, [className])}
-                data-testid="CommentCard.Loading"
+            <Card
+                max
+                padding="16"
+                data-testid="CommentCard.Content"
             >
-                <div className={cls.header}>
+                <HStack gap="8">
                     <Skeleton
-                        width={30}
-                        height={30}
-                        borderRadius="50%"
+                        width="30"
+                        height="30"
+                        borderRadius="100%"
                     />
                     <Skeleton
-                        width={100}
-                        height={16}
-                        className={cls.username}
+                        width="100"
+                        height="30"
                     />
-                </div>
+                </HStack>
                 <Skeleton
-                    className={cls.text}
-                    width="100%"
-                    height={50}
+                    width="120"
+                    height="30"
                 />
-            </div>
+            </Card>
         );
     }
 
     if (!comment) return null;
 
     return (
-        <div
-            className={classNames(cls.CommentCard, {}, [className, cls.loading])}
+        <Card
+            max
+            padding="16"
             data-testid="CommentCard.Content"
         >
-            <AppLink
-                to={getRouteProfile(comment.user.id)}
-                className={cls.header}
-            >
+            <AppLink to={getRouteProfile(comment.user.id)}>
                 {comment?.user?.avatar && (
-                    <Avatar
-                        src={comment.user.avatar}
-                        size={30}
-                    />
+                    <HStack gap="8">
+                        <Avatar
+                            src={comment.user.avatar}
+                            size={30}
+                        />
+                        <BaseText
+                            title={comment.user?.username}
+                            size="m"
+                        />
+                    </HStack>
                 )}
-                <BaseText
-                    className={cls.username}
-                    title={comment.user?.username}
-                    size="m"
-                />
             </AppLink>
-            <BaseText
-                className={cls.text}
-                text={comment.text}
-            />
-        </div>
+            <BaseText text={comment.text} />
+        </Card>
     );
 });

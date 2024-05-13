@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import { classNames, Mods } from '@/shared/libs/classNames/classNames';
-import { Input, Loader, BaseText, Avatar, HStack, VStack } from '@/shared/ui';
+import { classNames } from '@/shared/libs/classNames/classNames';
+import { Input, BaseText, HStack, VStack, Avatar, Card, Skeleton } from '@/shared/ui';
 import { Profile } from '@/entities/Profile';
 import { Currency } from '@/entities/Currency/model/types/currency';
 import { CurrencySelect } from '@/entities/Currency';
@@ -42,17 +42,73 @@ export const ProfileCard = (props: ProfileCardProps) => {
         onChangeUsername,
     } = props;
 
-    const mods: Mods = {
-        [cls.editing]: !readonly,
-    };
     if (isLoading) {
         return (
-            <HStack
-                justify="center"
-                className={classNames(cls.ProfileCard, { [cls.loading]: true }, [className])}
+            <Card
+                padding="24"
+                max
             >
-                <Loader />
-            </HStack>
+                <VStack gap="32">
+                    <HStack
+                        max
+                        justify="center"
+                    >
+                        <Skeleton
+                            borderRadius="100%"
+                            width={128}
+                            height={128}
+                        />
+                    </HStack>
+                    <HStack
+                        gap="32"
+                        max
+                    >
+                        <VStack
+                            gap="16"
+                            max
+                        >
+                            <Skeleton
+                                width="100%"
+                                height={38}
+                            />
+                            <Skeleton
+                                width="100%"
+                                height={38}
+                            />
+                            <Skeleton
+                                width="100%"
+                                height={38}
+                            />
+                            <Skeleton
+                                width="100%"
+                                height={38}
+                            />
+                        </VStack>
+
+                        <VStack
+                            gap="16"
+                            max
+                        >
+                            <Skeleton
+                                width="100%"
+                                height={38}
+                            />
+                            <Skeleton
+                                width="100%"
+                                height={38}
+                            />
+                            <Skeleton
+                                width="100%"
+                                height={38}
+                            />
+                            <Skeleton
+                                width="100%"
+                                height={38}
+                            />
+                        </VStack>
+                    </HStack>
+                </VStack>
+            </Card>
         );
     }
 
@@ -72,78 +128,78 @@ export const ProfileCard = (props: ProfileCardProps) => {
         );
     }
     return (
-        <VStack
-            align="start"
+        <Card
             max
-            gap="16"
-            className={classNames(cls.ProfileCard, mods, [className])}
+            padding="24"
+            className={classNames('', {}, [className])}
         >
             {data?.avatar && (
                 <HStack
                     max
-                    justify="start"
+                    justify="center"
                     className={cls.avatarWrapper}
                 >
-                    <Avatar src={data?.avatar} />
+                    <Avatar
+                        size={128}
+                        src={data?.avatar}
+                    />
                 </HStack>
             )}
-            <Input
-                className={cls.input}
-                value={data?.first}
-                placeholder={t('your name')}
-                onChange={onChangeFirstName}
-                data-testid="ProfileCard.FirstNameInput"
-                readonly={readonly}
-            />
-            <Input
-                className={cls.input}
-                value={data?.lastname}
-                placeholder={t('your lastname')}
-                onChange={onChangeLastName}
-                data-testid="ProfileCard.LastNameInput"
-                readonly={readonly}
-            />
-            <Input
-                className={cls.input}
-                value={data?.city}
-                placeholder={t('your city')}
-                onChange={onChangeCity}
-                readonly={readonly}
-            />
+            <HStack gap="24">
+                <VStack gap="16">
+                    <Input
+                        value={data?.first}
+                        label={t('Name')}
+                        onChange={onChangeFirstName}
+                        data-testid="ProfileCard.FirstNameInput"
+                        readonly={readonly}
+                    />
+                    <Input
+                        value={data?.lastname}
+                        label={t('your lastname')}
+                        onChange={onChangeLastName}
+                        data-testid="ProfileCard.LastNameInput"
+                        readonly={readonly}
+                    />
+                    <Input
+                        value={data?.city}
+                        label={t('City')}
+                        onChange={onChangeCity}
+                        readonly={readonly}
+                    />
 
-            <Input
-                className={cls.input}
-                value={String(data?.age)}
-                onChange={onChangeAge}
-                placeholder={t('your age')}
-                readonly={readonly}
-            />
-            <Input
-                className={cls.input}
-                value={String(data?.avatar)}
-                onChange={onChangeAvatar}
-                placeholder={t('Your avatar link')}
-                readonly={readonly}
-            />
-            <Input
-                className={cls.input}
-                value={String(data?.username)}
-                onChange={onChangeUsername}
-                placeholder={t('Your username')}
-                readonly={readonly}
-            />
-            <CurrencySelect
-                className={cls.input}
-                value={data?.currency}
-                onChange={onChangeCurrency}
-                readonly={readonly}
-            />
-            <CountrySelect
-                className={cls.input}
-                value={data?.country}
-                onChange={onChangeCountry}
-                readonly={readonly}
-            />
-        </VStack>
+                    <Input
+                        value={String(data?.age)}
+                        onChange={onChangeAge}
+                        label={t('your age')}
+                        readonly={readonly}
+                    />
+                </VStack>
+                <VStack gap="16">
+                    <Input
+                        value={String(data?.avatar)}
+                        onChange={onChangeAvatar}
+                        label={t('Your avatar link')}
+                        readonly={readonly}
+                    />
+                    <Input
+                        value={String(data?.username)}
+                        onChange={onChangeUsername}
+                        label={t('Your username')}
+                        readonly={readonly}
+                    />
+                    <CurrencySelect
+                        value={data?.currency}
+                        onChange={onChangeCurrency}
+                        readonly={readonly}
+                    />
+                    <CountrySelect
+                        value={data?.country}
+                        onChange={onChangeCountry}
+                        readonly={readonly}
+                    />
+                </VStack>
+            </HStack>
+        </Card>
     );
 };

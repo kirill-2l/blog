@@ -6,7 +6,7 @@
 .Button {
     cursor: pointer;
     color: var(--text-redesigned);
-    padding: 6px 15px;
+    padding: 8px 16px;
     display: flex;
     align-items: center;
 
@@ -41,6 +41,35 @@
     border: none;
     outline: none;
     border-radius: 34px;
+}
+
+.outline {
+    background: none;
+    border-radius: 34px;
+
+    &:hover {
+        border: 1px solid var(--accent-redesigned);
+    }
+
+    &.normal,
+    &.error,
+    &.success {
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    &.normal {
+        border: 1px solid var(--icon-redesigned);
+    }
+
+    &.error {
+        border: 1px solid var(--cancel-redesigned);
+    }
+
+    &.success {
+        border: 1px solid var(--save-redesigned);
+    }
 }
 
 .square {

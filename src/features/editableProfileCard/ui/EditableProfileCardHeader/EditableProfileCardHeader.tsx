@@ -8,7 +8,7 @@ import { getProfileReadonly } from '@/features/editableProfileCard/model/selecto
 import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
 import { profileActions } from '@/features/editableProfileCard/model/slice/profile.slice';
 import { updateProfileData } from '@/features/editableProfileCard/model/services/updateProfileData/updateProfileData';
-import { HStack, BaseText, Button } from '@/shared/ui';
+import { HStack, BaseText, Button, Card } from '@/shared/ui';
 
 interface EditableProfileCardHeaderProps {
     className?: string;
@@ -35,42 +35,50 @@ export const EditableProfileCardHeader = memo(({ className }: EditableProfileCar
     }, [dispatch]);
 
     return (
-        <HStack
+        <Card
+            padding="24"
             max
-            justify="between"
-            className={classNames('', {}, [className])}
+            border="l"
         >
-            <BaseText title={t('Profile page')} />
-            {canEdit && (
-                <div>
-                    {readonly ? (
-                        <Button
-                            variant="outline"
-                            onClick={onEdit}
-                            data-testid="EditableProfileCardHeader.EditButton"
-                        >
-                            {t('Edit')}
-                        </Button>
-                    ) : (
-                        <HStack gap="8">
+            <HStack
+                max
+                justify="between"
+                className={classNames('', {}, [className])}
+            >
+                <BaseText title={t('Profile page')} />
+                {canEdit && (
+                    <div>
+                        {readonly ? (
                             <Button
                                 variant="outline"
-                                data-testid="EditableProfileCardHeader.CancelButton"
-                                onClick={onCancelEdit}
+                                onClick={onEdit}
+                                data-testid="EditableProfileCardHeader.EditButton"
                             >
-                                {t('Cancel')}
+                                {t('Edit')}
                             </Button>
-                            <Button
-                                variant="outline"
-                                onClick={onSave}
-                                data-testid="EditableProfileCardHeader.SaveButton"
-                            >
-                                {t('Save')}
-                            </Button>
-                        </HStack>
-                    )}
-                </div>
-            )}
-        </HStack>
+                        ) : (
+                            <HStack gap="8">
+                                <Button
+                                    variant="outline"
+                                    data-testid="EditableProfileCardHeader.CancelButton"
+                                    onClick={onCancelEdit}
+                                    color="error"
+                                >
+                                    {t('Cancel')}
+                                </Button>
+                                <Button
+                                    variant="outline"
+                                    onClick={onSave}
+                                    color="success"
+                                    data-testid="EditableProfileCardHeader.SaveButton"
+                                >
+                                    {t('Save')}
+                                </Button>
+                            </HStack>
+                        )}
+                    </div>
+                )}
+            </HStack>
+        </Card>
     );
 });

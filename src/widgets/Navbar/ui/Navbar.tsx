@@ -40,6 +40,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 {/* </AppLink> */}
                 <HStack
                     className={cls.actions}
+                    align="center"
                     gap="16"
                 >
                     <NotificationButton />

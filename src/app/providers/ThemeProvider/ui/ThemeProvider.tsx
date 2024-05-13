@@ -1,4 +1,4 @@
-import React, { ReactNode, useMemo, useState } from 'react';
+import React, { ReactNode, useEffect, useMemo, useState } from 'react';
 import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from '../lib/ThemeContext';
 
 const defaultTheme = (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.LIGHT;
@@ -11,6 +11,7 @@ interface ThemeProviderProps {
 const ThemeProvider = (props: ThemeProviderProps) => {
     const { children, initialTheme } = props;
     const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
+    const [isThemeInited, setThemeInited] = useState<boolean>(false);
 
     const defaultProps = useMemo(
         () => ({
@@ -19,6 +20,13 @@ const ThemeProvider = (props: ThemeProviderProps) => {
         }),
         [theme],
     );
+
+    useEffect(() => {
+        if (!isThemeInited && defaultTheme) {
+            setTheme(defaultTheme);
+            setThemeInited(true);
+        }
+    }, [isThemeInited]);
 
     return <ThemeContext.Provider value={defaultProps}>{children}</ThemeContext.Provider>;
 };

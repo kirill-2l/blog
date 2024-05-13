@@ -7,25 +7,40 @@ import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 import { getUserIsInited, userActions } from '@/entities/User';
 import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
-import { MainLayout } from '@/shared/layouts';
+import { AppLoaderLayout, MainLayout } from '@/shared/layouts';
+import { useAppToolbar } from '@/app/lib/useAppToolbar/useAppToolbar';
 
 const App = () => {
-    const { theme, toggleTheme } = useTheme();
+    const { theme } = useTheme();
     const dispatch = useAppDispatch();
-    const isInited = useSelector(getUserIsInited);
-
+    const inited = useSelector(getUserIsInited);
+    const toolbar = useAppToolbar();
     useEffect(() => {
         dispatch(userActions.initUserData());
     }, [dispatch]);
 
+    if (!inited) {
+        return (
+            <div
+                id="app"
+                className={classNames('app', {}, [theme])}
+            >
+                <AppLoaderLayout />
+            </div>
+        );
+    }
+
     return (
-        <div className={classNames('app_redesigned', {}, [theme])}>
+        <div
+            id="app"
+            className={classNames('app', {}, [theme])}
+        >
             <Suspense fallback="">
                 <MainLayout
                     header={<Navbar />}
                     content={<AppRouter />}
                     sidebar={<Sidebar />}
-                    toolbar={<div>toolbar</div>}
+                    toolbar={toolbar}
                 />
             </Suspense>
         </div>

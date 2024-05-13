@@ -1,98 +1,44 @@
-.list {
-    width: 100%;
-
-    .views {
-        margin-left: auto;
-    }
-
-    .header {
+.tile {
+    .card {
+        width: 230px;
+        height: 350px;
+        overflow: hidden;
         display: flex;
-        align-items: center;
-    }
-
-    .date {
-        margin-right: auto;
-    }
-
-    .title {
-        margin-top: 8px;
+        flex-direction: column;
+        gap: 8px;
     }
 
     .img {
         width: 100%;
-        max-height: 250px;
+        object-fit: cover;
+        min-height: 140px;
+        max-height: 140px;
+    }
+
+    .info {
+        padding: 8px 8px 16px;
+        height: 100%;
+    }
+
+    .footer {
+        height: 100%;
+        justify-content: flex-end;
+    }
+
+    .avatar {
+        margin-left: 8px;
+    }
+}
+
+.list {
+    .img {
+        width: 100%;
+        max-height: 420px;
         object-fit: cover;
     }
 
     .textBlock {
-        max-height: 200px;
-        overflow-y: hidden;
-        text-overflow: ellipsis;
-    }
-
-    .footer {
-        display: flex;
-        align-items: center;
-    }
-}
-
-.tile {
-    width: 230px;
-    transition: 0.2s;
-    cursor: pointer;
-
-    .imgWrapper {
-        width: 100%;
-        height: 200px;
-        position: relative;
-    }
-
-    .img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .date {
-        position: absolute;
-        top: 0;
-        right: 0;
-        display: none;
-    }
-
-    .infoWrapper {
-        display: flex;
-        align-items: center;
-        margin-top: 8px;
-    }
-
-    .types,
-    .types p,
-    .title,
-    .title p {
-        white-space: nowrap;
-        text-overflow: ellipsis;
+        height: 72px;
         overflow: hidden;
-    }
-
-    .icon {
-        flex-shrink: 0;
-    }
-
-    .views {
-        margin-left: auto;
-    }
-
-    .title {
-        margin-top: 8px;
-    }
-
-    &:hover {
-        opacity: 0.8;
-        transform: scale(1.1);
-
-        .date {
-            display: block;
-        }
     }
 }
