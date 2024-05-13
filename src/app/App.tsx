@@ -7,16 +7,27 @@ import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 import { getUserIsInited, userActions } from '@/entities/User';
 import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
-import { MainLayout } from '@/shared/layouts';
+import { AppLoaderLayout, MainLayout } from '@/shared/layouts';
 
 const App = () => {
-    const { theme, toggleTheme } = useTheme();
+    const { theme } = useTheme();
     const dispatch = useAppDispatch();
-    const isInited = useSelector(getUserIsInited);
+    const inited = useSelector(getUserIsInited);
 
     useEffect(() => {
         dispatch(userActions.initUserData());
     }, [dispatch]);
+
+    if (!inited) {
+        return (
+            <div
+                id="app"
+                className={classNames('app', {}, [theme])}
+            >
+                <AppLoaderLayout />
+            </div>
+        );
+    }
 
     return (
         <div

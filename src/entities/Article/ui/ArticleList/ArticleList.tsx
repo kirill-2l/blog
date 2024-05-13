@@ -41,12 +41,16 @@ export const ArticleList = memo((props: ArticleListProps) => {
         <HStack
             wrap="wrap"
             gap="16"
-            className={classNames(cls.ArticleList, {})}
+            className={classNames('', {})}
             data-testid="ArticlesList"
         >
             {articles.length ? articles.map(renderArticle) : null}
             {isLoading && (
-                <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+                <HStack
+                    wrap="wrap"
+                    gap="16"
+                    className={classNames('', {}, [className, cls[view]])}
+                >
                     {/* eslint-disable react/no-array-index-key */}
 
                     {new Array(view === ArticleView.LIST ? 3 : 9).fill('').map((item, i) => (
@@ -55,7 +59,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
                             key={i}
                         />
                     ))}
-                </div>
+                </HStack>
             )}
         </HStack>
     );
