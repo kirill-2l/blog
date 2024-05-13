@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { Input, Button } from '@/shared/ui';
+import { Input, Button, Card, HStack } from '@/shared/ui';
 
 import {
     getAddCommentError,
@@ -14,8 +14,6 @@ import {
     addCommentFormReducer,
 } from '@/features/addCommentForm/model/slice/addCommentForm.slice';
 import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
-import { classNames } from '@/shared/libs/classNames/classNames';
-import cls from './AddCommentForm.module.scss';
 
 export interface AddCommentFormProps {
     className?: string;
@@ -47,25 +45,32 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div
-                className={classNames(cls.AddCommentForm, {}, [className])}
+            <Card
+                max
+                padding="16"
+                className={className}
                 data-testid="AddCommentForm"
             >
-                <Input
-                    className={cls.input}
-                    placeholder={t('Введите текст комментария')}
-                    value={text || ''}
-                    onChange={onCommentTextChange}
-                    data-testid="AddCommentForm.Input"
-                />
-                <Button
-                    variant="outline"
-                    onClick={onSendHandler}
-                    data-testid="AddCommentForm.Submit"
+                <HStack
+                    gap="8"
+                    max
                 >
-                    {t('Отправить')}
-                </Button>
-            </div>
+                    <Input
+                        placeholder={t('Введите текст комментария')}
+                        value={text || ''}
+                        onChange={onCommentTextChange}
+                        data-testid="AddCommentForm.Input"
+                    />
+
+                    <Button
+                        variant="outline"
+                        onClick={onSendHandler}
+                        data-testid="AddCommentForm.Submit"
+                    >
+                        {t('Отправить')}
+                    </Button>
+                </HStack>
+            </Card>
         </DynamicModuleLoader>
     );
 });

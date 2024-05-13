@@ -1,7 +1,7 @@
 import { memo, useState } from 'react';
 import { classNames } from '@/shared/libs/classNames/classNames';
 import cls from './StarRating.module.scss';
-import StarIcon from '@/shared/assets/icons/star-20-20.svg';
+import StarIcon from '@/shared/assets/icons/star.svg';
 import { Icon } from '@/shared/ui';
 
 interface StarRatingProps {
@@ -55,6 +55,7 @@ export const StarRating = memo((props: StarRatingProps) => {
                     height={size}
                     onMouseLeave={onLeave}
                     onMouseEnter={onHover(starNumber)}
+                    clickable
                     onClick={onClick(starNumber)}
                     data-testid={`StarRating.${starNumber}`}
                     data-selected={currentStarsCount >= starNumber}

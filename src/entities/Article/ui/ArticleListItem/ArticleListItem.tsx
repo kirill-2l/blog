@@ -18,13 +18,13 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     const { t } = useTranslation();
     const { className, article, view, target } = props;
 
-    const types = <BaseText text={article.type.join(', ')} />;
     const userInfo = (
         <>
             <Avatar
                 src={article.user.avatar}
                 size={32}
                 alt={article.user.username}
+                className={cls.avatar}
             />
             <BaseText
                 bold
@@ -54,6 +54,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                 <Card
                     className={cls.card}
                     border="round"
+                    padding="0"
                 >
                     <AppImage
                         fallback={

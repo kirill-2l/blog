@@ -4,9 +4,7 @@ import { useSelector } from 'react-redux';
 import { DynamicModuleLoader, ReducersList } from '@/shared/libs/components/DynamicModuleLoader/DynamicModuleLoader';
 import { fetchArticleById } from '@/entities/Article/model/services/fetchArticleById/fetchArticleById';
 import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
-import { BaseText, Icon, HStack, Avatar, Skeleton } from '@/shared/ui';
-import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
-import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
+import { BaseText, Skeleton, AppImage } from '@/shared/ui';
 import { ArticleBlock, ArticleBlockType } from '@/entities/Article/model/types/article';
 import { ArticleCodeBlockComponent } from '@/entities/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleTextBlockComponent } from '@/entities/Article/ui/ArticleTextBlockComponent/ArticleTextBlockComponent';
@@ -114,38 +112,23 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     } else {
         content = (
             <>
-                <HStack
-                    justify="center"
-                    max
-                    data-testid="ArticlesDetail.Info"
-                >
-                    <Avatar
-                        size={200}
-                        className={cls.avatar}
-                        src={article?.img}
-                    />
-
-                    <BaseText
-                        className={cls.title}
-                        title={article?.title}
-                        text={article?.subtitle}
-                        size="l"
-                    />
-                </HStack>
-                <HStack gap="8">
-                    <Icon
-                        Svg={EyeIcon}
-                        className={cls.icon}
-                    />
-                    <BaseText text={String(article?.views)} />
-                </HStack>
-                <HStack gap="8">
-                    <Icon
-                        Svg={CalendarIcon}
-                        className={cls.icon}
-                    />
-                    <BaseText text={article?.createdAt} />
-                </HStack>
+                <BaseText
+                    title={article?.title}
+                    size="l"
+                    bold
+                />
+                <BaseText title={article?.subtitle} />
+                <AppImage
+                    fallback={
+                        <Skeleton
+                            width="100%"
+                            height={420}
+                            borderRadius="16px"
+                        />
+                    }
+                    src={article?.img}
+                    className={cls.img}
+                />
                 {article?.blocks.map(renderBlock)}
             </>
         );

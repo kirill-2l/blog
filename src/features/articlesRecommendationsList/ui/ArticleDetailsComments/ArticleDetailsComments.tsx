@@ -1,8 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { classNames } from '@/shared/libs/classNames/classNames';
-import { BaseText } from '@/shared/ui';
+import { BaseText, VStack } from '@/shared/ui';
 import { AddCommentForm } from '@/features/addCommentForm';
 import { CommentList } from '@/entities/Comment';
 import { getArticlesComments } from '@/pages/ArticleDetailsPage/model/slices/articleDetailsComments.slice';
@@ -33,10 +32,16 @@ export const ArticleDetailsComments = memo(({ className, id }: ArticleDetailsCom
         dispatch(fetchCommentsByArticleId(id));
     });
     return (
-        <div className={classNames('', {}, [className])}>
+        <VStack
+            max
+            gap="8"
+        >
             <BaseText title={t('Comments')} />
             <AddCommentForm onSendComment={onSendComment} />
-            <CommentList isLoading={isLoading} comments={comments} />
-        </div>
+            <CommentList
+                isLoading={isLoading}
+                comments={comments}
+            />
+        </VStack>
     );
 });
