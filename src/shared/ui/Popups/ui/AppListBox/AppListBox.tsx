@@ -45,16 +45,15 @@ export const AppListBox = <T extends string>(props: ListBoxProps<T>) => {
                 className={classNames(cls.ListBox, {}, [className, popupCls.popup])}
             >
                 <HListBox.Button
-                    as="div"
+                    as={Button}
+                    size="l"
+                    // @ts-ignore
+                    disabled={readonly}
+                    variant="filled"
+                    addonRight={<Icon Svg={ArrowIcon} />}
                     className={popupCls.trigger}
                 >
-                    <Button
-                        variant="filled"
-                        disabled={readonly}
-                        addonRight={<Icon Svg={ArrowIcon} />}
-                    >
-                        {selectedValue?.content ?? defaultValue}
-                    </Button>
+                    {selectedValue?.content ?? defaultValue}
                 </HListBox.Button>
                 <HListBox.Options className={classNames(cls.options, {}, optionsClasses)}>
                     {items?.map((item) => (

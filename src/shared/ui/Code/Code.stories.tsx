@@ -14,5 +14,5 @@ const Template: StoryFn<typeof Code> = (args) => <Code {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {
-    text: 'const Template: StoryFn<typeof Code> = (args) => (\n' + '    <Code {...args} />\n' + ');',
+    text: 'code',
 };

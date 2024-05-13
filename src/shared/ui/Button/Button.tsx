@@ -1,4 +1,4 @@
-import React, { type ButtonHTMLAttributes, memo, ReactElement } from 'react';
+import React, { type ButtonHTMLAttributes, ForwardedRef, forwardRef, ReactElement } from 'react';
 import { classNames, Mods } from '@/shared/libs/classNames/classNames';
 import cls from './Button.module.scss';
 
@@ -18,7 +18,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     addonRight?: ReactElement;
 }
 
-export const Button = memo((props: ButtonProps) => {
+export const Button = forwardRef((props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
     const {
         className,
         children,
@@ -42,6 +42,7 @@ export const Button = memo((props: ButtonProps) => {
         <button
             className={classNames(cls.Button, mods, [className, cls[variant], cls[size], cls[color]])}
             {...rest}
+            ref={ref}
         >
             <div className={cls.addonLeft}>{addonLeft}</div>
             {children}

@@ -1,8 +1,8 @@
 import { CSSProperties, useMemo } from 'react';
-import { classNames, Mods } from '@/shared/libs/classNames/classNames';
+import { classNames, Mods } from '../../libs/classNames/classNames';
 import cls from './Avatar.module.scss';
-import UserFilledIcon from '@/shared/assets/icons/user-filled.svg';
-import { AppImage, Icon, Skeleton } from '@/shared/ui';
+import UserFilledIcon from '../../assets/icons/user-filled.svg';
+import { AppImage, Icon, Skeleton } from '../index';
 
 interface AvatarProps {
     className?: string;

@@ -3,7 +3,7 @@ import { Fragment, ReactNode } from 'react';
 import { DropdownDirection } from '@/shared/types/ui';
 import cls from './Dropdown.module.scss';
 import popupCls from '../../styles/popup.module.scss';
-import { mapDirectionClass } from '@/shared/ui/deprecated/Popups/utils/styleMapper';
+import { mapDirectionClass } from '@/shared/ui/Popups/utils/styleMapper';
 import { classNames } from '@/shared/libs/classNames/classNames';
 import { AppLink } from '@/shared/ui';
 
@@ -35,17 +35,17 @@ export function Dropdown(props: DropdownProps) {
             <Menu.Items className={classNames(cls.menu, {}, menuClasses)}>
                 {items.map((item, index) => {
                     const content = ({ active }: { active: boolean }) => (
-                            <button
-                                type="button"
-                                disabled={item.disabled}
-                                onClick={item.onClick}
-                                className={classNames(cls.item, {
-                                    [popupCls.active]: active,
-                                })}
-                            >
-                                {item.content}
-                            </button>
-                        );
+                        <button
+                            type="button"
+                            disabled={item.disabled}
+                            onClick={item.onClick}
+                            className={classNames(cls.item, {
+                                [popupCls.active]: active,
+                            })}
+                        >
+                            {item.content}
+                        </button>
+                    );
 
                     if (item.href) {
                         return (
