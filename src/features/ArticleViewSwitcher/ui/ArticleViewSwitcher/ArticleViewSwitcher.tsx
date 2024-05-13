@@ -32,7 +32,7 @@ export const ArticleViewSwitcher = memo((props: ArticleViewSelectorProps) => {
 
     return (
         <Card
-            border="round"
+            border="xl"
             className={classNames(cls.ArticleViewSelector, {}, [className])}
         >
             <HStack gap="8">

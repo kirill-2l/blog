@@ -31,8 +31,11 @@ export const AppListBox = <T extends string>(props: ListBoxProps<T>) => {
 
     const selectedValue = useMemo(() => items?.find((item) => item.value === value), [items, value]);
     return (
-        <HStack gap="4">
-            {label && <span>{`${label}>`}</span>}
+        <HStack
+            gap="8"
+            align="center"
+        >
+            {label && <span>{label}</span>}
 
             <HListBox
                 as="div"

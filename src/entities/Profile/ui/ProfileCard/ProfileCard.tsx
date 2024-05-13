@@ -148,7 +148,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
             <HStack gap="24">
                 <VStack gap="16">
                     <Input
-                        className={cls.input}
                         value={data?.first}
                         label={t('Name')}
                         onChange={onChangeFirstName}
@@ -156,7 +155,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
                         readonly={readonly}
                     />
                     <Input
-                        className={cls.input}
                         value={data?.lastname}
                         label={t('your lastname')}
                         onChange={onChangeLastName}
@@ -164,7 +162,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
                         readonly={readonly}
                     />
                     <Input
-                        className={cls.input}
                         value={data?.city}
                         label={t('City')}
                         onChange={onChangeCity}
@@ -172,7 +169,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     />
 
                     <Input
-                        className={cls.input}
                         value={String(data?.age)}
                         onChange={onChangeAge}
                         label={t('your age')}
@@ -181,27 +177,23 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 </VStack>
                 <VStack gap="16">
                     <Input
-                        className={cls.input}
                         value={String(data?.avatar)}
                         onChange={onChangeAvatar}
                         label={t('Your avatar link')}
                         readonly={readonly}
                     />
                     <Input
-                        className={cls.input}
                         value={String(data?.username)}
                         onChange={onChangeUsername}
                         label={t('Your username')}
                         readonly={readonly}
                     />
                     <CurrencySelect
-                        className={cls.input}
                         value={data?.currency}
                         onChange={onChangeCurrency}
                         readonly={readonly}
                     />
                     <CountrySelect
-                        className={cls.input}
                         value={data?.country}
                         onChange={onChangeCountry}
                         readonly={readonly}

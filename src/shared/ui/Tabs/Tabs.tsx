@@ -38,7 +38,7 @@ export const Tabs = memo((props: TabsProps) => {
                     key={tab.value}
                     onClick={clickHandle(tab)}
                     variant={tab.value === value ? 'light' : 'normal'}
-                    border="round"
+                    border="xl"
                 >
                     {tab.content}
                 </Card>

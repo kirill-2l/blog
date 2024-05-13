@@ -53,7 +53,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             >
                 <Card
                     className={cls.card}
-                    border="round"
+                    border="xl"
                     padding="0"
                 >
                     <AppImage
