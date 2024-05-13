@@ -8,12 +8,13 @@ import { Sidebar } from '@/widgets/Sidebar';
 import { getUserIsInited, userActions } from '@/entities/User';
 import { useAppDispatch } from '@/shared/libs/hooks/useAppDispatch/useAppDispatch';
 import { AppLoaderLayout, MainLayout } from '@/shared/layouts';
+import { useAppToolbar } from '@/app/lib/useAppToolbar/useAppToolbar';
 
 const App = () => {
     const { theme } = useTheme();
     const dispatch = useAppDispatch();
     const inited = useSelector(getUserIsInited);
-
+    const toolbar = useAppToolbar();
     useEffect(() => {
         dispatch(userActions.initUserData());
     }, [dispatch]);
@@ -39,6 +40,7 @@ const App = () => {
                     header={<Navbar />}
                     content={<AppRouter />}
                     sidebar={<Sidebar />}
+                    toolbar={toolbar}
                 />
             </Suspense>
         </div>
